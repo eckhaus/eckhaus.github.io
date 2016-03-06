@@ -1,9 +1,15 @@
 Dokumenty
 =========
 
-Vsetky clanky su cislovane 4 cifernym kodom (0000-9999). \\
-Knihy maju prefix B a 3 ciferny kod (B000 - B999) + priradenu skratku typu `B001` Alberts : Essential Cell Biology 4th edition `[Ecb4]` \\
-Linky budu mat prefix L nasledovany 3 cifernym kodom a dodatocny popis `[W: code]`
+Vsetky clanky su cislovane 4 cifernym kodom (0000-9999).
+> 0001 Brainstorming consensus methods in practice
+
+Knihy maju prefix B a 3 ciferny kod (B000 - B999) + priradenu skratku
+> `B001` Alberts : Essential Cell Biology 4th edition `[Ecb4]`.
+
+Linky budu mat prefix L nasledovany 3 cifernym kodom a dodatocny popis `[W: code]`.
+
+> `L001` [pubmed](http://www.ncbi.nlm.nih.gov/pubmed)
 
 ### 0001 Brainstorming consensus methods in practice
 
