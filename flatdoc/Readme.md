@@ -13,6 +13,8 @@ Linky budu mat prefix L nasledovany 3 cifernym kodom a dodatocny popisok.
 
 ### 0001 Brainstorming consensus methods in practice
 
+*Dariusz Plewczynski, U. Warsaw*
+
  * Moderne consensus scoring metody vyuzivaju kombinaciu viacerych metod ML
  * Kombinuju algoritmy, ktore su len lokalne vyhodne
  * Ensemble metody ako bagging alebo boosting boli uspesne pouzite pre zlepsenie prediktorov na zaklade agregacie viacerych horsich ciastkovych funkcii (nekorelovanych/ slabo korelovanych)
@@ -58,4 +60,21 @@ query object. `The consensus is then build using results from all representation
 > --Wikipedia
 
 [0001 original >] [0001]
+
+Stav: precitane, prebrat znovu ked budem vediet viac o ML
+
+### 0002 A Biology Primes for Computer Scientists
+
+*Franco P. Preparata, Brown U.*
+
+ * DNA, RNA, proteiny
+ * Centralna dogma molekularnej biologie
+ * Zakaldy replikacie DNA, transkripcie do RNA a syntezy proteinov
+
+[0002 original >] [0002]
+
+Stav: precitane, vycerpane - viac v `B004` Essential Cell Biology
+
+
 [0001]: http://arxiv.org/pdf/0910.0949
+[0002]: https://cs.brown.edu/courses/csci1810/bioprimer.pdf
