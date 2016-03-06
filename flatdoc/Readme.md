@@ -31,6 +31,9 @@ many weak but stable predictors to produce an ensemble strong predictor), it foc
 use of `heterogeneous set of algorithms` in order to capture even remote, weak similarity of
 the predicted sample to the training cases.
 
+> "*Ensemble methods*: In statistics and machine learning, ensemble methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any of the constituent learning algorithms."
+> --Wikipedia
+
 The `consensus learning protocol`. Input objects are characterized by the set of
 descriptors, in most cases by the vectors of real or binary numbers. In the case of proteins
 typically amino acids sequence string and/or its 3D structure (positions of all atoms in
@@ -49,10 +52,6 @@ prediction. The `consensus module`, namely MLcons meta-learner, is the core part
 brainstorming approach. Each ML is used independently to predict class membership for a
 query object. `The consensus is then build using results from all representations and features describing this object by different learners in prediction phase. The final output includes predicted class membership, statistical model with performances of each learning modules, trained consensus and reliability scores for prediction.`
 
-
-> "*Ensemble methods*: In statistics and machine learning, ensemble methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any of the constituent learning algorithms."
-> --Wikipedia
-
 > "*Boosting*: Boosting is a machine learning ensemble meta-algorithm for primarily reducing bias, and also variance in supervised learning, and a family of machine learning algorithms which convert weak learners to strong ones. A weak learner is defined to be a classifier which is only slightly correlated with the true classification (it can label examples better than random guessing). In contrast, a strong learner is a classifier that is arbitrarily well-correlated with the true classification."
 > --Wikipedia
 
@@ -63,7 +62,7 @@ query object. `The consensus is then build using results from all representation
 
 Stav: precitane, prebrat znovu ked budem vediet viac o ML
 
-### 0002 A Biology Primes for Computer Scientists
+### 0002 A Biology Primer for Computer Scientists
 
 *Franco P. Preparata, Brown U.*
 
