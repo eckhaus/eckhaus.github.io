@@ -23,17 +23,11 @@ Novy pristup - Brainstorming - snazi sa kombinovat velmi siroke spektrum algorit
 
 #### Hlavne myslienky
 
-Our approach is similar to other `ensemble methods`
-> "*Ensemble methods*: In statistics and machine learning, ensemble methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any of the constituent learning algorithms."
-> --Wikipedia
-
-, yet differently from `bagging` (combines
+Our approach is similar to other `ensemble methods`, yet differently from `bagging` (combines
 many unstable predictors to produce a ensemble stable predictor), or `boosting` (combines
 many weak but stable predictors to produce an ensemble strong predictor), it focuses of the
 use of `heterogeneous set of algorithms` in order to capture even remote, weak similarity of
 the predicted sample to the training cases.
-> "*Boosting*: Boosting is a machine learning ensemble meta-algorithm for primarily reducing bias, and also variance in supervised learning, and a family of machine learning algorithms which convert weak learners to strong ones. A weak learner is defined to be a classifier which is only slightly correlated with the true classification (it can label examples better than random guessing). In contrast, a strong learner is a classifier that is arbitrarily well-correlated with the true classification."
-> --Wikipedia
 
 The `consensus learning protocol`. Input objects are characterized by the set of
 descriptors, in most cases by the vectors of real or binary numbers. In the case of proteins
@@ -52,6 +46,16 @@ meta set of training data, then results of ensemble of predictors is fused into 
 prediction. The `consensus module`, namely MLcons meta-learner, is the core part of
 brainstorming approach. Each ML is used independently to predict class membership for a
 query object. `The consensus is then build using results from all representations and features describing this object by different learners in prediction phase. The final output includes predicted class membership, statistical model with performances of each learning modules, trained consensus and reliability scores for prediction.`
+
+
+> "*Ensemble methods*: In statistics and machine learning, ensemble methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any of the constituent learning algorithms."
+> --Wikipedia
+
+> "*Boosting*: Boosting is a machine learning ensemble meta-algorithm for primarily reducing bias, and also variance in supervised learning, and a family of machine learning algorithms which convert weak learners to strong ones. A weak learner is defined to be a classifier which is only slightly correlated with the true classification (it can label examples better than random guessing). In contrast, a strong learner is a classifier that is arbitrarily well-correlated with the true classification."
+> --Wikipedia
+
+> "*Support Vector Machines*: Given a set of training examples, each marked for belonging to one of two categories, an SVM training algorithm builds a model that assigns new examples into one category or the other, making it a non-probabilistic binary linear classifier. An SVM model is a representation of the examples as points in space, mapped so that the examples of the separate categories are divided by a clear gap that is as wide as possible. New examples are then mapped into that same space and predicted to belong to a category based on which side of the gap they fall on."
+> --Wikipedia
 
 [0001 original >] [0001]
 [0001]: http://arxiv.org/pdf/0910.0949
