@@ -23,10 +23,10 @@ Novy pristup - Brainstorming - snazi sa kombinovat velmi siroke spektrum algorit
 
 #### Hlavne myslienky
 
-Our approach is similar to other `ensemble methods`
-> In statistics and machine learning, ensemble methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any of the constituent learning algorithms.
+> "*Ensemble methods*: In statistics and machine learning, ensemble methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any of the constituent learning algorithms."
 > --Wikipedia
-, yet differently from `bagging` (combines
+
+Our approach is similar to other `ensemble methods`, yet differently from `bagging` (combines
 many unstable predictors to produce a ensemble stable predictor), or `boosting` (combines
 many weak but stable predictors to produce an ensemble strong predictor), it focuses of the
 use of `heterogeneous set of algorithms` in order to capture even remote, weak similarity of
