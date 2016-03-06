@@ -9,7 +9,7 @@ Knihy maju prefix B a 3 ciferny kod (B000 - B999) + priradenu skratku
 
 Linky budu mat prefix L nasledovany 3 cifernym kodom a dodatocny popisok.
 
-> `L001` [Databaza prirodovednych biomedicinskych clankov Pubmed](http://www.ncbi.nlm.nih.gov/pubmed) `[W: Pubmed]`
+> `L001` [Databaza prirodovedeckych a biomedicinskych clankov Pubmed](http://www.ncbi.nlm.nih.gov/pubmed) `[W: Pubmed]`
 
 ### 0001 Brainstorming consensus methods in practice
 
