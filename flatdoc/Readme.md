@@ -23,14 +23,17 @@ Novy pristup - Brainstorming - snazi sa kombinovat velmi siroke spektrum algorit
 
 #### Hlavne myslienky
 
+Our approach is similar to other `ensemble methods`
 > "*Ensemble methods*: In statistics and machine learning, ensemble methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any of the constituent learning algorithms."
 > --Wikipedia
-
-Our approach is similar to other `ensemble methods`, yet differently from `bagging` (combines
+, yet differently from `bagging` (combines
 many unstable predictors to produce a ensemble stable predictor), or `boosting` (combines
 many weak but stable predictors to produce an ensemble strong predictor), it focuses of the
 use of `heterogeneous set of algorithms` in order to capture even remote, weak similarity of
 the predicted sample to the training cases.
+
+> "*Boosting*: Boosting is a machine learning ensemble meta-algorithm for primarily reducing bias, and also variance in supervised learning, and a family of machine learning algorithms which convert weak learners to strong ones. A weak learner is defined to be a classifier which is only slightly correlated with the true classification (it can label examples better than random guessing). In contrast, a strong learner is a classifier that is arbitrarily well-correlated with the true classification.
+> --Wikipedia
 
 The `consensus learning protocol`. Input objects are characterized by the set of
 descriptors, in most cases by the vectors of real or binary numbers. In the case of proteins
