@@ -6,10 +6,6 @@ Knihy maju prefix B a 3 ciferny kod (B000 - B999) + priradenu skratku typu `B001
 Linky budu mat prefix L nasledovany 3 cifernym kodom a dodatocny popis `[W: code]`
 
 ### 0001 Brainstorming consensus methods in practice
-----------------------------------------------------
-
-[original >] [0001]
-[0001]: arxiv.org/pdf/0910.0949
 
  * Moderne consensus scoring metody vyuzivaju kombinaciu viacerych metod ML
  * Kombinuju roznorode algoritmy, ktore su len lokalne vyhodne
@@ -44,3 +40,6 @@ meta set of training data, then results of ensemble of predictors is fused into 
 prediction. The `consensus module`, namely MLcons meta-learner, is the core part of
 brainstorming approach. Each ML is used independently to predict class membership for a
 query object. `The consensus is then build using results from all representations and features describing this object by different learners in prediction phase. The final output includes predicted class membership, statistical model with performances of each learning modules, trained consensus and reliability scores for prediction.`
+
+[0001 original >] [0001]
+[0001]: http://arxiv.org/pdf/0910.0949

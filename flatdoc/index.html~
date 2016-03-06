@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width">
 
-  <title>Bakalarka - zapisky</title>
+  <title>Bibliografia</title>
 
   <!-- Flatdoc -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -34,7 +34,7 @@ Flatdoc.run({
 
   <div class='header'>
     <div class='left'>
-      <h1>Bakalarka, zapisky - Robert Eckhaus</h1>
+      <h1>Bakalarka - Bibliografia</h1>
      </div>
   </div>
 
@@ -45,5 +45,5 @@ Flatdoc.run({
     <div role='flatdoc-content' class='content'></div>
   </div>
 
-</body>
+</body class='no-literate'>
 </html>
