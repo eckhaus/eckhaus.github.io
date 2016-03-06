@@ -32,7 +32,7 @@ many unstable predictors to produce a ensemble stable predictor), or `boosting` 
 many weak but stable predictors to produce an ensemble strong predictor), it focuses of the
 use of `heterogeneous set of algorithms` in order to capture even remote, weak similarity of
 the predicted sample to the training cases.
-> "*Boosting*: Boosting is a machine learning ensemble meta-algorithm for primarily reducing bias, and also variance in supervised learning, and a family of machine learning algorithms which convert weak learners to strong ones. A weak learner is defined to be a classifier which is only slightly correlated with the true classification (it can label examples better than random guessing). In contrast, a strong learner is a classifier that is arbitrarily well-correlated with the true classification.
+> "*Boosting*: Boosting is a machine learning ensemble meta-algorithm for primarily reducing bias, and also variance in supervised learning, and a family of machine learning algorithms which convert weak learners to strong ones. A weak learner is defined to be a classifier which is only slightly correlated with the true classification (it can label examples better than random guessing). In contrast, a strong learner is a classifier that is arbitrarily well-correlated with the true classification."
 > --Wikipedia
 
 The `consensus learning protocol`. Input objects are characterized by the set of
