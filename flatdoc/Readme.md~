@@ -1,0 +1,310 @@
+Dokumenty
+=========
+
+Vsetky clanky su cislovane 4 cifernym kodom (0000-9999). \\
+Knihy maju prefix B a 3 ciferny kod (B000 - B999) + priradenu skratku typu `B001` Alberts : Essential Cell Biology 4th edition `[Ecb4]` \\
+Linky budu mat prefix L nasledovany 3 cifernym kodom a dodatocny popis `[W: code]`
+
+### 0001 Brainstorming consensus methods in practice
+----------------------------------------------------
+
+[original >] [0001]
+[0001]: arxiv.org/pdf/0910.0949
+
+ * Moderne consensus scoring metody vyuzivaju kombinaciu viacerych metod ML
+ * Kombinuju roznorode algoritmy, ktore su len lokalne vyhodne
+ * Ensemble metody ako bagging alebo boosting boli uspesne pouzite pre zlepsenie prediktorov na zaklade agregacie viacerych horsich ciastkovych funkcii (nekorelovanych/ slabo korelovanych)
+
+Popistuje pouzitie a moznosti kombinacie roznych metod strojoveho ucenia ako *Support Vector Machines (SVM)*, *Artificial Neural Networks (ANN/NN)*, *Clustering* alebo *K-nearest neighbors (KNN)*.
+
+Novy pristup - Brainstorming - snazi sa kombinovat velmi siroke spektrum algoritmov, pricom 
+
+#### Hlavne myslienky
+
+Our approach is similar to other `ensemble methods`, yet differently from `bagging` (combines
+many unstable predictors to produce a ensemble stable predictor), or `boosting` (combines
+many weak but stable predictors to produce an ensemble strong predictor), it focuses of the
+use of `heterogeneous set of algorithms` in order to capture even remote, weak similarity of
+the predicted sample to the training cases.
+
+The `consensus learning protocol`. Input objects are characterized by the set of
+descriptors, in most cases by the vectors of real or binary numbers. In the case of proteins
+typically amino acids sequence string and/or its 3D structure (positions of all atoms in
+Cartesian space) are used for describing proteins. The set of input objects is then passed to a
+set of computational tools in order to `enrich the information` used in training by external
+sources. In the case of protein sequences its 3D structural models (predicted by structure
+prediction web servers), `physical or chemical properties` of each amino acid of the sequence,
+set of homological sequences (identified by PSI-BLAST or other methors), `biological annotations` that can be found in external databases and processed by text mining techniques,
+and many others. Then the resulting data is stored in SQL database. All training objects, theirdescription and additional annotations are then processed by feature `decomposition module`
+in order to evaluate the `statistical significance` of each descriptor or representation, find some
+`similarities between objects`, their features, annotations. In that way algorithm `prepare a set of independent training datasets`, in order to probe different representations of training data.
+All datasets are then used for training `several different machine learning methods` (SVM,
+ANN, RF, DT and many others). Each classifier learn separately in classification phase on
+meta set of training data, then results of ensemble of predictors is fused into single consensus
+prediction. The `consensus module`, namely MLcons meta-learner, is the core part of
+brainstorming approach. Each ML is used independently to predict class membership for a
+query object. `The consensus is then build using results from all representations and features describing this object by different learners in prediction phase. The final output includes predicted class membership, statistical model with performances of each learning modules, trained consensus and reliability scores for prediction.`
+
+Flatdoc is a small JavaScript file that fetches Markdown files and renders them
+as full pages. Essentially, it's the easiest
+way to make open source documentation from *Readme* files.
+
+ * No server-side components
+ * No build process needed
+ * Deployable via GitHub Pages
+ * Can fetch GitHub Readme files
+ * Gorgeous default theme (and it's responsive)
+ * Just create an HTML file and deploy!
+
+*Current version: [v0.9.0][dist]*
+
+[![Build Status](https://travis-ci.org/rstacruz/flatdoc.svg?branch=gh-pages)](https://travis-ci.org/rstacruz/flatdoc)
+
+Getting started
+---------------
+
+Create a file based on the template, which has a bare DOM, link to the
+scripts, and a link to a theme. It will look something like this (not exact).
+For GitHub projects, simply place this file in your [GitHub pages] branch and
+you're all good to go.
+
+*In short: just download this file and upload it somewhere.*
+
+The main JS and CSS files are also available in [npm] and [bower].
+
+[Default theme template >][template]
+
+[Blank template >][blank]
+
+[bower]: http://bower.io/search/?q=flatdoc
+[npm]: https://www.npmjs.org/package/flatdoc
+
+### Via GitHub
+
+To fetch a Github Repository's readme file, use the `Flatdoc.github` fetcher.
+This will fetch the Readme file of the repository's default branch.
+
+``` javascript
+Flatdoc.run({
+  fetcher: Flatdoc.github('USER/REPO')
+});
+```
+
+You may also fetch another file other than the Readme file, just specify it as
+the 2nd parameter.
+
+``` javascript
+Flatdoc.run({
+  fetcher: Flatdoc.github('USER/REPO', 'Changelog.md')
+});
+```
+
+After you've done this, you probably want to deploy it via [GitHub Pages].
+
+[GitHub Pages guide >][GitHub Pages]
+
+### Via a file
+
+You may also fetch a file. In this example, this fetches the file `Readme.md` in
+the same folder as the HTML file.
+
+``` javascript
+Flatdoc.run({
+  fetcher: Flatdoc.file('Readme.md')
+});
+```
+
+You may actually supply any URL here. It will be fetched via AJAX. This is
+useful for local testing.
+
+``` javascript
+Flatdoc.run({
+  fetcher: Flatdoc.file('http://yoursite.com/Readme.md')
+});
+```
+
+How it works
+------------
+
+Flatdoc is a hosted `.js` file (along with a theme and its assets) that you can
+add into any page hosted anywhere.
+
+#### All client-side
+
+There are no build scripts or 3rd-party services involved. Everything is done in
+the browser. Worried about performance? Oh, It's pretty fast.
+
+Flatdoc utilizes the [GitHub API] to fetch your project's Readme files. You may
+also configure it to fetch any arbitrary URL via AJAX.
+
+#### Lightning-fast parsing
+
+Next, it uses [marked], an extremely fast Markdown parser that has support for
+GitHub flavored Markdown.
+
+Flatdoc then simply renders *menu* and *content* DOM elements to your HTML
+document. Flatdoc also comes with a default theme to style your page for you, or
+you may opt to create your own styles.
+
+Markdown extras
+---------------
+
+Flatdoc offers a few harmless, unobtrusive extras that come in handy in building
+documentation sites.
+
+#### Code highlighting
+
+You can use Markdown code fences to make syntax-highlighted text. Simply
+surround your text with three backticks. This works in GitHub as well.
+See [GitHub Syntax Highlighting][fences] for more info.
+
+    ``` html
+    <strong>Hola, mundo</strong>
+    ```
+
+#### Blockquotes
+
+Blockquotes show up as side figures. This is useful for providing side
+information or non-code examples.
+
+> Blockquotes are blocks that begin with `>`.
+
+#### Smart quotes
+
+Single quotes, double quotes, and double-hyphens are automatically replaced to
+their typographically-accurate equivalent. This, of course, does not apply to
+`<code>` and `<pre>` blocks to leave code alone.
+
+> "From a certain point onward there is no longer any turning back. That is the
+> point that must be reached."  
+> --Franz Kafka
+
+#### Buttons
+
+If your link text has a `>` at the end (for instance: `Continue >`), they show
+up as buttons.
+
+> [View in GitHub >][project]
+
+Customizing
+===========
+
+Basic
+-----
+
+### Theme options
+
+For the default theme (*theme-white*), You can set theme options by adding
+classes to the `<body>` element. The available options are:
+
+#### big-h3
+Makes 3rd-level headings bigger.
+
+``` html
+<body class='big-h3'>
+```
+
+#### no-literate
+Disables "literate" mode, where code appears on the right and content text
+appear on the left.
+
+``` html
+<body class='no-literate'>
+```
+
+#### large-brief
+Makes the opening paragraph large.
+
+``` html
+<body class='large-brief'>
+```
+
+### Adding more markup
+
+You have full control over the HTML file, just add markup wherever you see fit.
+As long as you leave `role='flatdoc-content'` and `role='flatdoc-menu'` empty as
+they are, you'll be fine.
+
+Here are some ideas to get you started.
+
+ * Add a CSS file to make your own CSS adjustments.
+ * Add a 'Tweet' button on top.
+ * Add Google Analytics.
+ * Use CSS to style the IDs in menus (`#acknowledgements + p`).
+
+### JavaScript hooks
+
+Flatdoc emits the events `flatdoc:loading` and `flatdoc:ready` to help you make
+custom behavior when the document loads.
+
+``` js
+$(document).on('flatdoc:ready', function() {
+  // I don't like this section to appear
+  $("#acknowledgements").remove();
+});
+```
+
+Full customization
+------------------
+
+You don't have to be restricted to the given theme. Flatdoc is just really one
+`.js` file that expects 2 HTML elements (for *menu* and *content*). Start with
+the blank template and customize as you see fit.
+
+[Get blank template >][template]
+
+Misc
+====
+
+Inspirations
+------------
+
+The following projects have inspired Flatdoc.
+
+ * [Backbone.js] - Jeremy's projects have always adopted this "one page
+ documentation" approach which I really love.
+
+ * [Docco] - Jeremy's Docco introduced me to the world of literate programming,
+ and side-by-side documentation in general.
+
+ * [Stripe] - Flatdoc took inspiration on the look of their API documentation.
+
+ * [DocumentUp] - This service has the same idea but does a hosted readme 
+ parsing approach.
+
+Attributions
+------------
+
+[Photo](http://www.flickr.com/photos/doug88888/2953428679/) taken from Flickr,
+licensed under Creative Commons.
+
+Acknowledgements
+----------------
+
+© 2013, 2014, Rico Sta. Cruz. Released under the [MIT 
+License](http://www.opensource.org/licenses/mit-license.php).
+
+**Flatdoc** is authored and maintained by [Rico Sta. Cruz][rsc] with help from its 
+[contributors][c].
+
+ * [My website](http://ricostacruz.com) (ricostacruz.com)
+ * [Github](http://github.com/rstacruz) (@rstacruz)
+ * [Twitter](http://twitter.com/rstacruz) (@rstacruz)
+
+[rsc]: http://ricostacruz.com
+[c]:   http://github.com/rstacruz/flatdoc/contributors
+
+[GitHub API]: http://github.com/api
+[marked]: https://github.com/chjj/marked
+[Backbone.js]: http://backbonejs.org
+[dox]: https://github.com/visionmedia/dox
+[Stripe]: https://stripe.com/docs/api
+[Docco]: http://jashkenas.github.com/docco
+[GitHub pages]: https://pages.github.com
+[fences]:https://help.github.com/articles/github-flavored-markdown#syntax-highlighting
+[DocumentUp]: http://documentup.com
+
+[project]: https://github.com/rstacruz/flatdoc
+[template]: https://github.com/rstacruz/flatdoc/raw/gh-pages/templates/template.html
+[blank]: https://github.com/rstacruz/flatdoc/raw/gh-pages/templates/blank.html
+[dist]: https://github.com/rstacruz/flatdoc/tree/gh-pages/v/0.9.0
