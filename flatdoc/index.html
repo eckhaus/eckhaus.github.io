@@ -57,7 +57,22 @@ Flatdoc.run({
   </script>
 </head>
 <body role='flatdoc'>
-
+	<div class="TeX_definitions">
+		$
+			\let \cdef \newcommand
+			
+			\cdef \powset [1] {\mathcal{P}(#1)}
+			\cdef \holds {\colon\ }
+			\cdef \st {\colon\ }
+			\cdef \letiff {\; :\Longleftrightarrow \;}
+			
+			\DeclareMathOperator{\GCD}{GCD}
+			\DeclareMathOperator{\lcm}{lcm}
+			
+			\DeclareMathOperator{\argmax}{argmax}
+			\DeclareMathOperator{\argmin}{argmin}
+		$
+	</div>
   <div class='header'>
     <div class='left'>
       <h1>Bakalarka, zapisky - Robert Eckhaus</h1>
