@@ -79,7 +79,9 @@ Stav: prečítané, vyčerpané - viac v `B004` Essential Cell Biology
 [0001]: http://arxiv.org/pdf/0910.0949
 [0002]: https://cs.brown.edu/courses/csci1810/bioprimer.pdf
 
-### MIT 6.034 AI: Lec 9. Visual Object Recognition
+## MIT 6.034 AI
+
+### Lec 9. Visual Object Recognition
 
 #### Signal offset recognition by convolution
 Majme z signály dané funkciami $f(x)$ a $g(x)$ (+ nejaký šum). Konvolúciou zvýhodníme riešenia kde sa signály prekrývajú a znevýhodníme tie ktoré sú mimo fázy (a opačné amplitúdy sú penalizované vlasne ešte viac)
@@ -89,3 +91,18 @@ $$\argmax_y \int_x f(x)\cdot g(x-y)dx$$
 Relatívne jednoducho by sme rozšírili pre viac viac dimenzií:
 
 $$\argmax_{x_1, y_1} \int_x\int_y f(x,y) \cdot g(x-x_1, y-y_1) dx dy$$
+
+Hlavná myšlienka: pri učení nepoužívame príliš malé detaily (tie su málo špecifické a namatchuje sa skoro hocičo), ani príliš komplexné objekty - tie môžu byť zas príliš rozmanité a ťažko detekovateľné. Kombináciou viacerých jednoduchých objektov vieme často dostať jednoducho rozlíšiteľný a zároveň detekovateľný vzor.
+
+### Lec 10. Introduction to Learning, Nearest Neighbors
+
+Two kinds of learning:
+ * regularity ("Buldozer Computing")
+  * nearest neighbors (simplest, pattern recognition)
+  * neural nets (mimicing biology)
+  * boosting (theory)
+ * constraints ("Human-like")
+  * One shot l.
+  * Explanation based l.
+
+Feature detector + Comparator = Library -> Recognition
