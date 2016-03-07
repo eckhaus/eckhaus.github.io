@@ -69,6 +69,7 @@ Stav: precitane, prebrat znovu ked budem vediet viac o ML
  * DNA, RNA, proteiny
  * Centralna dogma molekularnej biologie
  * Zakaldy replikacie DNA, transkripcie do RNA a syntezy proteinov
+ * Primarna, sekundarna, terciarna a kvarterna struktura proteinov
 
 [0002 original >] [0002]
 
@@ -77,3 +78,9 @@ Stav: precitane, vycerpane - viac v `B004` Essential Cell Biology
 
 [0001]: http://arxiv.org/pdf/0910.0949
 [0002]: https://cs.brown.edu/courses/csci1810/bioprimer.pdf
+
+### MIT 6.034 AI: Lec 9. Visual Object Recognition
+
+#### Signal offset recognition by convolution
+
+`$$\argmax_y \int_x f(x)\cdot g(x-y)$$`
