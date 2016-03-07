@@ -114,9 +114,22 @@ Two kinds of learning:
 
 Feature detector + Comparator = Library -> Recognition
 
-#### Nearest Neighbors
+#### Nearest neighbors
 
-Example: Electrical cover recognition problem
+- Example: Electrical cover recognition problem (Decision boundary)
+- Example: Finding articles relevant to the question (Alternative metric of similarity - divergence from mean angle)
+- Example: Brute force learning - sifting through all the possible alternatives
 
- * Plot 
+### Lec 11. Learning: Identification Trees, Disorder
 
+What if we have non-numeric data? Some characteristics don't matter or matter only some of the time? Hierarchical structure of tests.
+
+> [Visual Introduction to Machine Learning] (http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
+
+Solution: tree structure of tests - *identification tree*
+Desired properties:
+
+* shallow
+* low cost of tests
+* homogeneous at the bottom level
+* as simple as possible (Occam's razor)
