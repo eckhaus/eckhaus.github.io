@@ -82,5 +82,10 @@ Stav: precitane, vycerpane - viac v `B004` Essential Cell Biology
 ### MIT 6.034 AI: Lec 9. Visual Object Recognition
 
 #### Signal offset recognition by convolution
+Majme z signály dané funkciami $f(x)$ a $g(x)$ (+ nejaký šum). Konvolúciou zvýhodníme riešenia kde sa signály prekrývajú a znevýhodníme tie ktoré sú mimo fázy (a opačné amplitúdy sú penalizované vlasne ešte viac)
 
-`$$\argmax_y \int_x f(x)\cdot g(x-y)$$`
+`$$\argmax_y \int_x f(x)\cdot g(x-y)dx$$`
+
+Relatívne jednoducho by sme rozšírili pre viac viac dimenzií:
+
+$$\argmax_{x_1, y_1} \int_x\int_y f(x,y) \cdot g(x-x_1, y-y_1) dx dy$$
