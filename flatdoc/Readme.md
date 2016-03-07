@@ -88,11 +88,17 @@ Majme z signály dané funkciami $f(x)$ a $g(x)$ (+ nejaký šum). Konvolúciou 
 
 $$\argmax_y \int_x f(x)\cdot g(x-y)dx$$
 
-Relatívne jednoducho by sme rozšírili pre viac viac dimenzií:
+Jednoducho by sme rozšírili pre viac viac dimenzií:
 
 $$\argmax_{x_1, y_1} \int_x\int_y f(x,y) \cdot g(x-x_1, y-y_1) dx dy$$
 
 Hlavná myšlienka: pri učení nepoužívame príliš malé detaily (tie su málo špecifické a namatchuje sa skoro hocičo), ani príliš komplexné objekty - tie môžu byť zas príliš rozmanité a ťažko detekovateľné. Kombináciou viacerých jednoduchých objektov vieme často dostať jednoducho rozlíšiteľný a zároveň detekovateľný vzor.
+
+> Convolutional NN? Co je to zač? Má to niečo spoločné so samotnou konvolúciou? Ako presne fungujú konvolučné filtre v grafike? 
+
+> **A:** Asi sa niečo podobné dá využiť v AI - niektoré konvolučné filtre detekujú hrany a pod. Ide len o jednoduché prenásobenie konvolučnej matice ([kernelu](https://en.wikipedia.org/wiki/Kernel_(image_processing))) a rovnako veľkého výseku obrázka prvok po prvku a následné sčítanie.
+
+> *Matica detektoru hrán* ([Sobel](https://en.wikipedia.org/wiki/Sobel_operator)): $$\begin{bmatrix}-1 & 0 & 1\\-2 & 0 & 2\\-1 & 0 & 1\end{bmatrix}$$
 
 ### Lec 10. Introduction to Learning, Nearest Neighbors
 
@@ -107,3 +113,5 @@ Two kinds of learning:
   * Explanation based l.
 
 Feature detector + Comparator = Library -> Recognition
+
+
