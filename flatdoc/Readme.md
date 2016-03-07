@@ -1,29 +1,29 @@
-Zapisky
+Zápisky
 =========
 
-Vsetky clanky su cislovane 4 cifernym kodom (0000-9999).
+Všetky články sú číslované 4-ciferným kódom (0000-9999).
 > `0001` Brainstorming consensus methods in practice
 
-Knihy maju prefix B a 3 ciferny kod (B000 - B999) + priradenu skratku
+Knihy majú prefix B a 3-ciferný kod (B000 - B999) + priradenú skratku
 > `B003` Alberts : Essential Cell Biology 4th edition `[Ecb4]`.
 
-Linky budu mat prefix L nasledovany 3 cifernym kodom a dodatocny popisok.
+Linky budú mať prefix L nasledovaný 3-ciferným kódom a dodatočný popisok.
 
-> `L001` [Databaza prirodovedeckych a biomedicinskych clankov Pubmed](http://www.ncbi.nlm.nih.gov/pubmed) `[W: Pubmed]`
+> `L001` [Datábaza prírodovedeckých a biomedicínskych článkov Pubmed](http://www.ncbi.nlm.nih.gov/pubmed) `[W: Pubmed]`
 
 ### 0001 Brainstorming consensus methods in practice
 
 *Dariusz Plewczynski, U. Warsaw*
 
- * Moderne consensus scoring metody vyuzivaju kombinaciu viacerych metod ML
- * Kombinuju algoritmy, ktore su len lokalne vyhodne
- * Ensemble metody ako bagging alebo boosting boli uspesne pouzite pre zlepsenie prediktorov na zaklade agregacie viacerych horsich ciastkovych funkcii (nekorelovanych/ slabo korelovanych)
+ * Moderné consensus scoring metódy využívajú kombináciu viacerých metód ML
+ * Kombinujú algoritmy, ktoré sú len lokálne výhodne / presné
+ * Ensemble metódy ako bagging alebo boosting boli úspešne použité pre zlepšenie prediktorov na základe agregácie viacerých horších čiastkových funkcií (nekorelovaných/ slabo korelovaných)
 
-Popisuje pouzitie a moznosti kombinacie metod strojoveho ucenia ako *Support Vector Machines (SVM)*, *Artificial Neural Networks (ANN/NN)*, *Clustering* alebo *K-nearest neighbors (KNN)*.
+Popisuje použitie a možnosti kombinácie metód strojového učenia ako *Support Vector Machines (SVM)*, *Artificial Neural Networks (ANN/NN)*, *Clustering* alebo *K-nearest neighbors (KNN)*.
 
-Novy pristup - Brainstorming - snazi sa kombinovat velmi siroke spektrum algoritmov, pricom pouziva rozne doplnujuce informacie. Netrenuje na jednom datasete - snazi sa najst relacie medzi vysledkami z treningu nad roznorodymi datami.
+Nový prístup - Brainstorming - snaží sa kombinovať veľmi široké spektrum algoritmov, pričom používa rôzne doplňujúce informácie. Netrénuje na jednom datasete - snaží sa nájsť relácie medzi výsledkami z tréningu nad rôznorodými dátami.
 
-#### Hlavne myslienky
+#### Hlavné myšlienky
 
 Our approach is similar to other `ensemble methods`, yet differently from `bagging` (combines
 many unstable predictors to produce a ensemble stable predictor), or `boosting` (combines
@@ -60,20 +60,20 @@ query object. `The consensus is then build using results from all representation
 
 [0001 original >] [0001]
 
-Stav: precitane, prebrat znovu ked budem vediet viac o ML
+Stav: prečítané, prebrať znovu keď budem vedieť viac o ML
 
 ### 0002 A Biology Primer for Computer Scientists
 
 *Franco P. Preparata, Brown U.*
 
- * DNA, RNA, proteiny
- * Centralna dogma molekularnej biologie
- * Zakaldy replikacie DNA, transkripcie do RNA a syntezy proteinov
- * Primarna, sekundarna, terciarna a kvarterna struktura proteinov
+ * DNA, RNA, proteíny
+ * Centrálna dogma molekulárnej biológie
+ * Zákaldy replikácie DNA, transkripcie do RNA a syntézy proteínov
+ * Primárna, sekundárna, terciárna a kvartérna štruktúra proteínov
 
 [0002 original >] [0002]
 
-Stav: precitane, vycerpane - viac v `B004` Essential Cell Biology
+Stav: prečítané, vyčerpané - viac v `B004` Essential Cell Biology
 
 
 [0001]: http://arxiv.org/pdf/0910.0949
@@ -84,7 +84,7 @@ Stav: precitane, vycerpane - viac v `B004` Essential Cell Biology
 #### Signal offset recognition by convolution
 Majme z signály dané funkciami $f(x)$ a $g(x)$ (+ nejaký šum). Konvolúciou zvýhodníme riešenia kde sa signály prekrývajú a znevýhodníme tie ktoré sú mimo fázy (a opačné amplitúdy sú penalizované vlasne ešte viac)
 
-`$$\argmax_y \int_x f(x)\cdot g(x-y)dx$$`
+$$\argmax_y \int_x f(x)\cdot g(x-y)dx$$
 
 Relatívne jednoducho by sme rozšírili pre viac viac dimenzií:
 
