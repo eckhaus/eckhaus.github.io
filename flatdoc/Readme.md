@@ -120,11 +120,13 @@ Feature detector + Comparator = Library -> Recognition
 - Example: Finding articles relevant to the question (Alternative metric of similarity - divergence from mean angle)
 - Example: Brute force learning - sifting through all the possible alternatives
 
+If data is not uniformly distributed we can use normalization (by dividing by standard deviation for example)
+
 ### Lec 11. Learning: Identification Trees, Disorder
 
 What if we have non-numeric data? Some characteristics don't matter or matter only some of the time? Hierarchical structure of tests.
 
-> [Visual Introduction to Machine Learning] (http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
+> [Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
 
 Solution: tree structure of tests - *identification tree*
 Desired properties:
@@ -133,3 +135,15 @@ Desired properties:
 * low cost of tests
 * homogeneous at the bottom level
 * as simple as possible (Occam's razor)
+
+#### Quality of test determination:
+
+Information theory gives us apparatus for measuring disorder ([binary entropy](https://en.wikipedia.org/wiki/Binary_entropy_function)) $D$ of indicator set $S$.
+
+$$ D(S) = -\frac{Positive}{Total}\log_2\frac{Positive}{Total}-\frac{Negative}{Total}\log_2\frac{Negative}{Total} $$
+
+We can then specify quality of a test as
+
+$$ Q(test) = \sum_{outcomes} D(outcome)\cdot\frac{|outcomes|}{|test_samples|} $$
+
+
