@@ -99,7 +99,7 @@ Hlavná myšlienka: pri učení nepoužívame príliš malé detaily (tie su má
 > **A:** Asi sa niečo podobné dá využiť v AI - niektoré konvolučné filtre detekujú hrany a pod. Ide len o jednoduché prenásobenie konvolučnej matice ([kernelu](https://en.wikipedia.org/wiki/Kernel_(image_processing)) a rovnako veľkého výseku obrázka prvok po prvku a následné sčítanie.
 
 > *Matica detektoru hrán* ([Sobel](https://en.wikipedia.org/wiki/Sobel_operator)): 
-> $\begin{bmatrix}-1 & 0 & 1 // -2 & 0 & 2 // -1 & 0 & 1\end{bmatrix}$
+> $\begin{align*}  \begin{bmatrix}-1 & 0 & 1 \\ -2 & 0 & 2 \\ -1 & 0 & 1\end{bmatrix}\end{align*}$
 
 ### Lec 10. Introduction to Learning, Nearest Neighbors
 
