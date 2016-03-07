@@ -97,6 +97,7 @@ Hlavná myšlienka: pri učení nepoužívame príliš malé detaily (tie su má
 ### Lec 10. Introduction to Learning, Nearest Neighbors
 
 Two kinds of learning:
+
  * regularity ("Buldozer Computing")
   * nearest neighbors (simplest, pattern recognition)
   * neural nets (mimicing biology)
