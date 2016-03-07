@@ -17,6 +17,7 @@
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
 <script type="text/x-mathjax-config">
+$(document).on('flatdoc:ready', function() {
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [['$','$'], ['\\(','\\)']],
@@ -29,6 +30,9 @@ MathJax.Hub.Queue(function() {
         all[i].SourceElement().parentNode.className += ' has-jax';
     }
 });
+});
+
+
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
