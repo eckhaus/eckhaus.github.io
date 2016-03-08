@@ -75,9 +75,20 @@ Stav: prečítané, prebrať znovu keď budem vedieť viac o ML
 
 Stav: prečítané, vyčerpané - viac v `B004` Essential Cell Biology
 
+### 0004 Bayesian Networks without Tears
+
+*Eugene Charniak, AI Magazine*
+
+
+[0004 original >] [0004]
+
+Stav: načaté
 
 [0001]: http://arxiv.org/pdf/0910.0949
 [0002]: https://cs.brown.edu/courses/csci1810/bioprimer.pdf
+[0004]: http://www.aaai.org/ojs/index.php/aimagazine/article/download/918/836
+
+
 
 ## MIT 6.034 AI
 
@@ -144,6 +155,6 @@ $$ D(S) = -\frac{Positive}{Total}\log_2\frac{Positive}{Total}-\frac{Negative}{To
 
 We can then specify quality of a test as
 
-$$ Q(test) = \sum_{outcomes} D(outcome)\cdot\frac{|outcomes|}{|test_samples|} $$
+$$ Q(test) = \sum_{outcomes} D(outcome)\cdot\frac{|outcomes|}{|testsamples|} $$
 
-
+Identification trees can be used even when we deal with non-categorical data. In that case categories can be introduced by using appropriate tresholding values (possibly determined by "bruteforce" approaches).
