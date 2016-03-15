@@ -20,14 +20,14 @@ Jedna z najväčších databáz svojho druhu. Obsahuje údaje o protein-ligand(-
  * Protein - cofactor
  * Protein - ligand - cofactor
 
+V databáze sa dá vyhľadávať online, nie ale je možné po sieti pristupovať do databázy priamo. Dostupné je však RESTful-ish rozhranie pre sťahovanie dát v csv/zip. Pre dané PDB poskytuje možnosť stiahnuť si buď upravený PDB file proteínu (odstránenými atómami viac ako 10 Angstrom o proteínu), zoznam podobných proteínov (viď vpravo) alebo zoznam všetkých proteínov danej triedy ( podľa [EC number](https://en.wikipedia.org/wiki/Enzyme_Commission_number)) v databáze.
+
 > **Ligand may be:**
 
 > * peptide of 10 amino acids or less
 > * oligonucleotide of 4 nucleotides or less
 > * small organic molecule (e.g. ibuprofen)
 > * cofactor (e.g. NADPH)
-
-V databáze sa dá vyhľadávať online, nie ale je možné po sieti pristupovať do databázy priamo. Dostupné je však RESTful-ish rozhranie pre sťahovanie dát v csv/zip. Pre dané PDB poskytuje možnosť stiahnuť si buď upravený PDB file proteínu (odstránenými atómami viac ako 10 Angstrom o proteínu), zoznam podobných proteínov (viď vpravo) alebo zoznam všetkých proteínov danej triedy ( podľa [EC number](https://en.wikipedia.org/wiki/Enzyme_Commission_number)) v databáze.
 
 Príklad zoznamu:
 
@@ -45,9 +45,9 @@ Napravo máme EC triedu *3.4.21.7*, ktorá obsahuje jednu rodinu proteínov s re
 
 
  Webové rozhranie (pre PDB=10GS, EC=2.5.1.18):
-`http://www.bindingmoad.org/Pdbrecords/download/CSV/10gs.csv`
-`http://www.bindingmoad.org/Pdbrecords/download/CSV/family385.csv`
-`http://www.bindingmoad.org/Pdbrecords/download/CSV/class_2.5.1.18.csv`
+`www.bindingmoad.org/Pdbrecords/download/CSV/10gs.csv`
+`www.bindingmoad.org/Pdbrecords/download/CSV/family385.csv`
+`www.bindingmoad.org/Pdbrecords/download/CSV/class_2.5.1.18.csv`
 
 > Z [hlavného článku o MOAD] [D001a]: "Homologous protein families in each EC class are created using the comparison matrix generated from step 1 *pozn. (BLAST)*. At this stage, two entries (A and B in a class) are grouped together into a homologous family if one of the sequences in A is ≥ 90% identical to one of the sequences in B."
 
@@ -61,4 +61,4 @@ Napravo máme EC triedu *3.4.21.7*, ktorá obsahuje jednu rodinu proteínov s re
 [aff]: https://en.wikipedia.org/wiki/Ligand_(biochemistry)#Receptor.2Fligand_binding_affinity
 [0001]: http://www.bindingmoad.org/
 [D001a]: http://onlinelibrary.wiley.com/doi/10.1002/prot.20512/full
-[D001a]: http://nar.oxfordjournals.org/content/43/D1/D465.fullhttp://nar.oxfordjournals.org/content/43/D1/D465.full
+[D001b]: http://nar.oxfordjournals.org/content/43/D1/D465.fullhttp://nar.oxfordjournals.org/content/43/D1/D465.full
