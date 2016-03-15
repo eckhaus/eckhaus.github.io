@@ -1,11 +1,36 @@
 Databázy
 =========
 
+### Zdroje na preskúmanie
+
+* [Binding MOAD](http://www.bindingmoad.org/)
+* [LigASite](http://www.ligasite.org/)
+* [Catalytic Site Atlas (CSA)](http://www.ebi.ac.uk/thornton-srv/databases/CSA/)
+* [PDBe PISA, PDBe Fold, PDBe](http://www.ebi.ac.uk/pdbe/node/1)
+* [Uniprot (Swissprot+spol.)](http://www.uniprot.org/)
+* [Interpro](https://www.ebi.ac.uk/interpro/)
+* [Enzyme portal](http://www.ebi.ac.uk/enzymeportal/)
+* [Merops](https://merops.sanger.ac.uk/index.shtml)
+* [ebi.ac.uk](www.ebi.ac.uk)
+* [BioMart: Martservice](http://www.biomart.org/martservice.html)
+* [PDBsite](http://wwwmgs.bionet.nsc.ru/mgs/gnw/pdbsite/)
+* [BindingDB](https://www.bindingdb.org/bind/index.jsp)
+* [RCSB PDB](http://www.rcsb.org/pdb/home/home.do)
+* [Expasy](http://www.expasy.org/)
+* [EBI Intact](http://www.ebi.ac.uk/intact/)
+* [String DB](http://string-db.org/)
+
+### Dátové formáty
+
+* Protein Data Bank format (PDB)
+* Simplified molecular-input line-entry system (SMILES)
+* mmCIF
+
 ### D001 Binding MOAD
 
 *Michigan University, 2004*
 
-Jedna z najväčších databáz svojho druhu. Obsahuje údaje o protein-ligand(-cofactor) interakciách s malými biologicky aktívnymi molekulami (t.j. nie protein-protein interakcie). Ide o výcuc z PDB databázy, manuálne vyberaný a kontrolovaný. Najväčšia "feature" tejto databázy je asi objem (tiež ručne zozbieraných) údajov o väzobnej [afinite] [aff].
+Jedna z najväčších databáz svojho druhu. Obsahuje údaje o protein-ligand(-cofactor) interakciách s malými biologicky aktívnymi molekulami (t.j. nie protein-protein interakcie). Ide o výcuc z PDB databázy, manuálne vyberaný a kontrolovaný. Najzaujimavejšia vlastnosť tejto databázy je asi objem (tiež ručne zozbieraných) údajov o väzobnej [afinite] [D001c].
 
 > Väzobná afinita (binding affinity) je niečo úplne iné ako samotná účinnosť ligandu ("ligand efficacy")... afinita však obecne vyjadruje niečo ako mieru intermolekulárnych síl, teda urýchľuje reakcie a v našom prípade hovorí o lepšom "zapadnutí" ligandu. 
 
@@ -56,9 +81,13 @@ Napravo máme EC triedu *3.4.21.7*, ktorá obsahuje jednu rodinu proteínov s re
 
 [2) A. Ahmed, RD Smith, JJ Clark, JB Dunbar, HA Carlson. Recent improvements to Binding MOAD: a resource for proteinligand binding affinities and structures. Nucl. Acids Res. 2014, 43, D465-D469.] [D001b]
 
-[WWW >] [0001]
+[WWW >] [D0001]
 
-[aff]: https://en.wikipedia.org/wiki/Ligand_(biochemistry)#Receptor.2Fligand_binding_affinity
-[0001]: http://www.bindingmoad.org/
+
+[D0001]: http://www.bindingmoad.org/
 [D001a]: http://onlinelibrary.wiley.com/doi/10.1002/prot.20512/full
 [D001b]: http://nar.oxfordjournals.org/content/43/D1/D465.fullhttp://nar.oxfordjournals.org/content/43/D1/D465.full
+[D001c]: https://en.wikipedia.org/wiki/Ligand_(biochemistry)#Receptor.2Fligand_binding_affinity
+
+###
+
