@@ -21,16 +21,17 @@ Jedna z najväčších databáz svojho druhu. Obsahuje údaje o protein-ligand(-
  * Protein - ligand - cofactor
 
 > **Ligand may be:**
-> peptide of 10 amino acids or less
-> oligonucleotide of 4 nucleotides or less
-> small organic molecule (e.g. ibuprofen)
-> cofactor (e.g. NADPH)
+
+> * peptide of 10 amino acids or less
+> * oligonucleotide of 4 nucleotides or less
+> * small organic molecule (e.g. ibuprofen)
+> * cofactor (e.g. NADPH)
 
 V databáze sa dá vyhľadávať online, nie ale je možné po sieti pristupovať do databázy priamo. Dostupné je však RESTful-ish rozhranie pre sťahovanie dát v csv/zip. Pre dané PDB poskytuje možnosť stiahnuť si buď upravený PDB file proteínu (odstránenými atómami viac ako 10 Angstrom o proteínu), zoznam podobných proteínov (viď vpravo) alebo zoznam všetkých proteínov danej triedy ( podľa [EC number](https://en.wikipedia.org/wiki/Enzyme_Commission_number)) v databáze.
 
 Príklad zoznamu:
 
-Napravo máme EC triedu *3.4.21.7*, ktorá obsahuje jednu rodinu proteínov s reprezentatnom 1CEB (PDB) a jedným ďalším proteínom 1CEA. Po názve proteínu vždy nasledujú prvky vstupujúce do reakcie (s popisokom valid/invalid). Jednotlivé stĺpce sú presne popísané na stránkach (MOAD FAQ)[http://www.bindingmoad.org/Home/faq] pod "What is the CSV format?".
+Napravo máme EC triedu *3.4.21.7*, ktorá obsahuje jednu rodinu proteínov s reprezentatnom 1CEB (PDB) a jedným ďalším proteínom 1CEA. Po názve proteínu vždy nasledujú prvky vstupujúce do reakcie (s popisokom valid/invalid). Jednotlivé stĺpce sú presne popísané na stránkach [MOAD FAQ](http://www.bindingmoad.org/Home/faq) pod "What is the CSV format?".
 
 ```
 3.4.21.7,,,,,,,,,
@@ -51,8 +52,13 @@ Napravo máme EC triedu *3.4.21.7*, ktorá obsahuje jednu rodinu proteínov s re
 > Z [hlavného článku o MOAD] [D001a]: "Homologous protein families in each EC class are created using the comparison matrix generated from step 1 *pozn. (BLAST)*. At this stage, two entries (A and B in a class) are grouped together into a homologous family if one of the sequences in A is ≥ 90% identical to one of the sequences in B."
 
 
-[WWW >] [D001a]
+[1) L Hu, ML Benson, RD Smith, MG Lerner, HA Carlson. Binding MOAD (Mother Of All Databases).Proteins 2005, 60, 333-40.] [D001a]
+
+[2) A. Ahmed, RD Smith, JJ Clark, JB Dunbar, HA Carlson. Recent improvements to Binding MOAD: a resource for proteinligand binding affinities and structures. Nucl. Acids Res. 2014, 43, D465-D469.] [D001b]
+
+[WWW >] [0001]
 
 [aff]: https://en.wikipedia.org/wiki/Ligand_(biochemistry)#Receptor.2Fligand_binding_affinity
 [0001]: http://www.bindingmoad.org/
 [D001a]: http://onlinelibrary.wiley.com/doi/10.1002/prot.20512/full
+[D001a]: http://nar.oxfordjournals.org/content/43/D1/D465.fullhttp://nar.oxfordjournals.org/content/43/D1/D465.full
