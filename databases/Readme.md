@@ -20,11 +20,30 @@ Druhy väzieb
  * Protein - cofactor
  * Protein - ligand - cofactor
 
-V databáze sa dá vyhľadávať online, nie je možné pristupovať do databázy priamo. Dostupné je však RESTful-ish rozhranie pre sťahovanie dát v csv/zip. Pre dané PDB poskytuje možnosť stiahnuť si buď PDB file proteínu (s interakciami), zoznam podobných proteínov alebo zoznam všetkých proteínov danej triedy ([EC number](https://en.wikipedia.org/wiki/Enzyme_Commission_number)) v databáze.
+V databáze sa dá vyhľadávať online, nie ale je možné po sieti pristupovať do databázy priamo. Dostupné je však RESTful-ish rozhranie pre sťahovanie dát v csv/zip. Pre dané PDB poskytuje možnosť stiahnuť si buď upravený PDB file proteínu (odstránenými atómami viac ako 10 Angstrom o proteínu), zoznam podobných proteínov (viď vpravo) alebo zoznam všetkých proteínov danej triedy ( podľa [EC number](https://en.wikipedia.org/wiki/Enzyme_Commission_number)) v databáze.
 
-> Z [hlavného článku o MOAD] [D001a] "Homologous protein families in each EC class are created using the comparison matrix generated from step 1 *pozn. (BLAST)*. At this stage, two entries (A and B in a class) are grouped together into a homologous family if one of the sequences in A is ≥ 90% identical to one of the sequences in B. With 90% sequence identity being so strict for clustering, we always found that any additional chains in entries A and B were also 90% sequence identical."
+Príklad zoznamu:
 
-[WWW >] [D001]
+```
+3.4.21.7,,,,,,,,,
+,Family. Representative Entry is ,1CEB,,,,,,,
+,,,AMH:A:90,valid,Ki,~,1,uM,C1CC(CCC1CN)C(=O)O,
+,,,AMH:B:90,valid,Ki,~,1,uM,C1CC(CCC1CN)C(=O)O,
+,,1CEA,,,,,,,
+,,,ACA:A:90,valid,Kd,~,11,uM,C(CCC(=O)O)CCN,
+,,,ACA:B:90,valid,Kd,~,11,uM,C(CCC(=O)O)CCN,
+```
+
+Napr. tu máme EC triedu *3.4.21.7*, ktorá obsahuje jednu rodinu proteínov s reprezentatnom 1CEB (PDB) a jedným ďalším proteínom 1CEA. Po názve proteínu vždy nasledujú prvky vstupujúce do reakcie (s popisokom valid/invalid)
+
+Jednotlivé stĺpce sú presne popísané na stránkach (MOAD FAQ)[http://www.bindingmoad.org/Home/faq] pod "What is the CSV format?".
+
+
+
+
+> Z [hlavného článku o MOAD] [D001a]: "Homologous protein families in each EC class are created using the comparison matrix generated from step 1 *pozn. (BLAST)*. At this stage, two entries (A and B in a class) are grouped together into a homologous family if one of the sequences in A is ≥ 90% identical to one of the sequences in B."
+
+[WWW >] [D001a]
 
 [aff]: https://en.wikipedia.org/wiki/Ligand_(biochemistry)#Receptor.2Fligand_binding_affinity
 [0001]: http://www.bindingmoad.org/
