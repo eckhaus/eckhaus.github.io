@@ -18,6 +18,7 @@ Databázy
 * [EBI Intact](http://www.ebi.ac.uk/intact/)
 * [String DB](http://string-db.org/)
 * [CATH](http://www.cathdb.info/)
+* [CREDO](http://marid.bioc.cam.ac.uk/credo/)
 
 * [Expasy](http://www.expasy.org/)
 * [ebi.ac.uk](www.ebi.ac.uk)
@@ -158,11 +159,11 @@ Zistiť ako kvartérna štruktúra ovplyvňuje aktívne miesta, v čom sa využ�
 [D02c]: http://www.ligasite.org/v9.7/ligasite.xsd
 
 
-### wwPDB: PDBe
+### [D03] [D03] wwPDB: PDBe
 
 *EBI-EMBL*
 
-#### wwPDB (WorldWide PDB)
+#### [wwPDB] [D03a] (WorldWide PDB)
 
 Na začaiatok je dôležité poznamenať, že **PDBe** (Protein Data Bank in Europe), **PDBj** (Protein Data Bank Japan), **BMRB** (Biological Magnetic Resonance Data Bank) aj **RCSB** (Research Collaboratory for Structural Bioinformatics Protein Data Bank) sú súčasťou združenia wwPDB zjednocujúceho hlavné (experimentálne) svetové proteínové databázy. wwPDB vydáva nové identifikátory (PDB, mmcif) a zabezpečuje aby vo všetkých databázach boli dostupné rovnaké informácie (viď [FAQ](http://www.wwpdb.org/about/faq)). Nás teda bude zaujímať iba databázové rozhranie, ktoré jednotlivé organizácie sprístupňujú, keďže všetky údaje by mali byť rovnaké. Bližšie popíšeme európsku vetvu - PDBe.
 
@@ -170,7 +171,26 @@ Na začaiatok je dôležité poznamenať, že **PDBe** (Protein Data Bank in Eur
 
 Tak ako všekty databázy wwPDB, je aj PDBe vybudovaná nad experimentálne nájdenými 3D štruktúrami proteínov. Tie sú uložené v PDB súboroch obsahujúcich geometriu proteínu (t.j. súradnice v 3D priestore), typy atómov, väzby, metainformácie (pôvod modelu, metóda merania, dátum experimentu,...) a ďalšie relevantné údaje. Každý model má od wwPDB pridelené unikátne 4-miestne alfanumerické PDBid. Modely môžu predstavovať aj rôzne komplexy alebo zlúčeniny. Práve z takýchto záznamov vieme zistiť, kde sa nachádzajú aktívne miesta proteínov. Najjednoduchší prístup by bol najprv nájsť všetky atómy mimo proteínu (tie by mali byť popísané ako `HETATM`?) a za aktívne miesta označiť ťažké atómy z proteínu do istej vzdialenosti, ktoré nie sú v kovalentnej väzbe z proteínom (to sa dá zistiť podľa dĺžky väzby).
 
-Takto by sme sa síce mohli dostať k potrebným údajom o aktívnych miestach a však tie by pravdepodobne neboli príliš správne. Práve tento problém sa snažili riešiť vyššie spomínané databázy precíznym výberom najkvalitnejších záznamov z PDB. Pre testovacie dáta teda priamy výber z PDB robiť nebudeme, použijeme skôr zoznamy z niektorej "prečistenej" (golden standard) databázy. Po natrénovaní systému už budeme chcieť prijímať ako vstup aj proteíny mimo týchto špecifických zoznamov - teda skoro určite budeme musieť pristupovať do PDB. V istej fáze vývoja bude ale možno tiež zaujímavé pracovať so všetkými modelmi vyselektovaných proteínov (nie len s ideálnymi, ktoré prešli výberovým mechanizmom ako napr. u LigASit-u) a pozorovať ako sa bude meniť kvalita výsledkov. V takom prípade môžeme použiť anotačnú databázu ako Uniprot, z nej vybrať všetky PDB daného proteínu a z nich si skompilovať vlastnú databázu pravdepodobných aktívnych miest.
+Takto by sme sa síce mohli dostať k potrebným údajom o aktívnych miestach a však tie by pravdepodobne neboli príliš správne. Práve tento problém sa snažili riešiť vyššie spomínané databázy precíznym výberom najkvalitnejších záznamov z PDB. Pre testovacie dáta teda priamy výber z PDB robiť nebudeme, použijeme skôr zoznamy z niektorej "prečistenej" (golden standard) databázy. Po natrénovaní systému už budeme chcieť prijímať ako vstup aj proteíny mimo týchto špecifických zoznamov - teda skoro určite budeme musieť pristupovať do PDB. V istej fáze vývoja bude ale možno tiež zaujímavé pracovať so všetkými modelmi vyselektovaných proteínov (nie len s ideálnymi, ktoré prešli výberovým mechanizmom ako napr. u LigASit-u) a pozorovať ako sa bude meniť kvalita výsledkov. V takom prípade môžeme použiť anotačnú databázu ako Uniprot, z nej vybrať všetky PDB daného proteínu a z tých si skompilovať vlastnú databázu pravdepodobných aktívnych miest.
+
+**Rozhranie**
+
+[WWW >] [D03]
+[D03]: http://www.ebi.ac.uk/pdbe/
+[D03a]: http://www.wwpdb.org/
+
+
+### Catalytic Site Atlas (CSA)
+
+Databáza podobná LigASite, obsahuje len katalitické ligandy. Stiahnuteľná SQL databáza.
+
+[Furnham N, Holliday GL, de Beer TA, Jacobsen JO, Pearson WR, Thornton JM. The Catalytic Site Atlas 2.0: cataloging catalytic sites and residues identified in enzymes. Nucleic Acids Res. 2014 Jan;42(Database issue):D485-9. PubMed PMID: 24319146.](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3964973/)
+
+
+[WWW >] [D04]
+[D04]: http://www.ebi.ac.uk/thornton-srv/databases/CSA
+
+
 
 ### Poznámky
 
