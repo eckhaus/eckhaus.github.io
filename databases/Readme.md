@@ -98,7 +98,7 @@ Napravo máme EC triedu *3.4.21.7*, ktorá obsahuje jednu rodinu proteínov s re
 
 *Universite de Lille, UCL*
 
-O niečo menšia databáza ako MOAD. Pracuje na prakticky komplementárnych prípadoch(TODO: pre istotu chcecknut metodologiu MOAD-u, naozaj sa jedná len o malé molekuly, alebo som si misinterpretoval ten cutoff vo vzdialenosti 10A?). LigASite predpokladá, že väčšina biologicky irelevantných ligandov (nejakých náhodných kontaminantov, ktoré sa primárne neviažu na dané miesto) bude spadať do kategórie malých molekúl (pod 10 "ťažkých" atómov - t.j. not vodík AFAIK). Ďalej boli vyselektované ligandy s určitým počtom medziatomických väzieb (vypočítané automaticky - Sobolev et al. :nástroj [LPC](http://bip.weizmann.ac.il/oca-bin/lpccsu/)). Hranica bola stanovená podľa podielu relevantných interakcií v závislosti na počte väzieb na nejakej malej podmnožine. Pri 100+ väzbách bolo len cca 10% väzieb irelevantných (čo sa môže hodiť aj pri filtrovaní dát z iných zdrojov).
+O niečo menšia databáza ako MOAD. Pracuje na prakticky komplementárnych prípadoch (ešte preveriť). LigASite predpokladá, že väčšina biologicky irelevantných ligandov (nejakých náhodných kontaminantov, ktoré sa primárne neviažu na dané miesto) bude spadať do kategórie malých molekúl (pod 10 "ťažkých" atómov - t.j. not vodík AFAIK). Ďalej boli vyselektované ligandy s určitým počtom medziatomických väzieb (vypočítané automaticky - Sobolev et al. :nástroj [LPC](http://bip.weizmann.ac.il/oca-bin/lpccsu/)). Hranica bola stanovená podľa podielu relevantných interakcií v závislosti na počte väzieb na nejakej malej podmnožine. Pri 100+ väzbách bolo len cca 10% väzieb irelevantných (čo sa môže hodiť aj pri filtrovaní dát z iných zdrojov).
 
 **Výhody**
 
@@ -125,6 +125,10 @@ Súradnice (???) `http://www.ligasite.org/pqs/1a4u.pqs`
 Apo-binding site(???) `http://www.ligasite.org/pqs/1a4u.pqs`
 
 
+#### TODO:
+
+TODO: pre istotu chcecknut metodologiu MOAD-u, naozaj sa jedná len o malé molekuly, alebo som si misinterpretoval ten cutoff vo vzdialenosti 10A?
+
 TODO: prehnať data PyMolom, zistiť čo presne vyjadrujú tie súradnice (asi aktívne miesta, prečo je tam však pqs prípona.. PISA woodoo?)
 
 TOVERIFY: Suradnice su nabindovane na `<contact>` attribute z XML-ka a proste externe dopĺňajú 3D polohu...
@@ -134,6 +138,7 @@ TOVERIFY: Apo binding site proste hovori o priestorovych zmenach pri prechode z 
 TODO: zistiť ako sú skladované tie residues v XML-ku (asi doštudovať PDB). Zistiť ako kvartérna štruktúra ovplyvňuje aktívne miesta, v čom sa využíva PISA.
 
 [(1)	Dessailly BH, Lensink MF, Wodak SJ; LigASite: a database of biologically relevant binding sites in proteins with known apo-structures; Nucleic Acids Res. 2008;36(Database issue):D667-73.] [D0002a]
+
 [WWW >] [D0002]
 [D0002]: http://www.ligasite.org/
 [D0002a]: http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2238865/
