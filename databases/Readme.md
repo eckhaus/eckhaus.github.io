@@ -7,25 +7,27 @@ Databázy
 * [LigASite](http://www.ligasite.org/)
 * [Catalytic Site Atlas (CSA)](http://www.ebi.ac.uk/thornton-srv/databases/CSA/)
 * [PDBe PISA, PDBe Fold, PDBe](http://www.ebi.ac.uk/pdbe/node/1)
+* [RCSB PDB](http://www.rcsb.org/pdb/home/home.do)
 * [Uniprot (Swissprot+spol.)](http://www.uniprot.org/)
 * [Interpro](https://www.ebi.ac.uk/interpro/)
 * [Enzyme portal](http://www.ebi.ac.uk/enzymeportal/)
-* [Merops](https://merops.sanger.ac.uk/index.shtml)
-* [ebi.ac.uk](www.ebi.ac.uk)
-* [BioMart: Martservice](http://www.biomart.org/martservice.html)
+* [FireDB](http://firedb.bioinfo.cnio.es)
 * [PDBsite](http://wwwmgs.bionet.nsc.ru/mgs/gnw/pdbsite/)
 * [BindingDB](https://www.bindingdb.org/bind/index.jsp)
-* [RCSB PDB](http://www.rcsb.org/pdb/home/home.do)
-* [Expasy](http://www.expasy.org/)
+* [Merops](https://merops.sanger.ac.uk/index.shtml)
 * [EBI Intact](http://www.ebi.ac.uk/intact/)
 * [String DB](http://string-db.org/)
-* [FireDB](http://firedb.bioinfo.cnio.es)
+* [CATH](http://www.cathdb.info/)
+
+* [Expasy](http://www.expasy.org/)
+* [ebi.ac.uk](www.ebi.ac.uk)
+* [BioMart: Martservice](http://www.biomart.org/martservice.html)
 
 ### Dátové formáty
 
 * [Protein Data Bank format (PDB)](http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/introduction)
 * [Simplified molecular-input line-entry system (SMILES)](http://www.daylight.com/dayhtml/doc/theory/)
-* [mmCIF](http://mmcif.wwpdb.org/docs/faqs/pdbx-mmcif-faq-general.html)
+* [mmCIF - formát ktorý má od 2016 nahradiť PDB](http://mmcif.wwpdb.org/docs/faqs/pdbx-mmcif-faq-general.html)
 
 ### Preskúmať
 
@@ -154,3 +156,16 @@ Zistiť ako kvartérna štruktúra ovplyvňuje aktívne miesta, v čom sa využ�
 [D02a]: http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2238865/
 [D02b]: http://bip.weizmann.ac.il/oca-bin/lpccsu/
 [D02c]: http://www.ligasite.org/v9.7/ligasite.xsd
+
+
+### Poznámky
+
+S MOADom to bude možno dosť ťažké. U veľkého množstva experimentálne dokázaných štruktúr ukazuje kde sú aktívne miesta, ako sú dobré a pod. Museli by sme však nájsť podľa PDB materský proteín a vyselektovat z Uniprotu, alebo niečoho takého (všekty/nejaké) nenaviazané štruktúry, na ktorých sa spustia skúmané predikčné algoritmy.. to by nemusel byť príliš veľký problém, ak by boli také štruktúry dostupné (zdá sa, že stačí jedna ak je to X-ray s dobrým rozlíšením (pod 2.5A) teda aspoň podľa ligasite-u)
+
+Postup: zoberiem MOAD ako zaručený štandard, vyťažím všetky Uniprot accession IDs obsahujúce daný PDB. Z Uniprot vytiahnem PDB všetkých štruktúr a cez RCSB/PDBe zistím, či je to len čistý proteín... čo teda nemusí byť také jednoduché, čistý nikdy nebude - ide pravdepodobne skôr o to či sú voľné miesta na ktorých predpovedá MOAD nejaké väzby? (a tiež, ako by boli definované voľné miesta - žiadne väzby v nejakom rádiuse?)
+
+LigASite má toto všetko poriešené, nič netreba predspracovávať, vyhodnocovať. Jedine možno pridať anotácie o proteínovej skupine, ale to ide ľahko z Uniprotu/hocičoho.
+
+Ďalej by sa dali informácie sťahovať priamo z nejakej veľkej databázy (čo sa v konečnom dôsledku budeme musieť, keď už budeme spúšťať systém "na ostro"). RCSB aj PDBe majú slušné webové rozhranie. Zoznamy ku konkrétnym proteínom sa dajú opäť zohnať z Uniprotu.
+
+Ostáva preskúmať zdroje z EMBL/EBI + FireDB (čo je tiež z väčšej časti založené na CSA), a veľké anotačné databázy (Uniprot a asi InterPro)
