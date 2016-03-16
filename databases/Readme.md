@@ -19,18 +19,23 @@ Databázy
 * [Expasy](http://www.expasy.org/)
 * [EBI Intact](http://www.ebi.ac.uk/intact/)
 * [String DB](http://string-db.org/)
+* [FireDB](http://firedb.bioinfo.cnio.es)
 
 ### Dátové formáty
 
-* Protein Data Bank format (PDB)
-* Simplified molecular-input line-entry system (SMILES)
-* mmCIF
+* [Protein Data Bank format (PDB)](http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/introduction)
+* [Simplified molecular-input line-entry system (SMILES)](http://www.daylight.com/dayhtml/doc/theory/)
+* [mmCIF](http://mmcif.wwpdb.org/docs/faqs/pdbx-mmcif-faq-general.html)
+
+### Preskúmať
+
+* Protein docking
 
 ### D001 Binding MOAD
 
 *Michigan University, 2004*
 
-Jedna z najväčších databáz svojho druhu. Obsahuje údaje o protein-ligand(-cofactor) interakciách s malými biologicky aktívnymi molekulami (t.j. nie protein-protein interakcie). Ide o výcuc z PDB databázy, manuálne vyberaný a kontrolovaný. Najzaujimavejšia vlastnosť tejto databázy je asi objem (tiež ručne zozbieraných) údajov o väzobnej [afinite] [D001c].
+Jedna z najväčších databáz svojho druhu. Obsahuje údaje o protein-ligand(-cofactor) interakciách s malými biologicky aktívnymi molekulami (t.j. nie protein-protein interakcie). Ide o výcuc z PDB, manuálne vyberaný a kontrolovaný. Najzaujimavejšia vlastnosť tejto databázy je asi objem (tiež ručne zozbieraných) údajov o väzobnej [afinite] [D001c].
 
 > Väzobná afinita (binding affinity) je niečo úplne iné ako samotná účinnosť ligandu ("ligand efficacy")... afinita však obecne vyjadruje niečo ako mieru intermolekulárnych síl, teda urýchľuje reakcie a v našom prípade hovorí o lepšom "zapadnutí" ligandu. 
 
@@ -45,7 +50,7 @@ Jedna z najväčších databáz svojho druhu. Obsahuje údaje o protein-ligand(-
  * Protein - cofactor
  * Protein - ligand - cofactor
 
-V databáze sa dá vyhľadávať online, nie ale je možné po sieti pristupovať do databázy priamo. Dostupné je však RESTful-ish rozhranie pre sťahovanie dát v csv/zip. Pre dané PDB poskytuje možnosť stiahnuť si buď upravený PDB file proteínu (odstránenými atómami viac ako 10 Angstrom o proteínu), zoznam podobných proteínov (viď vpravo) alebo zoznam všetkých proteínov danej triedy ( podľa [EC number](https://en.wikipedia.org/wiki/Enzyme_Commission_number)) v databáze.
+V databáze sa dá vyhľadávať online, nie ale je možné po sieti pristupovať do databázy priamo. Dostupné je však RESTful-ish rozhranie pre sťahovanie dát v csv/zip. Pre dané PDB poskytuje možnosť stiahnuť si buď upravený PDB file proteínu (odstránenými atómami viac ako 10 Angstrom o proteínu), zoznam podobných proteínov (viď vpravo) alebo zoznam všetkých proteínov (v databáze) triedy do ktorej patrí ( podľa [EC number](https://en.wikipedia.org/wiki/Enzyme_Commission_number)).
 
 > **Ligand may be:**
 
@@ -89,5 +94,30 @@ Napravo máme EC triedu *3.4.21.7*, ktorá obsahuje jednu rodinu proteínov s re
 [D001b]: http://nar.oxfordjournals.org/content/43/D1/D465.fullhttp://nar.oxfordjournals.org/content/43/D1/D465.full
 [D001c]: https://en.wikipedia.org/wiki/Ligand_(biochemistry)#Receptor.2Fligand_binding_affinity
 
-###
+### LigASite
 
+*Universite de Lille*
+
+O niečo menšia databáza ako MOAD. Pracuje na prakticky komplementárnych prípadoch(TODO: pre istotu chcecknut metodologiu MOAD-u, naozaj sa jedná len o malé molekuly, alebo som si misinterpretoval ten cutoff vo vzdialenosti 10A?). LigASite predpokladá, že väčšina biologicky irelevantných ligandov (nejakých náhodných kontaminantov, ktoré sa primárne neviažu na dané miesto) bude spadať do kategórie malých molekúl (pod 10 "ťažkých" atómov - t.j. not vodík AFAIK). Ďalej boli vyselektované ligandy s určitým počtom medziatomických väzieb (vypočítané automaticky - Sobolev et al. :nástroj [LPC](http://bip.weizmann.ac.il/oca-bin/lpccsu/)). Hranica bola stanovená podľa podielu relevantných interakcií v závislosti na počte väzieb na nejakej malej podmnožine. Pri 100+ väzbách bolo len cca 10% väzieb irelevantných (čo sa môže hodiť aj pri filtrovaní dát z iných zdrojov).
+
+**Výhody**
+
+Táto databáza má už na prvý pohľad veľa vlastností výhodných pre náš projekt. Poskytuje zoznam viazaných (holo) aj neviazaných (apo) štruktúr. Ako trénovací vstup pre algoritmy predikujúce aktívne miesta chceme použiť neviazanú štruktúru a výsledok porovnať s databázou viazaných štruktúr. Na stránkach LigASite  je práve tento proces popísaný ako jedno z primárnych zamýšľaných použití dát.
+
+"A dataset used to benchmark binding site prediction methods should ideally consist of proteins with one unbound structure to apply the prediction method, and at least one bound structure to derive the reference definitions of known binding sites. This is necessary to account for the fact that proteins can undergo structural changes upon binding, and that consequently, applying a binding site prediction method to a bound structure from which the ligand is deleted does not reproduce appropriately situations where the binding site location is truly unknown."
+
+Celý proces priradzovania a filtrovania bound/unbound štruktúr je vykreslený vo [flowcharte na stránkach](http://www.ligasite.org/index.php?chart)
+a geniálne popísaný v hlavnom [papere] [D0002] projektu.
+
+**Rozhranie**
+
+Rozhranie je tiež priateľskejšie ako u MOADu. Pre každé PDB apo-štruktúry (neviazanej) sa dá stiahnuť XML obsahujúce všetky holo-štruktúry, počty väzieb, atómov ligandu, chemickú štruktúru, PDB id, smiles kód... celá DB má cca 100 MB, ide však prakticky len o skompilované data z PDB + ďalších online dostupných nástrojov. Existuje teda aj ultra-kompaktná kostra databázy o veľkosti $\approx$ 700 kB obsahujúca
+
+* field 1: apo PDB ID
+* field 2: residue type and position of binding site residue
+* field 3: a hyphen-separated list of holo PDB ID's in which the residue is found in contact with a ligand.
+
+TODO: zistiť ako sú skladované tie residues v XML-ku (asi doštudovať PDB). Zistiť ako kvartérna štruktúra ovplyvňuje aktívne miesta, v čom sa využíva PISA.
+
+[WWW >] [D0002]
+[D0002]: http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2238865/
