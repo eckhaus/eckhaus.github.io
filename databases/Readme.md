@@ -96,18 +96,17 @@ Napravo máme EC triedu *3.4.21.7*, ktorá obsahuje jednu rodinu proteínov s re
 
 ### LigASite
 
-*Universite de Lille*
+*Universite de Lille, UCL*
 
 O niečo menšia databáza ako MOAD. Pracuje na prakticky komplementárnych prípadoch(TODO: pre istotu chcecknut metodologiu MOAD-u, naozaj sa jedná len o malé molekuly, alebo som si misinterpretoval ten cutoff vo vzdialenosti 10A?). LigASite predpokladá, že väčšina biologicky irelevantných ligandov (nejakých náhodných kontaminantov, ktoré sa primárne neviažu na dané miesto) bude spadať do kategórie malých molekúl (pod 10 "ťažkých" atómov - t.j. not vodík AFAIK). Ďalej boli vyselektované ligandy s určitým počtom medziatomických väzieb (vypočítané automaticky - Sobolev et al. :nástroj [LPC](http://bip.weizmann.ac.il/oca-bin/lpccsu/)). Hranica bola stanovená podľa podielu relevantných interakcií v závislosti na počte väzieb na nejakej malej podmnožine. Pri 100+ väzbách bolo len cca 10% väzieb irelevantných (čo sa môže hodiť aj pri filtrovaní dát z iných zdrojov).
 
 **Výhody**
 
-Táto databáza má už na prvý pohľad veľa vlastností výhodných pre náš projekt. Poskytuje zoznam viazaných (holo) aj neviazaných (apo) štruktúr. Ako trénovací vstup pre algoritmy predikujúce aktívne miesta chceme použiť neviazanú štruktúru a výsledok porovnať s databázou viazaných štruktúr. Na stránkach LigASite  je práve tento proces popísaný ako jedno z primárnych zamýšľaných použití dát.
-
-"A dataset used to benchmark binding site prediction methods should ideally consist of proteins with one unbound structure to apply the prediction method, and at least one bound structure to derive the reference definitions of known binding sites. This is necessary to account for the fact that proteins can undergo structural changes upon binding, and that consequently, applying a binding site prediction method to a bound structure from which the ligand is deleted does not reproduce appropriately situations where the binding site location is truly unknown."
-
-Celý proces priradzovania a filtrovania bound/unbound štruktúr je vykreslený vo [flowcharte na stránkach](http://www.ligasite.org/index.php?chart)
+Táto databáza má už na prvý pohľad veľa vlastností výhodných pre náš projekt. Poskytuje zoznam viazaných (holo) aj neviazaných (apo) štruktúr. Ako trénovací vstup pre algoritmy predikujúce aktívne miesta chceme použiť neviazanú štruktúru a výsledok porovnať s databázou viazaných štruktúr. Na stránkach LigASite  je práve tento proces popísaný ako jedno z primárnych zamýšľaných použití dát. Celý proces priradzovania a filtrovania bound/unbound štruktúr je vykreslený vo [flowcharte na stránkach](http://www.ligasite.org/index.php?chart)
 a popísaný v geniálnom hlavnom [článku] [D0002a] projektu.
+
+> "A dataset used to benchmark binding site prediction methods should ideally consist of proteins with one unbound structure to apply the prediction method, and at least one bound structure to derive the reference definitions of known binding sites. This is necessary to account for the fact that proteins can undergo structural changes upon binding, and that consequently, applying a binding site prediction method to a bound structure from which the ligand is deleted does not reproduce appropriately situations where the binding site location is truly unknown."
+
 
 **Rozhranie**
 
@@ -118,21 +117,23 @@ Rozhranie je tiež priateľskejšie ako u MOADu. Pre každé PDB apo-štruktúry
 * field 3: a hyphen-separated list of holo PDB ID's in which the residue is found in contact with a ligand.
 
 Príklad: `PDB=1a4u, ALCOHOL DEHYDROGENASE`
+
 XML file `http://www.ligasite.org/v9.7/xml/1a4u_ligasite.xml`
+
 Súradnice (???) `http://www.ligasite.org/pqs/1a4u.pqs`
+
 Apo-binding site(???) `http://www.ligasite.org/pqs/1a4u.pqs`
 
+
 TODO: prehnať data PyMolom, zistiť čo presne vyjadrujú tie súradnice (asi aktívne miesta, prečo je tam však pqs prípona.. PISA woodoo?)
+
 TOVERIFY: Suradnice su nabindovane na `<contact>` attribute z XML-ka a proste externe dopĺňajú 3D polohu...
+
 TOVERIFY: Apo binding site proste hovori o priestorovych zmenach pri prechode z neviazanej do viazanej strukury
 
 TODO: zistiť ako sú skladované tie residues v XML-ku (asi doštudovať PDB). Zistiť ako kvartérna štruktúra ovplyvňuje aktívne miesta, v čom sa využíva PISA.
 
-[(1)	Dessailly BH, Lensink MF, Wodak SJ
-
-LigASite: a database of biologically relevant binding sites in proteins with known apo-structures
-
-Nucleic Acids Res. 2008;36(Database issue):D667-73.] [D0002a]
+[(1)	Dessailly BH, Lensink MF, Wodak SJ; LigASite: a database of biologically relevant binding sites in proteins with known apo-structures; Nucleic Acids Res. 2008;36(Database issue):D667-73.] [D0002a]
 [WWW >] [D0002]
 [D0002]: http://www.ligasite.org/
 [D0002a]: http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2238865/
