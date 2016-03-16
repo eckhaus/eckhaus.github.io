@@ -27,7 +27,7 @@ Databázy
 
 * [Protein Data Bank format (PDB)](http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/introduction)
 * [Simplified molecular-input line-entry system (SMILES)](http://www.daylight.com/dayhtml/doc/theory/)
-* [mmCIF - formát ktorý má od 2016 nahradiť PDB](http://mmcif.wwpdb.org/docs/faqs/pdbx-mmcif-faq-general.html)
+* [PDBx/mmCIF - formát ktorý má od 2016 nahradiť PDB](http://mmcif.wwpdb.org/docs/faqs/pdbx-mmcif-faq-general.html)
 
 ### Preskúmať
 
@@ -157,6 +157,20 @@ Zistiť ako kvartérna štruktúra ovplyvňuje aktívne miesta, v čom sa využ�
 [D02b]: http://bip.weizmann.ac.il/oca-bin/lpccsu/
 [D02c]: http://www.ligasite.org/v9.7/ligasite.xsd
 
+
+### wwPDB: PDBe
+
+*EBI-EMBL*
+
+#### wwPDB (WorldWide PDB)
+
+Na začaiatok je dôležité poznamenať, že **PDBe** (Protein Data Bank in Europe), **PDBj** (Protein Data Bank Japan), **BMRB** (Biological Magnetic Resonance Data Bank) aj **RCSB** (Research Collaboratory for Structural Bioinformatics Protein Data Bank) sú súčasťou združenia wwPDB zjednocujúceho hlavné (experimentálne) svetové proteínové databázy. wwPDB vydáva nové identifikátory (PDB, mmcif) a zabezpečuje aby vo všetkých databázach boli dostupné rovnaké informácie (viď [FAQ](http://www.wwpdb.org/about/faq)). Nás teda bude zaujímať iba databázové rozhranie, ktoré jednotlivé organizácie sprístupňujú, keďže všetky údaje by mali byť rovnaké. Bližšie popíšeme európsku vetvu - PDBe.
+
+#### PDBe
+
+Tak ako všekty databázy wwPDB, je aj PDBe vybudovaná nad experimentálne nájdenými 3D štruktúrami proteínov. Tie sú uložené v PDB súboroch obsahujúcich geometriu proteínu (t.j. súradnice v 3D priestore), typy atómov, väzby, metainformácie (pôvod modelu, metóda merania, dátum experimentu,...) a ďalšie relevantné údaje. Každý model má od wwPDB pridelené unikátne 4-miestne alfanumerické PDBid. Modely môžu predstavovať aj rôzne komplexy alebo zlúčeniny. Práve z takýchto záznamov vieme zistiť, kde sa nachádzajú aktívne miesta proteínov. Najjednoduchší prístup by bol najprv nájsť všetky atómy mimo proteínu (tie by mali byť popísané ako `HETATM`?) a za aktívne miesta označiť ťažké atómy z proteínu do istej vzdialenosti, ktoré nie sú v kovalentnej väzbe z proteínom (to sa dá zistiť podľa dĺžky väzby).
+
+Takto by sme sa síce mohli dostať k potrebným údajom o aktívnych miestach a však tie by pravdepodobne neboli príliš správne. Práve tento problém sa snažili riešiť vyššie spomínané databázy precíznym výberom najkvalitnejších záznamov z PDB. Pre testovacie dáta teda priamy výber z PDB robiť nebudeme, použijeme skôr zoznamy z niektorej "prečistenej" (golden standard) databázy. Po natrénovaní systému už budeme chcieť prijímať ako vstup aj proteíny mimo týchto špecifických zoznamov - teda skoro určite budeme musieť pristupovať do PDB. V istej fáze vývoja bude ale možno tiež zaujímavé pracovať so všetkými modelmi vyselektovaných proteínov (nie len s ideálnymi, ktoré prešli výberovým mechanizmom ako napr. u LigASit-u) a pozorovať ako sa bude meniť kvalita výsledkov. V takom prípade môžeme použiť anotačnú databázu ako Uniprot, z nej vybrať všetky PDB daného proteínu a z nich si skompilovať vlastnú databázu pravdepodobných aktívnych miest.
 
 ### Poznámky
 
