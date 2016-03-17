@@ -1,7 +1,8 @@
 Databázy
 =========
 
-### Zdroje na preskúmanie
+### Zdroje na preskúmanie (databázy, servery)
+
 
 * [Binding MOAD](http://www.bindingmoad.org/)
 * [LigASite](http://www.ligasite.org/)
@@ -9,20 +10,31 @@ Databázy
 * [PDBe PISA, PDBe Fold, PDBe](http://www.ebi.ac.uk/pdbe/node/1)
 * [RCSB PDB](http://www.rcsb.org/pdb/home/home.do)
 * [Uniprot (Swissprot+spol.)](http://www.uniprot.org/)
-* [Interpro](https://www.ebi.ac.uk/interpro/)
-* [Enzyme portal](http://www.ebi.ac.uk/enzymeportal/)
-* [FireDB](http://firedb.bioinfo.cnio.es)
+
+TODO:
+
+* [Enzyme portal](http://www.ebi.ac.uk/enzymeportal/)/[Brenda](http://www.brenda-enzymes.info/) databázy enzýmov
+* [FireDB](http://firedb.bioinfo.cnio.es) SQLDB a [Ligand Contact Tool](http://firedb.bioinfo.cnio.es/Php/Contact.php) na cut-off vyhľadávanie aktívnych miest v známych štruktúrach
 * [PDBsite](http://wwwmgs.bionet.nsc.ru/mgs/gnw/pdbsite/)
 * [BindingDB](https://www.bindingdb.org/bind/index.jsp)
 * [Merops](https://merops.sanger.ac.uk/index.shtml)
-* [EBI Intact](http://www.ebi.ac.uk/intact/)
+* [EBI Intact](http://www.ebi.ac.uk/intact/) databáza proteínových interakcií
 * [String DB](http://string-db.org/)
-* [CATH](http://www.cathdb.info/)
-* [CREDO](http://marid.bioc.cam.ac.uk/credo/)
 
-* [Expasy](http://www.expasy.org/)
-* [ebi.ac.uk](www.ebi.ac.uk)
+MetaInformácie
+
+* [CATH](http://www.cathdb.info/) zaradenie do rodín
+* [Interpro](https://www.ebi.ac.uk/interpro/) analýza a klasifikácie podľa FASTA kódu, zhŕňa viacero databáz a predikčných služieb
+
+
+
+### Rôzne
+
 * [BioMart: Martservice](http://www.biomart.org/martservice.html)
+* [BioPython](http://biopython.org/wiki/Main_Page)
+* [PDB 101](http://pdb101.rcsb.org/) Intro do PDB
+* [MetaPocket](http://projects.biotec.tu-dresden.de/metapocket/algorithm.php) Systém spájajúci rôzne algoritmy na predikciu aktívnych mies (TODO: prehoďiť do obecných poznámok)
+* [In-silico Binding Site Prediction in Proteins](https://bioinformatictools.wordpress.com/tag/active-site-prediction/) Zoznam rôznych algoritmov, databáz, článkov...
 
 ### Dátové formáty
 
@@ -161,13 +173,15 @@ Zistiť ako kvartérna štruktúra ovplyvňuje aktívne miesta, v čom sa využ�
 
 ### [D03] [D03] wwPDB: PDBe
 
-*EBI-EMBL*
-
 #### [wwPDB] [D03a] (WorldWide PDB)
 
 Na začaiatok je dôležité poznamenať, že **PDBe** (Protein Data Bank in Europe), **PDBj** (Protein Data Bank Japan), **BMRB** (Biological Magnetic Resonance Data Bank) aj **RCSB** (Research Collaboratory for Structural Bioinformatics Protein Data Bank) sú súčasťou združenia wwPDB zjednocujúceho hlavné (experimentálne) svetové proteínové databázy. wwPDB vydáva nové identifikátory (PDB, mmcif) a zabezpečuje aby vo všetkých databázach boli dostupné rovnaké informácie (viď [FAQ](http://www.wwpdb.org/about/faq)). Nás teda bude zaujímať iba databázové rozhranie, ktoré jednotlivé organizácie sprístupňujú, keďže všetky údaje by mali byť rovnaké. Bližšie popíšeme európsku vetvu - PDBe.
 
+> Podobný zjednotený systém majú databázy proteínových *sekvenčných* údajov DDBJ, EMBL a GenBank. Existujú aj metódy predikcie aktívnych miest proteínov priamo zo sekvencie, nie sú však tak presné a rozšírené ako algoritmy založené priamo na 3D štruktúre.
+
 #### PDBe
+
+*EBI-EMBL*
 
 Tak ako všekty databázy wwPDB, je aj PDBe vybudovaná nad experimentálne nájdenými 3D štruktúrami proteínov. Tie sú uložené v PDB súboroch obsahujúcich geometriu proteínu (t.j. súradnice v 3D priestore), typy atómov, väzby, metainformácie (pôvod modelu, metóda merania, dátum experimentu,...) a ďalšie relevantné údaje. Každý model má od wwPDB pridelené unikátne 4-miestne alfanumerické PDBid. Modely môžu predstavovať aj rôzne komplexy alebo zlúčeniny. Práve z takýchto záznamov vieme zistiť, kde sa nachádzajú aktívne miesta proteínov. Najjednoduchší prístup by bol najprv nájsť všetky atómy mimo proteínu (tie by mali byť popísané ako `HETATM`?) a za aktívne miesta označiť ťažké atómy z proteínu do istej vzdialenosti, ktoré nie sú v kovalentnej väzbe z proteínom (to sa dá zistiť podľa dĺžky väzby).
 
@@ -175,20 +189,45 @@ Takto by sme sa síce mohli dostať k potrebným údajom o aktívnych miestach a
 
 **Rozhranie**
 
+TODO:
+
 [WWW >] [D03]
 [D03]: http://www.ebi.ac.uk/pdbe/
 [D03a]: http://www.wwpdb.org/
 
 
-### Catalytic Site Atlas (CSA)
+### [D04] [D04] Catalytic Site Atlas (CSA)
 
-Databáza podobná LigASite, obsahuje len katalitické ligandy. Stiahnuteľná SQL databáza.
+*EBI-EMBL*
+
+Gold standard databáza podobná LigASite, obsahuje len katalitické ligandy. Stiahnuteľná ako SQL.
 
 [Furnham N, Holliday GL, de Beer TA, Jacobsen JO, Pearson WR, Thornton JM. The Catalytic Site Atlas 2.0: cataloging catalytic sites and residues identified in enzymes. Nucleic Acids Res. 2014 Jan;42(Database issue):D485-9. PubMed PMID: 24319146.](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3964973/)
 
 
 [WWW >] [D04]
 [D04]: http://www.ebi.ac.uk/thornton-srv/databases/CSA
+
+
+### [D05] [D05] Uniprot
+
+*EBI-EMBL, SIB, PIR*
+
+Databáza proteínov s anotáciami. Skladá sa z dvoch častí: UniProtKB/Swiss-Prot a UniProtKB/TrEMBL. Swissprot je ručne anotovaná non-redundantná databáza. Experimentálne výsledky aj predikcie sú manuálne overované a aktualizované. Duplicitné výsledky sa progresívne premazávajú. TrEMBL na druhej strane je automaticky anotovaná databáza. Ďalej sú dostupné "clustered databázy", ktoré zhlukujú proteíny podľa sekvenčnej identity.
+
+V databáze sú dostupné odkazy na ostatné databázy, experimentálne zistené štruktúry, články týkajúce sa proteínu, taxonomické informácie... Všetky tieto údaju sú stiahnuteľné v XML podľa Uniprot Accession kódu (unikátneho identifikátoru). V niektorých prípadoch sú dostupné priamo dokonca informácie o aktívnych miestach proteínu (spolu s polohou!). Každopádne, veľmi zaujímavé sú už len PDB záznamy a odkazy na konkrétne rodiny proteínov (bez nutnosti využívať treťostranné služby).
+
+```
+<feature type="active site" description="Proton acceptor">
+  <location> <position position="14"/> </location>
+</feature>
+```
+
+Napr. `http://www.uniprot.org/uniprot/P0A7D4.xml`
+
+
+[WWW >] [D05]
+[D05]: http://www.uniprot.org/
 
 
 
