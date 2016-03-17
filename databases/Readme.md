@@ -153,7 +153,7 @@ na príklade [ADENYLOSUCCINATE SYNTHETASE](http://www.ligasite.org/index.php?apo
 * `<sws>P0A7D4</sws>` Uniprot accession code
 * `<residue position="11" type="W">` pozícia atómu v apo-štruktúre a kód amk.
 
-```
+```XML
             <contact index="1">
               <pdb_holo>1cg0</pdb_holo>
               <protein_chain>A</protein_chain>
