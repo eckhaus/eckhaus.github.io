@@ -67,12 +67,12 @@ Jedna z najväčších databáz svojho druhu. Obsahuje údaje o protein-ligand(-
 
 V databáze sa dá vyhľadávať online, nie ale je možné po sieti pristupovať do databázy priamo. Dostupné je však RESTful-ish rozhranie pre sťahovanie dát v csv/zip. Pre dané PDB poskytuje možnosť stiahnuť si buď upravený PDB file proteínu (odstránenými atómami viac ako 10 Angstrom o proteínu), zoznam podobných proteínov (viď vpravo) alebo zoznam všetkých proteínov (v databáze) triedy do ktorej patrí ( podľa [EC number](https://en.wikipedia.org/wiki/Enzyme_Commission_number)).
 
-> **Ligand may be:**
+> "**Ligand may be:**
 
 > * peptide of 10 amino acids or less
 > * oligonucleotide of 4 nucleotides or less
 > * small organic molecule (e.g. ibuprofen)
-> * cofactor (e.g. NADPH)
+> * cofactor (e.g. NADPH)"
 
 **Príklad zoznamu:**
 
@@ -150,31 +150,73 @@ Apo-binding site `http://www.ligasite.org/pqs/1a4u.pqs`
 
 na príklade [ADENYLOSUCCINATE SYNTHETASE](http://www.ligasite.org/index.php?apo=1ade):
 
-* `<sws>P0A7D4</sws>` Uniprot accession code
-* `<residue position="11" type="W">` pozícia atómu v apo-štruktúre a kód amk.
+```XML
+<header>LIGASE (SYNTHETASE)</header>
+<title>STRUCTURE OF ADENYLOSUCCINATE SYNTHETASE PH 7 AT 25 DEGREES CELSIUS</title>
+<compnd>ADENYLOSUCCINATE SYNTHETASE</compnd>
+<sws>P0A7D4</sws>
+``` 
+
+Header, title, compound sú údaje priamo z PDB, sws je Uniprot accession code
 
 ```XML
-            <contact index="1">
-              <pdb_holo>1cg0</pdb_holo>
-              <protein_chain>A</protein_chain>
-              <ligand_uid>IMOC_440</ligand_uid>
-              <distance>3.3</distance>
-              <contact_surface>22.0</contact_surface>
-              <protein_atom class="II">O</protein_atom>
-              <ligand_atom class="V">C2</ligand_atom>
-            </contact>
+<residues>
+  <residue position="11" type="W">
+    <occurrences freq="0.8125">13</occurrences>
+    <code>TRP</code>
+    ...
 ```
+
+`<residue>` popisuje všetky väzby na danom atóme apo-štruktúry, atribút `position` určuje poradie v PDB, type zas amk. (redundantne, code v 3. riadku je to isté). `<occurences>` určuje počet interakcií tohto atómu? a atribút `freq` udáva percento z hološtruktúr v ktorých atóm interaguje.
+
+```XML
+<contact index="1">
+  <pdb_holo>1cg0</pdb_holo>
+  <protein_chain>A</protein_chain>
+  <ligand_uid>IMOC_440</ligand_uid>
+  <distance>3.3</distance>
+  <contact_surface>22.0</contact_surface>
+  <protein_atom class="II">O</protein_atom>
+  <ligand_atom class="V">C2</ligand_atom>
+</contact>
+```
+
+Záznam pre jeden kontakt, `<pdb_holo>` je PDBid hološtruktúry, v ktorej dochádza k tejto väzbe. `<ligand_uid>` Jednoznačne popisuje atóm ligandu ktorý vstupuje do väzby (bližšie v .xsd file). Ďalej nasledujú chemické vlastnosti väzby a popis väzobných atómov. Atribút class je definovaný nasledovne:
+
+```
+        One of the eight atom classes used to describe atoms in LPC:
+	  -    I = 'Hydrophilic'
+	  -   II = 'Acceptor'
+	  -  III = 'Donor'
+	  -   IV = 'Hydrophobic'
+	  -    V = 'Aromatic'
+	  -   VI = 'Neutral'
+	  -  VII = 'Neutral-donor'
+	  - VIII = 'Neutral-acceptor'
+```
+
+Po časti `<residues>` popisujúcej interakcie nasleduje `<holo_structures>`, ktorá definuje holo-štruktúry príslušiace k našek apo-štruktúre.
+
+```XML
+<holo_structures>
+  <pdb pdbId="1cg0">
+    <header>LIGASE</header>
+    ...
+  <pdb ...>
+```
+
+`<pdb>` je záznam, ktorý popisuje jednu holo-štruktúru a obsahuje zoznam všetkých ligandov (TODO: doštudovať PDB)
 
 #### TODO:
 
-Pre istotu chcecknut metodologiu MOAD-u, naozaj sa jedná len o malé molekuly, alebo som si misinterpretoval ten cutoff vo vzdialenosti 10A?
+Pre istotu chcecknut metodologiu MOAD-u, naozaj sa jedná LEN o malé molekuly, alebo som si to nejako misinterpretoval?
 
-Prehnať data PyMolom, zistiť čo presne vyjadrujú tie súradnice (asi aktívne miesta, prečo je tam však pqs prípona.. PISA woodoo?)
+Prehnať data PyMolom, zistiť čo presne vyjadrujú tie súradnice (aktívne miesta, prečo je tam však pqs prípona.. )
 
- * Suradnice su nabindovane na `<contact>` attribute z XML-ka a proste externe dopĺňajú 3D polohu?
- * Apo binding site proste hovori o priestorovych zmenach pri prechode z neviazanej do viazanej strukury?
+ * Suradnice su nabindovane na `<contact>` z XML-ka a proste externe dopĺňajú 3D polohu?
+ * Apo binding site coordinates hovorí o priestorových zmenách pri prechode z neviazanej do viazanej štruktúry?
 
-Zistiť ako sú skladované tie residues v XML-ku (asi doštudovať PDB).
+Zistiť ako sú skladované tie residues v XML-ku (doštudovať PDB).
 
 Zistiť ako kvartérna štruktúra ovplyvňuje aktívne miesta, v čom sa využíva PISA.
 
@@ -249,11 +291,12 @@ Napr. `http://www.uniprot.org/uniprot/P0A7D4.xml`
 
 
 
-### Poznámky
+### Záverečné divné poznámky (staré)
 
 S MOADom to bude možno dosť ťažké. U veľkého množstva experimentálne dokázaných štruktúr ukazuje kde sú aktívne miesta, ako sú dobré a pod. Museli by sme však nájsť podľa PDB materský proteín a vyselektovat z Uniprotu, alebo niečoho takého (všekty/nejaké) nenaviazané štruktúry, na ktorých sa spustia skúmané predikčné algoritmy.. to by nemusel byť príliš veľký problém, ak by boli také štruktúry dostupné (zdá sa, že stačí jedna ak je to X-ray s dobrým rozlíšením (pod 2.5A) teda aspoň podľa ligasite-u)
 
 Postup: zoberiem MOAD ako zaručený štandard, vyťažím všetky Uniprot accession IDs obsahujúce daný PDB. Z Uniprot vytiahnem PDB všetkých štruktúr a cez RCSB/PDBe zistím, či je to len čistý proteín... čo teda nemusí byť také jednoduché, čistý nikdy nebude - ide pravdepodobne skôr o to či sú voľné miesta na ktorých predpovedá MOAD nejaké väzby? (a tiež, ako by boli definované voľné miesta - žiadne väzby v nejakom rádiuse?)
+- neskôr som našiel Ligand Contact Tool z FireDB
 
 LigASite má toto všetko poriešené, nič netreba predspracovávať, vyhodnocovať. Jedine možno pridať anotácie o proteínovej skupine, ale to ide ľahko z Uniprotu/hocičoho.
 
