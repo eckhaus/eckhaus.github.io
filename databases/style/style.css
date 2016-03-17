@@ -432,7 +432,7 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 2px 2px 3px rgba(0,0,0,0.2);
   box-shadow: inset 2px 2px 3px rgba(0,0,0,0.2);
 }
-@media (max-width: 1180px) {
+@media (max-width: 10000px) {
   .content pre > code {
     background: #f3f6fb;
     border: solid 1px #e7eaee;
@@ -540,7 +540,7 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
     clear: both;
     width: 100%;
   }
-
+  body:not(.no-literate) .content > pre,
   body:not(.no-literate) .content > blockquote {
     width: 380px;
     padding-left: 20px;
@@ -548,21 +548,20 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
     float: right;
     clear: right;
   }
-
+  body:not(.no-literate) .content > pre + p,
   body:not(.no-literate) .content > blockquote + p,
+  body:not(.no-literate) .content > pre + ul,
   body:not(.no-literate) .content > blockquote + ul,
+  body:not(.no-literate) .content > pre + ol,
   body:not(.no-literate) .content > blockquote + ol,
+  body:not(.no-literate) .content > pre + h4,
   body:not(.no-literate) .content > blockquote + h4,
+  body:not(.no-literate) .content > pre + h5,
   body:not(.no-literate) .content > blockquote + h5,
+  body:not(.no-literate) .content > pre + h6,
   body:not(.no-literate) .content > blockquote + h6 {
     clear: both;
   }
-  body:not(.no-literate) .content > pre + p,
-  body:not(.no-literate) .content > pre + ul,
-  body:not(.no-literate) .content > pre + ol,
-  body:not(.no-literate) .content > pre + h4,
-  body:not(.no-literate) .content > pre + h5,
-  body:not(.no-literate) .content > pre + h6,
   body:not(.no-literate) .content > p,
   body:not(.no-literate) .content > ul,
   body:not(.no-literate) .content > ol,
