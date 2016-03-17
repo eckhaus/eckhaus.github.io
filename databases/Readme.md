@@ -13,10 +13,11 @@ Databázy
 
 TODO:
 
-* [Enzyme portal](http://www.ebi.ac.uk/enzymeportal/)/[Brenda](http://www.brenda-enzymes.info/) databázy enzýmov
 * [FireDB](http://firedb.bioinfo.cnio.es) SQLDB a [Ligand Contact Tool](http://firedb.bioinfo.cnio.es/Php/Contact.php) na cut-off vyhľadávanie aktívnych miest v známych štruktúrach
-* [PDBsite](http://wwwmgs.bionet.nsc.ru/mgs/gnw/pdbsite/)
-* [BindingDB](https://www.bindingdb.org/bind/index.jsp)
+* [Enzyme portal](http://www.ebi.ac.uk/enzymeportal/)/[Brenda](http://www.brenda-enzymes.info/) databázy enzýmov
+
+* [PDBsite](http://wwwmgs.bionet.nsc.ru/mgs/gnw/pdbsite/) (momentálne nefunkčný) nástroj na vyhľadávanie aktívnych miest?
+* [BindingDB](https://www.bindingdb.org/bind/index.jsp) databáza väzobných afinít
 * [Merops](https://merops.sanger.ac.uk/index.shtml)
 * [EBI Intact](http://www.ebi.ac.uk/intact/) databáza proteínových interakcií
 * [String DB](http://string-db.org/)
@@ -65,7 +66,7 @@ Jedna z najväčších databáz svojho druhu. Obsahuje údaje o protein-ligand(-
  * Protein - cofactor
  * Protein - ligand - cofactor
 
-V databáze sa dá vyhľadávať online, nie ale je možné po sieti pristupovať do databázy priamo. Dostupné je však RESTful-ish rozhranie pre sťahovanie dát v csv/zip. Pre dané PDB poskytuje možnosť stiahnuť si buď upravený PDB file proteínu (odstránenými atómami viac ako 10 Angstrom o proteínu), zoznam podobných proteínov (viď vpravo) alebo zoznam všetkých proteínov (v databáze) triedy do ktorej patrí ( podľa [EC number](https://en.wikipedia.org/wiki/Enzyme_Commission_number)).
+V databáze sa dá vyhľadávať online, nie ale je možné pristupovať do databázy priamo. Dostupné je rozhranie pre sťahovanie dát v csv/zip. Pre dané PDB poskytuje možnosť stiahnuť si buď upravený PDB file proteínu (s odstránenými atómami viac ako 10 Angstrom od proteínu), zoznam podobných proteínov alebo zoznam všetkých proteínov v databáze triedy do ktorej patrí ( podľa [EC number](https://en.wikipedia.org/wiki/Enzyme_Commission_number)).
 
 > "**Ligand may be:**
 
@@ -76,7 +77,7 @@ V databáze sa dá vyhľadávať online, nie ale je možné po sieti pristupova�
 
 **Príklad zoznamu:**
 
-Napravo máme EC triedu *3.4.21.7*, ktorá obsahuje jednu rodinu proteínov s reprezentatnom 1CEB (PDB) a jedným ďalším proteínom 1CEA. Po názve proteínu vždy nasledujú prvky vstupujúce do reakcie (s popisokom valid/invalid). Jednotlivé stĺpce sú presne popísané na stránkach [MOAD FAQ](http://www.bindingmoad.org/Home/faq) pod "What is the CSV format?".
+Nižšie máme EC triedu *3.4.21.7*, ktorá obsahuje jednu rodinu proteínov s reprezentatnom 1CEB (PDB) a jedným ďalším proteínom 1CEA. Po názve proteínu vždy nasledujú prvky vstupujúce do väzby s pozícou na ktorú sa viažu a popisokom valid/invalid podľa toho, či spĺňajú MOAD-om stanovené podmienky. Jednotlivé stĺpce sú presne popísané na stránkach [MOAD FAQ](http://www.bindingmoad.org/Home/faq) pod "What is the CSV format?".
 
 ```
 3.4.21.7,,,,,,,,,
@@ -114,31 +115,30 @@ Napravo máme EC triedu *3.4.21.7*, ktorá obsahuje jednu rodinu proteínov s re
 
 *Universite de Lille, UCL*
 
-O niečo menšia databáza ako MOAD. Pracuje na prakticky komplementárnych prípadoch (ešte preveriť). LigASite predpokladá, že väčšina biologicky irelevantných ligandov (nejakých náhodných kontaminantov, ktoré sa primárne neviažu na dané miesto) bude spadať do kategórie malých molekúl (pod 10 "ťažkých" atómov - t.j. not vodík AFAIK). Ďalej boli vyselektované ligandy s určitým počtom medziatomických väzieb (vypočítané automaticky - Sobolev et al. :nástroj [LPC] [D02b]). Hranica bola stanovená podľa podielu relevantných interakcií v závislosti na počte väzieb na nejakej malej podmnožine. Pri 100+ väzbách bolo len cca 10% väzieb irelevantných (čo sa môže hodiť aj pri filtrovaní dát z iných zdrojov).
+O niečo menšia databáza ako MOAD. Pracuje na prakticky komplementárnych prípadoch (ešte preveriť). LigASite predpokladá, že väčšina biologicky irelevantných ligandov (nejakých náhodných kontaminantov, ktoré sa primárne neviažu na dané miesto) bude spadať do kategórie malých molekúl (pod 10 "ťažkých" atómov - t.j. hocičo okrem vodíku?). Ďalej boli vyselektované ligandy s určitým počtom medziatomických väzieb (vypočítané automaticky - Sobolev et al. :nástroj [LPC] [D02b]). Kritická hranica bola stanovená podľa počtov väzieb v ručne vyhodnotenom datasete. Pri 100+ atomických interakciách bolo len cca 10% väzieb irelevantných.
 
 **Čo je v databáze**
 
- * holo- a apo- štruktúry 391 (816 redundantných) proteínov
+ * (viazané) holo- a (neviazané, vždy aspoň 1) apo-štruktúry 391 (816 redundantných) proteínov
  * len interakcie s dostatočne vysokým počtom interatomických väzieb
  * prísne, ale prevažne automaticky vyselektované data z PDB obohatené o metainformácie z ďalších nástrojov
 
 **Výhody**
 
-Táto databáza má už na prvý pohľad veľa vlastností výhodných pre náš projekt. Poskytuje zoznam viazaných (holo) aj neviazaných (apo) štruktúr. Ako trénovací vstup pre algoritmy predikujúce aktívne miesta chceme použiť neviazanú štruktúru a výsledok porovnať s databázou viazaných štruktúr. Na stránkach LigASite  je práve tento proces popísaný ako jedno z primárnych zamýšľaných použití dát. Celý proces priradzovania a filtrovania bound/unbound štruktúr je vykreslený vo [flowcharte na stránkach](http://www.ligasite.org/index.php?chart)
-a popísaný v geniálnom hlavnom [článku] [D02a] projektu.
+Táto databáza má už na prvý pohľad veľa vlastností výhodných pre náš projekt. Poskytuje zoznam viazaných aj neviazaných štruktúr. Ako trénovací vstup pre algoritmy predikujúce aktívne miesta chceme použiť neviazanú štruktúru a výsledok porovnať s databázou viazaných štruktúr. Na stránkach LigASite  je práve tento proces popísaný ako jedno z primárnych zamýšľaných použití dát. Celý proces priradzovania a filtrovania holo/apo štruktúr je vykreslený vo [flowcharte na stránkach](http://www.ligasite.org/index.php?chart)
+a popísaný v hlavnom [článku] [D02a] projektu.
 
 > "A dataset used to benchmark binding site prediction methods should ideally consist of proteins with one unbound structure to apply the prediction method, and at least one bound structure to derive the reference definitions of known binding sites. This is necessary to account for the fact that proteins can undergo structural changes upon binding, and that consequently, applying a binding site prediction method to a bound structure from which the ligand is deleted does not reproduce appropriately situations where the binding site location is truly unknown."
 
-
 **Rozhranie**
 
-Rozhranie je tiež priateľskejšie ako u MOADu. Pre každé PDB apo-štruktúry (neviazanej) sa dá stiahnuť XML (dostupné [schema] [D02c]) obsahujúce všetky holo-štruktúry, počty väzieb, atómov ligandu, chemickú štruktúru, PDB id, smiles kód... celá non-redundant DB má cca 100 MB, ide však prakticky len o skompilované data z PDB + ďalších online dostupných nástrojov. Existuje teda aj ultra-kompaktná kostra databázy o veľkosti $\approx$ 700 kB obsahujúca
+Rozhranie je tiež priateľskejšie ako u MOADu. Pre každú PDB apo-štruktúru (neviazanej) sa dá stiahnuť XML (dostupné [schema] [D02c]) obsahujúce všetky holo-štruktúry, počty väzieb, atómov ligandu, chemickú štruktúru, PDB id, smiles kód... celá non-redundant DB má cca 100 MB, ide však prakticky len o skompilované data z PDB + ďalších online dostupných nástrojov. Existuje teda aj ultra-kompaktná kostra databázy o veľkosti $\approx$ 700 kB obsahujúca
 
 * field 1: apo PDB ID
 * field 2: residue type and position of binding site residue
 * field 3: a hyphen-separated list of holo PDB ID's in which the residue is found in contact with a ligand.
 
-Príklad (PDB=1a4u):
+Príklady (PDB=1a4u):
 
 XML file `http://www.ligasite.org/v9.7/xml/1a4u_ligasite.xml`
 
@@ -148,7 +148,7 @@ Apo-binding site `http://www.ligasite.org/pqs/1a4u.pqs`
 
 **Tour de XML**
 
-na príklade [ADENYLOSUCCINATE SYNTHETASE](http://www.ligasite.org/index.php?apo=1ade):
+na príklade [1ade: ADENYLOSUCCINATE SYNTHETASE](http://www.ligasite.org/index.php?apo=1ade):
 
 ```XML
 <header>LIGASE (SYNTHETASE)</header>
@@ -167,7 +167,7 @@ Header, title, compound sú údaje priamo z PDB, sws je Uniprot accession code
     ...
 ```
 
-`<residue>` popisuje všetky väzby na danom atóme apo-štruktúry, atribút `position` určuje poradie v PDB, type zas amk. (redundantne, code v 3. riadku je to isté). `<occurences>` určuje počet interakcií tohto atómu? a atribút `freq` udáva percento z hološtruktúr v ktorých atóm interaguje.
+`<residue>` popisuje všetky väzby na danom atóme apo-štruktúry, atribút `position` určuje poradie v PDB, type kód aminokyseliny (redundantne, code v 3. riadku je to isté). `<occurences>` určuje počet interakcií tohto atómu? a atribút `freq` udáva percento z hološtruktúr v ktorých atóm interaguje.
 
 ```XML
 <contact index="1">
@@ -181,7 +181,7 @@ Header, title, compound sú údaje priamo z PDB, sws je Uniprot accession code
 </contact>
 ```
 
-Záznam pre jeden kontakt, `<pdb_holo>` je PDBid hološtruktúry, v ktorej dochádza k tejto väzbe. `<ligand_uid>` Jednoznačne popisuje atóm ligandu ktorý vstupuje do väzby (bližšie v .xsd file). Ďalej nasledujú chemické vlastnosti väzby a popis väzobných atómov. Atribút class je definovaný nasledovne:
+Záznam pre jeden kontakt, `<pdb_holo>` je PDBid hološtruktúry, v ktorej dochádza k väzbe. `<ligand_uid>` Jednoznačne popisuje atóm ligandu ktorý vstupuje do väzby (bližšie v .xsd file). Ďalej nasledujú chemické vlastnosti a popis participujúcich atómov. Atribút class je definovaný nasledovne:
 
 ```
         One of the eight atom classes used to describe atoms in LPC:
@@ -210,14 +210,12 @@ Po časti `<residues>` popisujúcej interakcie nasleduje `<holo_structures>`, kt
 #### TODO:
 
 Pre istotu chcecknut metodologiu MOAD-u, naozaj sa jedná LEN o malé molekuly, alebo som si to nejako misinterpretoval?
-
 Prehnať data PyMolom, zistiť čo presne vyjadrujú tie súradnice (aktívne miesta, prečo je tam však pqs prípona.. )
 
  * Suradnice su nabindovane na `<contact>` z XML-ka a proste externe dopĺňajú 3D polohu?
- * Apo binding site coordinates hovorí o priestorových zmenách pri prechode z neviazanej do viazanej štruktúry?
+ * Apo binding site súbor hovorí o súradniciach všetkých aktívnych miest?
 
 Zistiť ako sú skladované tie residues v XML-ku (doštudovať PDB).
-
 Zistiť ako kvartérna štruktúra ovplyvňuje aktívne miesta, v čom sa využíva PISA.
 
 **Referencie**
@@ -249,7 +247,26 @@ Takto by sme sa síce mohli dostať k potrebným údajom o aktívnych miestach a
 
 **Rozhranie**
 
-TODO:
+`pdb=1ade`
+PDB: `http://www.ebi.ac.uk/pdbe/entry-files/download/pdb1ade.ent`
+PDBML (nový XML formát): `http://www.ebi.ac.uk/pdbe/entry-files/download/1ade.xml`
+mmCIF: `http://www.ebi.ac.uk/pdbe/entry-files/download/1ade_updated.cif`
+Assembly (niekedy nemáme len samotný proteín, treba určiť molekuly quaternárnej? štruktúry) v XML: `http://www.ebi.ac.uk/pdbe/static/entry/download/1ade-assembly.xml`
+FASTA: `http://www.ebi.ac.uk/pdbe/entry/pdb/1ade/fasta`
+Validation data (presnosť merania, kolízie, odchylky od Ramachandranovych uhlov etc.): `http://www.ebi.ac.uk/pdbe/entry-files/download/1ade_validation.xml` 
+
+Príklad assembly záznamu (2x 1ade proteín a voda)
+
+```XML
+<assembly_list entry_id="1ADE">
+  <assembly prefered="True" name="dimer" molecular_weight="94576.264" id="1" order="2" type="homo" composition="protein structure">
+    <entity count="2" entity_id="1" chain_ids="A,B" type="polymer" class="protein" source_entry="1ADE"/>
+    <entity count="2" entity_id="2" chain_ids="C,D" type="water" class="water" source_entry="1ADE"/>
+  </assembly>
+</assembly_list>
+```
+
+TODO: popis jednotlivých formátov, hlavne "vanilla PDB"
 
 [WWW >] [D03]
 [D03]: http://www.ebi.ac.uk/pdbe/
@@ -285,11 +302,10 @@ V databáze sú dostupné odkazy na ostatné databázy, experimentálne zistené
 
 Napr. `http://www.uniprot.org/uniprot/P0A7D4.xml`
 
+TODO: rozhranie
 
 [WWW >] [D05]
 [D05]: http://www.uniprot.org/
-
-
 
 ### Záverečné divné poznámky (staré)
 
