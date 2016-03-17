@@ -146,6 +146,24 @@ Súradnice `http://www.ligasite.org/pqs/1a4u.pqs`
 
 Apo-binding site `http://www.ligasite.org/pqs/1a4u.pqs`
 
+**Tour de XML**
+
+na príklade [ADENYLOSUCCINATE SYNTHETASE](http://www.ligasite.org/index.php?apo=1ade):
+
+* `<sws>P0A7D4</sws>` Uniprot accession code
+* `<residue position="11" type="W">` pozícia atómu v apo-štruktúre a kód amk.
+
+```
+            <contact index="1">
+              <pdb_holo>1cg0</pdb_holo>
+              <protein_chain>A</protein_chain>
+              <ligand_uid>IMOC_440</ligand_uid>
+              <distance>3.3</distance>
+              <contact_surface>22.0</contact_surface>
+              <protein_atom class="II">O</protein_atom>
+              <ligand_atom class="V">C2</ligand_atom>
+            </contact>
+```
 
 #### TODO:
 
