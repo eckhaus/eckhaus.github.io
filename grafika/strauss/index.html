@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Strauss</title>
+  <link rel="stylesheet" href="tufte.css"/>
+  <link rel="stylesheet" href="latex.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <article>
+    <h1 id="tufte-css">Straussov model osvetlenia</h1>
+    <p class="subtitle">Domáca úloha <a href="http://cgg.mff.cuni.cz/lectures/npgr004.cz.php"> NPGR004</a> : Róbert Eckhaus </p>
+    <h3><a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=62696"> Originálny paper</a></h3>
+    <section>
+      <h3 id="figures">Parametre materiálov</h3>
+      <ul>
+      	<li> Km = metalness (kovovosť) </li>
+      	<li> Ks = smoothness (hladkosť) </li>
+      	<li> Ka = ambient light (koeficient ambientného osvetlenia) </li>
+      	<li> Kt = transparency (priehľadnosť) </li>
+      	<li> n = index lomu</li>
+ 		<li> Color = farba materiálu</li>
+
+      </ul>
+     <h3> Vyrenderované obrázky </h3>
+     <br/><br/>
+      <figure>
+        <label for="mn-exports-imports" class="margin-toggle">&#8853;</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"/><span class="marginnote">
+        Rôzne parametre materiálov - zľava: <br><em>
+		(Kt = 0.5, Km = 0.0, Ks = 0.9) <br>
+        (Kt = 0.7, Km = 0.0, Ks = 0.9) <br>
+		(Kt = 0.2, Km = 1.0, Ks = 1.0)
+
+        </em></span>
+        <img src="img/balls.png"/>
+      </figure>
+
+      <figure>
+        <label for="mn-exports-imports" class="margin-toggle">&#8853;</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"/><span class="marginnote">Smoothness vs metalicity <em> <br> Najviac smooth telesá sú v popredí. Metalickosť stúpa smerom zprava do ľava. Všetky objeky sú nepriehľadné.</em> <br><br> Metalické objekty odrážajú viac svoju farbu aj keď sú veľmi hladké. Absolútne smooth objekty pôsobia ako zrkadlo. </span>
+        <img src="img/grid_final.png"/>
+      </figure>
+
+      <figure>
+        <label for="mn-exports-imports" class="margin-toggle">&#8853;</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"/><span class="marginnote">Metalické telesá <em> <br> Km = 1.0, mení sa Ks (0.0..1.0)</em> </span>
+        <img src="img/metal.png"/>
+      </figure>
+
+      <figure>
+        <label for="mn-exports-imports" class="margin-toggle">&#8853;</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"/><span class="marginnote">Non-metalické telesá <em> <br> Km = 0.0, mení sa Ks (0.0..1.0)</em> </span>
+        <img src="img/nonmetal.png"/>
+      </figure>
+
+      <figure>
+        <label for="mn-exports-imports" class="margin-toggle">&#8853;</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"/><span class="marginnote">Hladké telesá <em> <br> Ks = 1.0, mení sa Km (0.0..1.0)</em> </span>
+        <img src="img/smooth.png"/>
+      </figure>
+
+      <figure>
+        <label for="mn-exports-imports" class="margin-toggle">&#8853;</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"/><span class="marginnote">Drsné telesá <em> <br> Ks = 0.0, mení sa Km (0.0..1.0)</em> </span>
+        <img src="img/rough.png"/>
+      </figure>      
+
+    </section>
+
+  </article>
+</body>
+</html>
