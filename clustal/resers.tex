@@ -1,0 +1,181 @@
+\documentclass[nobib]{tufte-handout}
+
+
+%\geometry{showframe} % display margins for debugging page layout
+%\usepackage{ragged2e} 
+\usepackage{url}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage[normalem]{ulem}
+\usepackage[slovak]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+
+%\newcommand{\tr}[1]{\textcolor{red}{#1}}% red highlight
+%\newcommand{\tb}[1]{\textcolor{blue}{#1}}% blue highlight
+%\newcommand{\tg}[1]{\textcolor{gray}{#1}}% gray highlight
+\newcommand{\tg}[1]{}% red highlight
+\newcommand{\tr}[1]{}% red highlight
+\newcommand{\tb}[1]{#1}% green highlight
+
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\title{CLUSTAL W: improving the sensitivity of progressive multiple sequence alignment through sequence weighting,position-specific gap penalties and weight matrix choice ~\citep{clustal}}
+
+
+
+\author{Jakub Chromý, Zuzana Kroulíková, Róbert Eckhaus}
+
+\date{Apríl 2015} % without \date command, current date is supplied
+
+\begin{document}
+\maketitle
+\begin{abstract} \tb{\noindent
+Voľne dostupný program nazvaný \emph{CLUSTAL W} predstavoval v roku 1994 novú multiple sequence alignment metódu umožňujúcu hľadanie spoločných vzorov sekvencií k detekcii proteínových rodín, určenie homológie, predikciu sekundárnej a terciárnej štruktúry nových sekvencií, navrhovanie primerov či štúdium evolučnej príbuznosti v spojitosti s citlivejším prístupom k dátam a vysokou efektivitou.}
+\end{abstract}
+
+%\printclassoptions
+\justify
+Multiple sequence alignment (MSA) je nepostrádateľná metóda v molekulárnej biológii. V súčasnej dobe so vzrastajúcou intenzitou sekvenovania rastú i požiadavky na zvýšenie presnosti MSA, \tr{a} pokiaľ možno bez negatívneho vplyvu na rýchlosť. Práve to umožnil so svojimi inováciami \emph{CLUSTAL W}.\footnote{\emph{CLUSTAL W} rozširuje algoritmus progresívneho alignmentu Fenga a Doolittla ~\citep{fng}, ktorý bol v dobe vzniku článku dominantnou metódou výpočtu MSA}
+
+
+Pri klasickom alignmente dvoch sekvencií sa používa dynamické programovanie so skórovacími tabuľkami, ktoré je však pri MSA možné využiť len pri malom množstve krátkych sekvencií
+ – limitujúci je v tomto prípade výkon súčasných počítačov, a teda neprimerane dlhá doba na zostavenie alignmentu.
+ \footnote{Optimálny MSA patrí do skupiny tzv. NP-kompletných problémov~\citep{complexity}. To znamená, že pravdepodobne neexistuje vôbec žiaden "rýchly"\ algoritmus, ktorý by ho riešil. Dnes dostupné programy pre výpočet optimálneho MSA sú zväčša založené na dynamickom programovaní a dokážu spracovať len zadania s rádovo menej ako 10 sekvenciami.}
+  Preto \emph{CLUSTAL W} (a vo všeobecnosti všetky MSA programy) pri alignmente  \tb{viacerých} sekvencíí o väčšej dĺžke využíva heuristické algoritmy\tb{, ktoré síce vypočítajú len približne optimálny alignment, ale za prípustný čas.} \tr{, ktoré umožňujú flexibilne voliť pokračovanie výpočtu, tj. ktoré data, v akom poradí a ako sa budú spracovávať. }\tg{[note: toto je uz popis progresivneho pristupu, t.j. jednej konkretnej heuristiky. Ine algoritmy mozu postupovat inak]}
+
+
+Najdôležitejším predpokladom je, že homologické sekvencie sú si i evolučne blízke a teda, že\tr{prvotný} MSA je možné relatívne rýchlo zostaviť sériou párových alignmentov, ktoré kopírujú vetvenie fylogenetického stromu. Pritom sa ako prvé zostavujú veľmi presné alignmenty najpríbuznejších sekvencií, v ktorých sa určia preferované pozície medzier – tie sa už pri nasledujúcich alignmentoch so vzdialenejšími sekvenciami nemenia. Práve tu môže byť potenciálny problém, keďže chyby v prvotných alignmentoch zostanú fixované a ani pridávanie ďalších informácií z neskorších porovnávaní so vzdialenejšími sekvenciami ich už nijak neovplyvní. 
+
+Táto chybovosť môže plynúť\tr{jak} z nesprávneho zostavenia východzieho fylogenetického stromu, kedy vetvenie stromu môže byť nesprávne ovplyvnené vysokou lokálnou homológiou na úkor objektívnejšej celkovej homológie\tb{. Väčšina chýb však vzniká „jednoduchými“ misalign chybami v}\tr{; ale hlavne} prvotných párových alignmentoch najpríbuznejších sekvencií. Druhým závažným problémom môže byť výber vhodných alignment parametrov. 
+
+
+Pri jednoduchých alignmentoch sa \tr{kladie dôraz na počet zhod a}využívajú\tr{sa} 2 rôzne gap penalty – jedna pre vznik 
+a druhá pre rozšírenie medzery. 
+Takýto systém funguje dobre pri \tb{sekvenciách, ktoré sú od seba evolučne rovnako vzdialené. Problém nastane pri alignmente sekvencií, ktoré si sú rôzne podobné - systém, ktorý by používal jedinú skórovaciu maticu pre všetky sekvencie}\tr{evolučne príbuzných sekvenciách. Problém nastane pri alignmente vzdialenejších sekvencií, kde je väčší podiel medzier než zhod - predošlý skórovací systém}\tg{note: systém nezavádza, lebo skorovacie tabulky nefunguju pre vzialenejsie sekvencie, ale preto, ze rozne dvojice sekvencii naju roznu fylog. vzdialenost, teda sa neda pouzit jedina skorovacia tabulka} by zavádzal a bol by značne nepresný.
+
+Tento problém rieši \emph{CLUSTAL W} tým, že flexibilne mení skórovacie tabuľky a hodnoty gap penalt v závislosti na fylogenetickej vzdialenosti sekvencií\tr{, teda rôznym sekvenčným maticiam prisudzuje rôznu váhu a na základe toho mení skórovací systém. Presne táto}\tb{. Táto} inovácia výrazne zvýšila senzitivitu MSA. V ideálnom prípade získame už v tomto kroku alignment o vysokej kvalite, z ktorého sa dajú správne odvodzovať sekundárne resp. terciárne štruktúry. V zložitejších prípadoch dostaneme aspoň východzí alignment, ktorý poslúži ako \tr{dobrá matrica}\tb{dobrý základ} pre ďalšie spracovanie.
+
+
+\section{\textbf{Metódy programu}}\label{sec:methods}
+
+Beh programu prebieha v troch hlavných fázach:
+\begin{enumerate}
+\item Výpočet \textbf{matice vzdialeností} sekvencií: pre každú dvojicu sekvencií sa vypočíta ich \tr{evolučná} vzdialenosť pomocou párového (\emph{pairwise}) alignmentu. V programe \emph{CLUSTAL W} má užívateľ na výber 2 metódy: optimálne riešenie za použitia dynamického programovania, alebo rýchly aproximačný algoritmus.
+
+\item Na základe matice vzdialeností sa zostaví fylogenetický strom pomocou metódy zlučovania susedov. 
+\footnote{Pri výpočte fylogenetických stromov sa často používa princíp maximálnej úspornosti (parsimónie). Ten preferuje stromy reprezentujúce čo najmenej evolučných zmien. Nájsť najúspornejší strom je však znovu výpočetne nezvládnuteľná úloha. \emph{CLUSTAL W} preto opäť využíva heuristickú metódu - tzv. \emph{Neighbor Joining}~\citep{neighbor}. Algoritmus vychádza z počiatočnej hviezdicovej topológie stromu a postupne zhlukuje susediace taxóny tak, aby po každom kroku bol súčet dĺžok hrán stromu minimálny (pričom zlúčené taxóny sa berú už iba ako jeden list).} Tá vracia nezakorenený strom. Koreň určíme ako miesto, v ktorom bude priemerná dĺžka vetiev oboch jeho podstromov rovnaká. Tento postup nám dáva výsledný \textbf{vodiaci strom} \emph{(guide tree)} zodpovedajúci podobnosti jednotlivých sekvencií, kde dĺžky hrán sú priamo fylogenetické vzdialenosti a listy odpovedajú sekvenciám.
+
+\item Sekvencie sa \textbf{progresívne zrovnávajú} v poradí určenom vypočítaným stromom. Postupuje sa od evolučne najbližších dvojíc k najvzdialenejším. Alignment sa vykonáva metódou dynamického programovania a vstupujú doňho buď listy vodiaceho stromu (jednoduché sekvencie), alebo už spracované vnútorné vrcholy (hotové paiwise alignmenty medzi sebou navzájom alebo s jednoduchými sekvenciami).
+\end{enumerate}
+
+\subsection{Váhy sekvencií}\label{sec:wights}
+
+Každej sekvencii je priradená váha vyjadrujúca jej relatívnu dôležitosť. Tento krok reaguje na situáciu, v ktorej by mohlo viacero príbuzných sekvencií "zatieniť" jediný exemplár evolučne vzdialenejšej sekvencie, ktorá poskytuje systému novú informáciu. Preto je príbuzným sekvenciám priradená nižšia váha (môžeme o nich principálne uvažovať ako o jednej skupine, ktorej dôležitosť sa rozdelí medzi všetkých členov).
+
+\subsection{Samotný alignment}\label{sec:alignment}
+
+Pri samotnom progresívnom alignmente sa už vždy využíva dynamické programovanie. Postup pri skórovaní dvojíc residuí však musel byť pozmenený vzhľadom k tomu, že nepracujeme so sekvenciami, ale s celými alignmentami sekvencií (jednoduchú sekvenciu môžeme považovať za špeciálny prípad alignmentu).
+
+Vezmime si teda 2 alignmenty $a$ a $b$ pozostávajúce z $n$ resp. $m$ sekvencií $(a_1 \hdots a_n)$, $(b_1 \hdots b_m)$. Prvok na pozícii $n$ sekvencie $s$ označme $s(n)$. Potom nevážené skóre $S'_{a,b}(x,y)$ alignmentov $a,b$ na pozíciách $x,y$ so skórovacou maticou $M$ vypočítame ako priemer skóre všetkých dvojíc residuí na daných pozíciách.
+
+%$$
+%S'_{a,b}(x,y) = \overbrace{ \frac{M(a_1(x),b_1(y)) +  %M(a_2(x),b_1(y)) + \hdots + M(a_i(x),b_j(y))}{m\times n}  %}^{m\times n \text{ dvojíc}}
+%$$
+
+
+Algoritmus však uvažuje aj vyššie popísané relatívne dôležitosti sekvencií. Príspevky jednotlivých dvojíc residuí v $S'_{a,b}(x,y)$ preto ešte prenásobíme váhami $w$ sekvencií, z ktorých pochádzajú. Výsledné skóre bude teda férovo zohľadňovať aj znaky z odľahlejších a "podreprezentovaných" sekvencií fylogenetického stromu. Dostávame výsledné skóre:
+
+
+$$
+S_{a,b}(x,y) = \frac{1}{mn} \sum_{i = 1}^{n} \sum_{j = 1}^{m} (w_i\cdot w_j \cdot M(a_i(x), b_j(y)))
+$$
+
+
+\subsection{Gap penalties}\label{sec:gaps}
+
+Ďalším prínosom \emph{CLUSTAL}-u je dynamický charakter tzv. \emph{Gap penalties}, teda postihov udeľovaných pri vytvorení alebo rozšírení medzier. Zozlišujeme \emph{Gap Opening Penalty (GEP)} - postih za vytvorenie novej medzery a \emph{Gap Extension Penalty (GEP)} - postih za rozšírenie medzery o jedno residuum. Počiatočné hodnoty sú nastavené užívateľom a  algoritmus sa ich v priebehu výpočtu snaží upravovať tak, aby zodpovedali charakteru dát, s ktorými pracuje.
+
+
+ \begin{itemize}
+ \item [\textbf{Gap Opening Penalty}] závisí od
+	 \begin{enumerate}
+	 \item skórovacej tabuľky: prepočítava sa podľa priemerného skóre misaligned dvojice.
+	% \footnote {výsledný koeficient pre skórovaciu $M \in %\mathbb{R}^{n\times n}$, ktorým sa prenásobí GOP je
+	% $$ D(M) = \frac{n^2-n}{2}\sum_{i\neq j} M(i,j)$$ }
+	 \item podobnosti sekvencií: zvyšuje sa lineárne so zvyšujúcou sa podobnosťou porovnávaných sekvencií. Takto dostaneme konzervatívnejšie alignmenty u podobných sekvencií (väčšiu preferenciu identít).
+	 \item dĺžky sekvencií: zvyšuje sa so zvyšujúcou sa dĺžkou sekvencií
+	%$$ GOP \rightarrow (GOP + \log(\min(N,M))*D(M)*percentID$$
+	 \end{enumerate}
+
+ \item[\textbf{Gap Extension Penalty}]
+	 je závislá na rozdiele dĺžok sekvencií a bude nastavná na vyššiu hodnotu, ak je jedna zo sekvencií oveľa kratšia ako tá druhá.
+	 
+ \item[\textbf{Gap Penalties závislé od pozície v sekvencii}] $ $\\
+ 
+\emph{CLUSTAL W} zavádza tiež modifikácie \emph{gap penalties} na základe lokálnych vlastností sekvencie. Pred každým alignmentom sa vypočíta pre každú pozíciu v oboch sekvenciách pravdepodobnosť, že sa tam nachádza začiatok medzery. Lokálne hodnoty \emph{GAP} a \emph{GOP} ovplyvňujú:
+
+\begin{enumerate}
+\item Ak je na danej pozícii medzera, tak tu znížime \emph{GOP}. Znížená hodnota \emph{GOP} sa pohybuje od 30\% pôvodnej hodnoty (ak sa jednalo o jedinú medzeru v alignmente mnohých sekvencií) po 0\% (ak je medzera vo všetkých sekvenciách alignmentu). \emph{GEP} sa vždy zníži na polovicu.
+%\footnote{ 
+%  $$ GOP \rightarrow GOP \cdot 0.3 \frac{\text{sekvencie bez %medzery}}{\text{všetky sekvencie}}$$
+%  $$ GEP \rightarrow GEP/2$$}
+\item Medzery sa zväčša nevyskytujú príliš blízko seba. Ak na danej pozícii nie je žiadna medzera, ale v okruhu 8 residuí nejaká je, zvýšime \emph{GOP} zhruba dvoj- až štvornásobne (podľa vzdialenosti od najbližšej medzery).
+%\footnote{
+%  $$ GOP \rightarrow GOP \cdot (4-\text{vzdialenosť}/4)$$
+%  }
+  
+\item Postupnosť 5 a viac hydrofilných residuí nazývame hydrofilný úsek (\emph{hydrophilic stretch}). V prípade, že sa na pozícii nenachádza medzera a je sučasťou hydrofilného úseku, znížime tu GOP o tretinu.
+
+\item Experimentálne boli zistené frekvencie výskytu medzier po jednostlivých residuách. Po niektorých residuách je otvorenie medzery pravdepodobnejšie. V prípade, že skúmaná pozícia nebsahuje v žiadnej sekvencii medzeru ani neleží na hydrofilnom úseku, prenásobime GOP váhou \footnote{Ak sa jedná o alignment, vypočítame priemer cez váhy residuí jednotlivých sekvencií} podľa tabuľky frekvencií výskytu medzier.
+\end{enumerate}
+
+\end{itemize}
+
+\subsection{Skórovacie tabuľky}\label{sec:tables}
+
+V \emph{CLUSTAL W} sú k dispozícii 2 triedy tabuliek - BLOSUM (predvolená) a PAM. Každá trieda obsahuje tabuľky špecializované na rôzne príbuzné sekvencie. Príbuznosť sa zistí priamo z pomocného stromu a na základe nej sa vyberie najvhodnejšia tabuľka.
+
+\subsection{Odloženie výpočtu vzdialených sekvencií}\label{sec:delay} 
+
+Niektoré sekvencie môžu byť silne divergujúce od zvyšku dát a preto sa s nimi počíta len veľmi obtiažne. Informácie nazbierané počas behu MSA nám však vedia napovedať, kde sú pravdepodobnejšie miesta začiatku medzier a ako zarovnať slabo zakonzervované časti sekvencie. Preto \emph{CLUSTAL W} poskytuje možnosť odložiť výpočet alignmentov divergentných sekvencií až na koniec behu programu, keď už budú tieto pomocné informácie dostupné. Za divergujúcu pritom považujeme sekvenciu, ktorá ma sekvenčnú identitu nižšiu ako ísta medzná hodnota (napr. 40\%) so všetkými ostatnými sekvenciami v alignmente.
+
+\section{\textbf{Porovnanie s ďalšími metódami}}\label{sec:conclusion}
+
+V dobe vzniku \emph{CLUSTAL W} bolo hlavným problémom nastavenie pozične-špecifických parametrov pre multiple alignment. Ostatné programy sa tento problém snažili riešiť buď prostredníctvom navýšenia lokálných gap penalt v pravidelných sekundárnych štruktúrach, pričom vychádzali z už známych 3D štruktúr; alebo v druhom prípade prostredníctvom tzv. skrytého Markovho modelu, ktorým sa určili pozične-špecifické gap penalty a váhy jednotlivých  residuálnych substitúcií, čo ale vyžadovalo veľký počet už známych proteínových domén. \emph{CLUSTAL W} však tieto informácie získavá už priamo zo súboru porovnávaných sekvencií, preto mohol byť aplikovaný na ľubovoľný set sekvencií a to i bez známej vyššej štruktúry. Úspešnosť tejto metódy závisí na množstve sekvencií, ich evolučnej príbuznosti, na presnosti maticových parametrov a na schopnosti vhodne prispôsobovať tieto parametry v priebehu alignmentu.
+
+\section{\textbf{Záver a diskusia}}\label{sec:conclusion}
+\tr{Program \emph{CLUSTAL W} výrazně zlepšil senzitivitu  běžně používaných multiple sequence alignment metod pro alignment rozdílných proteinových sekvencí. Inovace tento pokrok umožňující byly: zaprvé, ke každé sekvenci je přiřazena konkrétní váha v částečném alignmentu za účelem snížení důležitosti blízce příbuzných sekvencí a vyzdvihnutí nejvíce vzdálených. Za druhé, substituce aminokyselinových matric jsou střídány na odlišných alignment částech v závislosti na odlišnosti porovnávaných sekvencí. Za třetí, zbylé specifické gap penalty a místně redukované gap penalty  v hydrofilních oblastech vedou ke vzniku spíše nových gap penalt v potenciálních loop oblastech než v pravidelné sekundární struktuře. Za čtvrté, poloha v časných alignments, kde byly otevřené gaps, získává lokální redukované gaps, způsobující otevírání nových gaps v této poloze. 
+Výhodou programu \emph{CLUSTAL W} byla jeho schopnost pracovat s větším množstvím dat, než bylo do té doby možné, navíc s větší přesností, rychlostí a celkovou efektivitou. Průlomovým byl fakt, že byla umožněna práce s jakýmikoli skupinami sekvencí nehledě na to, zda je z daného setu sekvencí nějaká struktura již známa. 
+Rozvoj v získávání dat o proteinových doménách či proteinových rodinách neustále roste, což mimo přísun nových potenciálně využitelných dat vede i k větší přesnosti programů a porovnávání daných struktur.
+V současnosti je již \emph{CLUSTAL W} nahrazen programem \emph{CLUSTAL Omega}, který je ještě výkonnější, tedy mnohem rychlejší a schopný porovnávat i statisíce sekvencí najednou.}
+
+Program \emph{CLUSTAL W} výrazne zlepšil senzitivitu bežne používaných multiple sequence alignment metód pre alignment rôznych proteínových sekvencií. 
+
+Inovácie tento pokrok umožňujúce boli: za prvé, ku každej sekvecii je priradená konkrétna váha v čiastočnom alignmente za účelom zníženia dôležitosti blízko príbuzných sekvencií a vyzdvyhnutia tých naviac vzdialených. Za druhé, substitučné matice pre aminokyseliny sú striedané pri rôznych alignmentoch v závislosti na príbuznosti porovnávaných sekvencií. Za tretie, gap penalties závislé od výskytu konkrétnej aminokyseliny na danej pozícii a miestne redukované gap penalties v hydrofilných oblastiach vedú ku vzniku nových medzier skôr v potenciálnych loop oblastiach ako v pravidelnej sekundárnej štruktúre. Za štvrté, polohy, kde boli v skorších alignmenoch vytvorené medzery, dostávajú redukovanú lokálnu GOP, čo podporuje tvorbu nových medzier na týchto pozíciách.
+
+Výhodou programu \emph{CLUSTAL W} bola jeho schopnosť pracovať s väčším množstvom dát, než bolo do tej doby možné, naviac s väčšou presnosťou, rýchlosťou a celkovou efektivitou. Prielomovým bol fakt, že bola umožnená práca s akýmikoľvek skupinami sekvencií bez ohľadu na to, či je z danej množiny sekvencií nejaká štruktúra už známa.
+
+Rozvoj v získavaní dát o proteínových doménach či proteínových rodinách neustále rastie, čo mimo prísun nových potenciálne využiteľných dát vedie i k väčšej presnosti programov a porovnávania štruktúr. V súčasnosti je už \emph{CLUSTAL W} nahradený programom \emph{CLUSTAL Omega}~\citep{omega}, ktorý je ešte výkonnejší, teda ešte o mnoho rýchlejší a schopný porovnávať aj státisíce sekvencií naraz.
+
+\bibliography{resers.bib}
+\bibliographystyle{unsrt}
+\end{document}
