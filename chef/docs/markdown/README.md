@@ -60,23 +60,23 @@ Nasledujú príkazy, každý na samostatnom riadku, zakončený bodkou.
 Nepovinné časti príkazov budeme uzatvárať do hranatých zátvoriek. Ak nie je uvedené, s ktorou nádobou (mixing bowl/baking dish) sa pracuje, budeme predpokladať, že ide o prvú nádobu (svojho druhu).
 Argumenty príkazov určujúce poradie (o koľkú nádobu sa jedná) sú zapísané v tvare 1st, 2nd, 3rd, 4th ...
 
-* *Take **ingredient** from refrigerator.* <br>
+* Take **ingredient** from refrigerator. <br>
     Načíta číslo zo štandardného vstupu do premennej **ingredient**
     
     
-* *Put **ingredient** into [nth] mixing bowl. * <br>
+* Put **ingredient** into [nth] mixing bowl.  <br>
     Uloží hodnotu ingrediencie na vrch n-tého zásobníku.
     
     
-* *Fold **ingredient** into [nth] mixing bowl. * <br>
+* Fold **ingredient** into [nth] mixing bowl.  <br>
     Odstráni hodnotu z vrchu n-tého zásobník a uloží ju do danej ingrediencie.
     
     
-* *Add **ingredient** [to [nth] mixing bowl]. * <br>
+* Add **ingredient** [to [nth] mixing bowl].  <br>
     Pripočíta hodnotu ingredienci k hodnote na vrchu zásobníku.
     
     
-* *Remove **ingredient** [from [nth] mixing bowl]. * <br>
+* Remove **ingredient** [from [nth] mixing bowl].  <br>
     Pripočíta hodnotu ingredienci od hodnoty na vrchu zásobníku.
 
 
@@ -184,7 +184,7 @@ Pomocný recept môžeme zavolať pomocou príkazu *serve with*. Pomocný recept
  
  Od 8. riadku sa začína samotné telo programu.
  
- Chop iterator označuje začiatok cyklu "Chop", ktorý končí riadkom 16. (príkazom until chopped). Telo cyklu urobi krok výpočtu nasledovne: do zásobníka sa 2x načíta hodnota fib2 ($F_n$), potom sa k vrchu zásobníka pričíta fib1 ($F_{n-1}$), čím vznikne ďalší člen ($F_{n+1}$). Ten sa načíta do fib2 a zvyšná pôvodná hodnota fib2 sa načíta do fib1. Takto sme sa dostali zo stavu kde fib1 = $F_{n-1}$, fib2 = $F_n$ do stavu, kde fib1=$F_n$ a fib2 = $F_{n+1}$. Nakoniec ešte uložíme hodnotu fib1 na zásobník, kde zostane až do vypísania výsledku.
+ Chop iterator označuje začiatok cyklu "Chop", ktorý končí riadkom 16. (príkazom until chopped). Telo cyklu urobi krok výpočtu nasledovne: do zásobníka sa 2x načíta hodnota fib2 ( $F_n$ ), potom sa k vrchu zásobníka pričíta fib1 ( $F_{n-1}$ ), čím vznikne ďalší člen ( $F_{n+1}$ ). Ten sa načíta do fib2 a zvyšná pôvodná hodnota fib2 sa načíta do fib1. Takto sme sa dostali zo stavu kde $fib1 = F_{n-1}$, $fib2 = F_n$ do stavu, kde $fib1=F_n$ a $fib2 = F_{n+1}$. Nakoniec ešte uložíme hodnotu fib1 na zásobník, kde zostane až do vypísania výsledku.
  
  Cyklus "Mash" na riadkoch 18. až 20. len prevráti poradie prvého zásobníku tak, že vždy načíta vrch zásobníka do premennej (18.) a následne uloží obsah premennej do druhého zásobníka.
  
@@ -232,6 +232,7 @@ Pomocný recept môžeme zavolať pomocou príkazu *serve with*. Pomocný recept
  Samotný projekt sa dá nájsť na GitHub-e: https://github.com/eckhaus/eckhaus.github.io/tree/master/chef
  
  Skladá sa zo
+
  * zdrojového kódu v C++ - adresár source
  * dokumentácie (t.j. doxygen, web stránka a tento dokument - adresár docs
  * testovacích vstupov - adresar recipes.
