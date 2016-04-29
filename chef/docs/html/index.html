@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Chef</title>
+  <link rel="stylesheet" href="tufte.css"/>
+  <link rel="stylesheet" href="latex.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+ 
+<style type="text/css">
+	h3 {color: #731805;}
+	pre {font-size: 0.8em;}
+	img {border: 1px solid #EEEEEE;}
+
+</style>
+
+<body>
+  <article>
+    <h1 id="tufte-css">Chef language interpreter</h1>
+    <p class="subtitle">Róbert Eckhaus, 2016 </p>
+    <section>
+    <h3> Chef language </h3>
+	<p> Chef is <a href="https://en.wikipedia.org/wiki/Stack-oriented_programming_language">stack-oriented</a> <a href="https://en.wikipedia.org/wiki/Esoteric_programming_language">esoteric programming language</a> designed by David Morgan-Mar in 2002. Programs in Chef look like recipes, where variables are represented by ingredients and program's stacks are referred to as mixing bowls and baking dishes. Full specification of the language can be found on <a href="http://www.dangermouse.net/esoteric/chef.html">David Morgan-Mar's webpage </a> or on <a href="http://search.cpan.org/~smueller/Acme-Chef/lib/Acme/Chef.pm">Steffan Mueller's interpreter pages</a>.
+
+  </p>
+
+	<h3> Usage of the interpreter </h3>
+
+	<p>Command line arguments
+	<span class="marginnote"><img src="img/chef2.png" alt="Trace mode"/>In trace <em>(-t)</em> mode, the interpreter waits for user input after executing each line of code.</span>
+<ul>
+<li><b>-i &lt;file&gt;</b>: input file</li>
+<li><b>-o &lt;file&gt;</b>: output file</li>
+<li><b>-v</b>: show detailed information about recipes</li>
+<li><b>-t</b>: interactive trace mode </li>
+</ul>
+</p>
+<p>
+ <b>Example</b>: <br>interpret file <i>myInput.chef</i> and write verbose output into file <i>output.txt</i></p>
+ <code>chef -i myInput.chef -o output.txt -v</code>
+
+</section>
+<section>
+<h3>Downloads & Documentation</h3> <br>
+
+	Source code : <a href="http://eckhaus.github.io/chef/source.zip"> here </a> <br>
+	Doxygen documentation : <a href="http://eckhaus.github.io/chef/docs/doxygen/html/index.html"> here </a><br>
+	Documentation (in Slovak) : <a href = "http://eckhaus.github.io/chef/docs/markdown/"> here </a>
+
+</section>
+<section>
+<h3> Sample recipe </h3>
+
+<p> Input:	<span class="marginnote"><img src="img/chef3.png" alt="Verbose mode"/>In verbose <em>(-v)</em> mode, the interpreter prints out additional information about recipes such as ingredients, commands and loops.</span> <br> (<i>factorialFibonacci.chef</i>)</p>
+
+<pre>
+Factorial.
+
+This recipe calculates and prints factorials of first integers.
+
+Ingredients.
+10 g max
+1 g cur
+1 g sf
+
+Method.
+Put cur into mixing bowl.
+Put cur into 1st mixing bowl.
+Put max into 1st mixing bowl.
+Put sf into 1st mixing bowl.
+Serve with Fac.
+Fold sf into mixing bowl.
+Pour contents of mixing bowl into the baking dish.
+
+Serves 1.
+
+Fac.
+
+Recursion step.
+
+Ingredients.
+0 g max
+0 g cur
+0 g sf
+1 g one
+0 g next
+0 g condition
+
+Method.
+Fold sf into 1st mixing bowl.
+Fold max into 1st mixing bowl.
+Fold cur into 1st mixing bowl.
+Clean the mixing bowl.
+Clean 2nd mixing bowl.
+Put cur into 2nd mixing bowl.
+Remove max from 2nd mixing bowl.
+Fold condition into 2nd mixing bowl.
+Loop the condition.
+  Put cur into 2nd mixing bowl.
+  Add one into 2nd mixing bowl.
+  Fold next into 2nd mixing bowl.
+  Clean the mixing bowl.
+  Put sf into mixing bowl.
+  Combine next.
+  Fold sf into mixing bowl.
+  Put sf into mixing bowl.
+  Clean 1st mixing bowl.
+  Put next into 1st mixing bowl.
+  Put max into 1st mixing bowl.
+  Put sf into 1st mixing bowl.
+  Serve with Fac.
+  Refrigerate.
+Do until looped.
+
+Serves 0.
+</pre>
+
+<p>Output:<br>
+(<i>./chef -i factorialFibonacci.chef</i>)
+</p>
+
+<pre>
+0 ! = 1 
+1 ! = 1 
+2 ! = 2 
+3 ! = 6 
+4 ! = 24 
+5 ! = 120 
+6 ! = 720 
+7 ! = 5040 
+8 ! = 40320 
+9 ! = 362880 
+10 ! = 3628800 
+11 ! = 39916800 
+12 ! = 479001600 
+13 ! = 1932053504 
+14 ! = 1278945280 
+15 ! = 2004310016 
+16 ! = 2004189184 
+
+1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 
+</pre>
+</section>
+  </article>
+</body>
+</html>

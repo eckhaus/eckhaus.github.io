@@ -1,0 +1,117 @@
+\hypertarget{classDish}{\section{Dish Class Reference}
+\label{classDish}\index{Dish@{Dish}}
+}
+
+
+Stack of Ingredients.  
+
+
+
+
+{\ttfamily \#include $<$Dish.\-h$>$}
+
+Inheritance diagram for Dish\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classDish}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classDish_a1af363ad3f1c4df4971f82051763df20}{print} (ostream $\ast$os)
+\item 
+bool \hyperlink{classDish_a437c63798f934fdc3c80037d77a0d51e}{pop\-Top} (\hyperlink{structStackInfo}{Stack\-Info} \&i)
+\item 
+void \hyperlink{classDish_a2454c3444480c5a7c38181c3e6cf8cd8}{append} (\hyperlink{classDish}{Dish} d)
+\item 
+void \hyperlink{classDish_a41b6fc6a531325d36d4607546291386b}{liquify} ()
+\item 
+\hypertarget{classDish_a9a8e6f0fd75809de987cb0cd1c89daab}{void {\bfseries stir} (int places)}\label{classDish_a9a8e6f0fd75809de987cb0cd1c89daab}
+
+\item 
+void \hyperlink{classDish_a1c60aa114f084117df18578e58f0725d}{randomize} ()
+\item 
+void \hyperlink{classDish_ac2d02755a7c24232df45ca64dc519858}{clear} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDish_a14264990a9a7bc34f61336eeb6dcfcbd}{int {\bfseries I\-D}}\label{classDish_a14264990a9a7bc34f61336eeb6dcfcbd}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classDish_a339f74a03ef948efcc726eaccdf4bd51}{init} (vector$<$ int $>$ \&v)
+\item 
+void \hyperlink{classDish_ade464eeeeddcd5d8bc37e96a80654b1e}{rev} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Stack of Ingredients. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classDish_a2454c3444480c5a7c38181c3e6cf8cd8}{\index{Dish@{Dish}!append@{append}}
+\index{append@{append}!Dish@{Dish}}
+\subsubsection[{append}]{\setlength{\rightskip}{0pt plus 5cm}void Dish\-::append (
+\begin{DoxyParamCaption}
+\item[{{\bf Dish}}]{d}
+\end{DoxyParamCaption}
+)}}\label{classDish_a2454c3444480c5a7c38181c3e6cf8cd8}
+Append stack d to the end of this stack \hypertarget{classDish_ac2d02755a7c24232df45ca64dc519858}{\index{Dish@{Dish}!clear@{clear}}
+\index{clear@{clear}!Dish@{Dish}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void Dish\-::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDish_ac2d02755a7c24232df45ca64dc519858}
+Shuffle the stack \hypertarget{classDish_a339f74a03ef948efcc726eaccdf4bd51}{\index{Dish@{Dish}!init@{init}}
+\index{init@{init}!Dish@{Dish}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void Dish\-::init (
+\begin{DoxyParamCaption}
+\item[{vector$<$ int $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classDish_a339f74a03ef948efcc726eaccdf4bd51}
+Clear the stack \hypertarget{classDish_a41b6fc6a531325d36d4607546291386b}{\index{Dish@{Dish}!liquify@{liquify}}
+\index{liquify@{liquify}!Dish@{Dish}}
+\subsubsection[{liquify}]{\setlength{\rightskip}{0pt plus 5cm}void Dish\-::liquify (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDish_a41b6fc6a531325d36d4607546291386b}
+Convert all items in the stack to liquids (characters) \hypertarget{classDish_a437c63798f934fdc3c80037d77a0d51e}{\index{Dish@{Dish}!pop\-Top@{pop\-Top}}
+\index{pop\-Top@{pop\-Top}!Dish@{Dish}}
+\subsubsection[{pop\-Top}]{\setlength{\rightskip}{0pt plus 5cm}bool Dish\-::pop\-Top (
+\begin{DoxyParamCaption}
+\item[{{\bf Stack\-Info} \&}]{i}
+\end{DoxyParamCaption}
+)}}\label{classDish_a437c63798f934fdc3c80037d77a0d51e}
+Pop top of the stack into i \hypertarget{classDish_a1af363ad3f1c4df4971f82051763df20}{\index{Dish@{Dish}!print@{print}}
+\index{print@{print}!Dish@{Dish}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Dish\-::print (
+\begin{DoxyParamCaption}
+\item[{ostream $\ast$}]{os}
+\end{DoxyParamCaption}
+)}}\label{classDish_a1af363ad3f1c4df4971f82051763df20}
+Print out the stack \hypertarget{classDish_a1c60aa114f084117df18578e58f0725d}{\index{Dish@{Dish}!randomize@{randomize}}
+\index{randomize@{randomize}!Dish@{Dish}}
+\subsubsection[{randomize}]{\setlength{\rightskip}{0pt plus 5cm}void Dish\-::randomize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDish_a1c60aa114f084117df18578e58f0725d}
+Pushes top of the stack 'places' items deeper into the stack \hypertarget{classDish_ade464eeeeddcd5d8bc37e96a80654b1e}{\index{Dish@{Dish}!rev@{rev}}
+\index{rev@{rev}!Dish@{Dish}}
+\subsubsection[{rev}]{\setlength{\rightskip}{0pt plus 5cm}void Dish\-::rev (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classDish_ade464eeeeddcd5d8bc37e96a80654b1e}
+Initialize the stack with vector v 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/eckhaus/\-Desktop/cpp/zapoctak\-\_\-prod/source/include/Dish.\-h\item 
+/home/eckhaus/\-Desktop/cpp/zapoctak\-\_\-prod/source/src/Dish.\-cpp\end{DoxyCompactItemize}

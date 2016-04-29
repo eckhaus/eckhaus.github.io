@@ -1,0 +1,176 @@
+\hypertarget{classProgram}{\section{Program Class Reference}
+\label{classProgram}\index{Program@{Program}}
+}
+
+
+Parses and interprets the source code. Handles the execution of the main script.  
+
+
+
+
+{\ttfamily \#include $<$Program.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classProgram_a7e845a6184bade97aead63d2e14c5040}{parse} ()
+\item 
+\hypertarget{classProgram_aee67cabb04f36e7e0f059c1976d55601}{{\bfseries Program} (string input, string output, bool v, bool t)}\label{classProgram_aee67cabb04f36e7e0f059c1976d55601}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classProgram_ad5a95ba2b5f9caa0555d7d24c475f502}{normalize} (string \&s)
+\item 
+Ingredient\-Type \hyperlink{classProgram_aa97b3ca0f048f04847e6be90581cf756}{type\-From\-String} (const string \&s)
+\item 
+void \hyperlink{classProgram_a20fc155df19b3cfc73901e31f2fad53d}{set\-Up\-Regex} ()
+\item 
+bool \hyperlink{classProgram_a4e8ea37034e515f7c21d3fb3cc119765}{Load\-Header} (\hyperlink{classRecipe}{Recipe} \&r)
+\item 
+void \hyperlink{classProgram_a277650f0e2ae017e8171aee4fbde0ae2}{Load\-Ingredients} (\hyperlink{classRecipe}{Recipe} \&r)
+\item 
+bool \hyperlink{classProgram_a28d7594324677db5e10aff47fa97f593}{Load\-Recipe} (\hyperlink{classRecipe}{Recipe} \&r)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRecipe}{Recipe} \hyperlink{classProgram_a414bb40153c7da0e1815b7140c4aa454}{main\-\_\-recipe}
+\item 
+bool \hyperlink{classProgram_a3787a8712d4c75b6b5f0e81a5e4f6fdc}{print\-Parser\-Output} = false
+\item 
+bool \hyperlink{classProgram_a4addd74ec821dc25e804fa2096b7fa59}{print\-Program\-Info} = false
+\item 
+bool \hyperlink{classProgram_ad4371cad6bc5c0f4cd232007a2324205}{print\-Auxiliary\-Programs} = true
+\item 
+bool \hyperlink{classProgram_a5f4a3688d83bf77b92e294933671007c}{trace} = false
+\item 
+string \hyperlink{classProgram_a8b56614562949906e79e18efdd88d554}{file\-Name}
+\item 
+\hypertarget{classProgram_aadec82f9e56e4e335bd86daa01d08756}{string {\bfseries output\-Name}}\label{classProgram_aadec82f9e56e4e335bd86daa01d08756}
+
+\item 
+\hypertarget{classProgram_a908a89405ed5f557624d5893da16a8d7}{istream $\ast$ {\bfseries fs}}\label{classProgram_a908a89405ed5f557624d5893da16a8d7}
+
+\item 
+\hypertarget{classProgram_ace98ead8027976274a08c57832a80f88}{ostream $\ast$ {\bfseries os}}\label{classProgram_ace98ead8027976274a08c57832a80f88}
+
+\item 
+map$<$ string, string $>$ \hyperlink{classProgram_af2653e6c49451f67e7365c218eaab08a}{regexp\-\_\-string}
+\item 
+map$<$ string, vector$<$ int $>$ $>$ \hyperlink{classProgram_a941f96a02d5fd027979cbc7b484f04c7}{parameter\-\_\-positions}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Parses and interprets the source code. Handles the execution of the main script. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classProgram_a4e8ea37034e515f7c21d3fb3cc119765}{\index{Program@{Program}!Load\-Header@{Load\-Header}}
+\index{Load\-Header@{Load\-Header}!Program@{Program}}
+\subsubsection[{Load\-Header}]{\setlength{\rightskip}{0pt plus 5cm}bool Program\-::\-Load\-Header (
+\begin{DoxyParamCaption}
+\item[{{\bf Recipe} \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a4e8ea37034e515f7c21d3fb3cc119765}
+Reads name and comments from input file. Processes the file until the \char`\"{}\-Ingredients.\char`\"{} line is found. If no such line is found, the source file is faulty, function returns false and the execution of the parser is stopped 
+\begin{DoxyParams}{Parameters}
+{\em r} & \hyperlink{classRecipe}{Recipe} in which the output will be stored \\
+\hline
+\end{DoxyParams}
+\hypertarget{classProgram_a277650f0e2ae017e8171aee4fbde0ae2}{\index{Program@{Program}!Load\-Ingredients@{Load\-Ingredients}}
+\index{Load\-Ingredients@{Load\-Ingredients}!Program@{Program}}
+\subsubsection[{Load\-Ingredients}]{\setlength{\rightskip}{0pt plus 5cm}void Program\-::\-Load\-Ingredients (
+\begin{DoxyParamCaption}
+\item[{{\bf Recipe} \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a277650f0e2ae017e8171aee4fbde0ae2}
+Loads the ingredients. Proceeds line-\/by-\/line until the \char`\"{}\-Method.\char`\"{} expression is found 
+\begin{DoxyParams}{Parameters}
+{\em r} & \hyperlink{classRecipe}{Recipe} in which the output will be stored \\
+\hline
+\end{DoxyParams}
+\hypertarget{classProgram_a28d7594324677db5e10aff47fa97f593}{\index{Program@{Program}!Load\-Recipe@{Load\-Recipe}}
+\index{Load\-Recipe@{Load\-Recipe}!Program@{Program}}
+\subsubsection[{Load\-Recipe}]{\setlength{\rightskip}{0pt plus 5cm}bool Program\-::\-Load\-Recipe (
+\begin{DoxyParamCaption}
+\item[{{\bf Recipe} \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a28d7594324677db5e10aff47fa97f593}
+Loads the whole recipe into r. Calls Load\-Header, Load\-Ingredients and then parses commands of the source file. 
+\begin{DoxyParams}{Parameters}
+{\em r} & \hyperlink{classRecipe}{Recipe} in which the output will be stored \\
+\hline
+\end{DoxyParams}
+\hypertarget{classProgram_ad5a95ba2b5f9caa0555d7d24c475f502}{\index{Program@{Program}!normalize@{normalize}}
+\index{normalize@{normalize}!Program@{Program}}
+\subsubsection[{normalize}]{\setlength{\rightskip}{0pt plus 5cm}void Program\-::normalize (
+\begin{DoxyParamCaption}
+\item[{string \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_ad5a95ba2b5f9caa0555d7d24c475f502}
+Replaces multiple spaces with single space, removes leading and trailing whitespace and converts the string to lowercase 
+\begin{DoxyParams}{Parameters}
+{\em s} & string to normalize \\
+\hline
+\end{DoxyParams}
+\hypertarget{classProgram_a7e845a6184bade97aead63d2e14c5040}{\index{Program@{Program}!parse@{parse}}
+\index{parse@{parse}!Program@{Program}}
+\subsubsection[{parse}]{\setlength{\rightskip}{0pt plus 5cm}void Program\-::parse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classProgram_a7e845a6184bade97aead63d2e14c5040}
+Calls the parser. Parsed file is stored as \hyperlink{classProgram_a414bb40153c7da0e1815b7140c4aa454}{main\-\_\-recipe} \hypertarget{classProgram_a20fc155df19b3cfc73901e31f2fad53d}{\index{Program@{Program}!set\-Up\-Regex@{set\-Up\-Regex}}
+\index{set\-Up\-Regex@{set\-Up\-Regex}!Program@{Program}}
+\subsubsection[{set\-Up\-Regex}]{\setlength{\rightskip}{0pt plus 5cm}void Program\-::set\-Up\-Regex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a20fc155df19b3cfc73901e31f2fad53d}
+Sets up regular expressions for input parsing \hypertarget{classProgram_aa97b3ca0f048f04847e6be90581cf756}{\index{Program@{Program}!type\-From\-String@{type\-From\-String}}
+\index{type\-From\-String@{type\-From\-String}!Program@{Program}}
+\subsubsection[{type\-From\-String}]{\setlength{\rightskip}{0pt plus 5cm}Ingredient\-Type Program\-::type\-From\-String (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_aa97b3ca0f048f04847e6be90581cf756}
+Converts a string to corresponding Ingredient\-Type enum item. 
+\begin{DoxyParams}{Parameters}
+{\em s} & input string (e.\-g. \char`\"{}ml\char`\"{}, \char`\"{}g\char`\"{} or \char`\"{}pinches\char`\"{}) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classProgram_a8b56614562949906e79e18efdd88d554}{\index{Program@{Program}!file\-Name@{file\-Name}}
+\index{file\-Name@{file\-Name}!Program@{Program}}
+\subsubsection[{file\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string Program\-::file\-Name\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a8b56614562949906e79e18efdd88d554}
+Path to source code \hypertarget{classProgram_a414bb40153c7da0e1815b7140c4aa454}{\index{Program@{Program}!main\-\_\-recipe@{main\-\_\-recipe}}
+\index{main\-\_\-recipe@{main\-\_\-recipe}!Program@{Program}}
+\subsubsection[{main\-\_\-recipe}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Recipe} Program\-::main\-\_\-recipe\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a414bb40153c7da0e1815b7140c4aa454}
+Stores the main chef script. \hypertarget{classProgram_a941f96a02d5fd027979cbc7b484f04c7}{\index{Program@{Program}!parameter\-\_\-positions@{parameter\-\_\-positions}}
+\index{parameter\-\_\-positions@{parameter\-\_\-positions}!Program@{Program}}
+\subsubsection[{parameter\-\_\-positions}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, vector$<$int$>$ $>$ Program\-::parameter\-\_\-positions\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a941f96a02d5fd027979cbc7b484f04c7}
+Position of relevant arguments in regexp for each chef command \hypertarget{classProgram_ad4371cad6bc5c0f4cd232007a2324205}{\index{Program@{Program}!print\-Auxiliary\-Programs@{print\-Auxiliary\-Programs}}
+\index{print\-Auxiliary\-Programs@{print\-Auxiliary\-Programs}!Program@{Program}}
+\subsubsection[{print\-Auxiliary\-Programs}]{\setlength{\rightskip}{0pt plus 5cm}bool Program\-::print\-Auxiliary\-Programs = true\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_ad4371cad6bc5c0f4cd232007a2324205}
+If true outputs also information about auxliary recipes \hypertarget{classProgram_a3787a8712d4c75b6b5f0e81a5e4f6fdc}{\index{Program@{Program}!print\-Parser\-Output@{print\-Parser\-Output}}
+\index{print\-Parser\-Output@{print\-Parser\-Output}!Program@{Program}}
+\subsubsection[{print\-Parser\-Output}]{\setlength{\rightskip}{0pt plus 5cm}bool Program\-::print\-Parser\-Output = false\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a3787a8712d4c75b6b5f0e81a5e4f6fdc}
+If true prints out the parser output (parsed commands and their parameters) \hypertarget{classProgram_a4addd74ec821dc25e804fa2096b7fa59}{\index{Program@{Program}!print\-Program\-Info@{print\-Program\-Info}}
+\index{print\-Program\-Info@{print\-Program\-Info}!Program@{Program}}
+\subsubsection[{print\-Program\-Info}]{\setlength{\rightskip}{0pt plus 5cm}bool Program\-::print\-Program\-Info = false\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a4addd74ec821dc25e804fa2096b7fa59}
+If true prints out detailed information about program's main method (recipe) using \hyperlink{classRecipe_aa9a086810c68a0f459f3eded4fec249d}{Recipe\-::print\-Info}. \hypertarget{classProgram_af2653e6c49451f67e7365c218eaab08a}{\index{Program@{Program}!regexp\-\_\-string@{regexp\-\_\-string}}
+\index{regexp\-\_\-string@{regexp\-\_\-string}!Program@{Program}}
+\subsubsection[{regexp\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, string$>$ Program\-::regexp\-\_\-string\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_af2653e6c49451f67e7365c218eaab08a}
+Regexps for parsing chef commands (first argument denotes the command, second corresponding regexp) \hypertarget{classProgram_a5f4a3688d83bf77b92e294933671007c}{\index{Program@{Program}!trace@{trace}}
+\index{trace@{trace}!Program@{Program}}
+\subsubsection[{trace}]{\setlength{\rightskip}{0pt plus 5cm}bool Program\-::trace = false\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a5f4a3688d83bf77b92e294933671007c}
+When set to true, allows the user to exectue the script in step-\/by-\/step manner 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/eckhaus/\-Desktop/cpp/zapoctak\-\_\-prod/source/include/Program.\-h\item 
+/home/eckhaus/\-Desktop/cpp/zapoctak\-\_\-prod/source/src/Program.\-cpp\end{DoxyCompactItemize}
