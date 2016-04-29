@@ -42,9 +42,11 @@ Hodnota je celé číslo popisujúce počiatočný stav ingrediencie. Merná jed
 
 Možné merné jednotky sú:
 
-g, kg, pinch[es] : Číselné premenné
-ml, l, dash[es] : Znakové premenné (ASCII)
-cup[s], teaspoon[s], tablespoon[s] : Podľa pôvodnej špecifikácie jazyka môžu byť buď číselné alebo znakové. V našom interpretery ich defaultne berieme ako číselné premenné, keďže Chef obsahuje príkaz, ktorým vieme previesť premennú na znakovú, ale neexistuje spôsob ako takúto operáciu neskôr zvrátiť. Modifikátory (heaped a level) špecifikujú takéto premenné ako číselné, to však v programe nerobí žiaden rozdiel.
+* g, kg, pinch[es] : Číselné premenné
+* ml, l, dash[es] : Znakové premenné (ASCII)
+* cup[s], teaspoon[s], tablespoon[s] : Podľa pôvodnej špecifikácie jazyka môžu byť buď číselné alebo znakové. 
+
+V našom interpretery neurčité defaultne berieme ako číselné premenné, keďže Chef obsahuje príkaz, ktorým vieme previesť premennú na znakovú, ale neexistuje spôsob ako takúto operáciu neskôr zvrátiť. Modifikátory (heaped a level) špecifikujú takéto premenné ako číselné, to však v programe nerobí žiaden rozdiel.
 
 Za ingredienciami môžu nasledovať informácie o dĺžke prípravy receptu a teplote pece, ktoré však nemajú dopad na beh programu a preto sú pri parsovaní úplne ignorované.
 
@@ -179,12 +181,12 @@ Pomocný recept môžeme zavolať pomocou príkazu *serve with*. Pomocný recept
     
     22.  Serves 1.
     
- Program vypočíta prvých 16 Fibonacciho čísel.
+ Program vypočíta prvých 16 Fibonacciho čísel (F\_{1..16}).
  V riadku 1. je názov receptu. V 2. riadku komentár. V 3.-7. sú popísané premenné prgramu, všetky numerické.
  
  Od 8. riadku sa začína samotné telo programu.
  
- Chop iterator označuje začiatok cyklu "Chop", ktorý končí riadkom 16. (príkazom until chopped). Telo cyklu urobi krok výpočtu nasledovne: do zásobníka sa 2x načíta hodnota fib2 ( $F_n$ ), potom sa k vrchu zásobníka pričíta fib1 ( $F_{n-1}$ ), čím vznikne ďalší člen ( $F_{n+1}$ ). Ten sa načíta do fib2 a zvyšná pôvodná hodnota fib2 sa načíta do fib1. Takto sme sa dostali zo stavu kde $fib1 = F_{n-1}$, $fib2 = F_n$ do stavu, kde $fib1=F_n$ a $fib2 = F_{n+1}$. Nakoniec ešte uložíme hodnotu fib1 na zásobník, kde zostane až do vypísania výsledku.
+ Chop iterator označuje začiatok cyklu "Chop", ktorý končí riadkom 16. (príkazom until chopped). Telo cyklu urobi krok výpočtu nasledovne: do zásobníka sa 2x načíta hodnota fib2 (F\_n), potom sa k vrchu zásobníka pričíta fib1 (F\_{n-1} ), čím vznikne ďalší člen (F\_{n+1}). Ten sa načíta do fib2 a zvyšná pôvodná hodnota fib2 sa načíta do fib1. Takto sme sa dostali zo stavu kde fib1 = F\_{n-1}, fib2 = F\_n do stavu, kde fib1=F\_n a fib2 = F\_{n+1}. Nakoniec ešte uložíme hodnotu fib1 na zásobník, kde zostane až do vypísania výsledku.
  
  Cyklus "Mash" na riadkoch 18. až 20. len prevráti poradie prvého zásobníku tak, že vždy načíta vrch zásobníka do premennej (18.) a následne uloží obsah premennej do druhého zásobníka.
  
