@@ -1,0 +1,4 @@
+img1: sc.Camera = new PanoramaticCamera( new Vector3d( 0.7, 0.0, -5.0 ),0.0, 0.0, Math.PI, Math.PI/2, 0.0, 0.0);
+img2: sc.Camera = new PanoramaticCamera( new Vector3d( 0.7, 0.0, -5.0 ),0.0, 0.0, 6*Math.PI, 3*Math.PI, 0.0, 0.0);
+img3: sc.Camera = new PanoramaticCamera( new Vector3d( 0.7, 0.0, -5.0 ),0, Math.PI, 2*Math.PI, Math.PI, 1.0, 1.0);
+img4: sc.Camera = new PanoramaticCamera( new Vector3d( 0.7, 0.0, -5.0 ),Math.PI/4, Math.PI, 6*Math.PI, 2*Math.PI, 1.0, 1.0);

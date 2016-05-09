@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Alternatívna kamera</title>
+  <link rel="stylesheet" href="tufte.css"/>
+  <link rel="stylesheet" href="latex.css"/>
+  <script type="text/javascript" async
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+</head>
+
+<body>
+  <article>
+    <h1 id="tufte-css">Alternatívna kamera</h1>
+    <p class="subtitle">Domáca úloha <a href="http://cgg.mff.cuni.cz/lectures/npgr004.cz.php"> NPGR004</a> : Róbert Eckhaus </p>
+    <h3><a href="http://paulbourke.net/dome/fisheye/">Inšpirácia (fisheye effect)</a></h3>
+    <section>
+      <h3 id="figures">Parametre kamery</h3>
+      <ul>
+      	<li> center = pozícia kamery </li>
+      	<li> pitch = rotácia okolo osi x (v radiánoch)</li>
+      	<li> yaw = rotácia okolo osi y (v radiánoch)</li>
+      	<li> $FOV_{\phi}$ = horizontálny zorný uhol (v rad)</li>
+      	<li> $FOV_{\psi}$ = vertikálny zorný uhol (v rad)</li>
+      	<li> distortion$_{X,Y}$ = zakrivenie </li>
+
+      	
+      </ul>
+     <h3> Vyrenderované obrázky </h3>
+     <br/><br/>
+      <figure>
+        <label for="mn-exports-imports" class="margin-toggle">&#8853;</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"/><span class="marginnote">
+        <b style="font-size: 15pt; text-decoration: underline;">Válcová perspektíva:</b> <br> <br>
+        <em>
+        Pri nastavení <b>distortion</b> na 0 sa vytvára válcová perspektíva s rozsahom daným <b>$FOV_{\phi}$</b>. Rotáciu v horizontálmon smere určuje <b>yaw</b>, vo vertikálnom <b> pitch </b>.
+         <br> <br>
+		<b>Center</b>: $(0.7, 0.0, -5.0)$ <br>
+        <b>Yaw</b>: $0$, <b>Pitch</b>: $0$ <br>
+		<b>FOV</b>: $(\pi, \pi/2)$ <br>
+		<b>Distortion</b>: $(0,0)$
+        </em></span>
+        <img src="img/img1.png"/>
+      </figure>
+
+      <figure>
+        <label for="mn-exports-imports" class="margin-toggle">&#8853;</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"/><span class="marginnote">
+        <b style="font-size: 15pt; text-decoration: underline;">FOV:</b> <br> <br>
+        <em>
+        Ak $FOV_{\phi}$ (horizontálne) prekročí $360^\circ$, scéna sa opakuje. To isté platí pre vertikálny smer, horiznont sa "zroluje" a preklopí.
+         <br> <br>
+		<b>Center</b>: $(0.7, 0.0, -5.0)$ <br>
+        <b>Yaw</b>: $0$, <b>Pitch</b>: $0$ <br>
+		<b>FOV</b>: $(6\pi, 3\pi)$ <br>
+		<b>Distortion</b>: $(0,0)$
+        </em></span>
+        <img src="img/img2.png"/>
+      </figure>
+
+      <figure>
+        <label for="mn-exports-imports" class="margin-toggle">&#8853;</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"/><span class="marginnote">
+        <b style="font-size: 15pt; text-decoration: underline;">Deformácia:</b> <br> <br>
+        <em>
+        Parametre <b>distortion</b> určujú zakrivenie projekčnej plochy.
+         <br> <br>
+		<b>Center</b>: $(0.7, 0.0, -5.0)$ <br>
+        <b>Yaw</b>: $\pi$, <b>Pitch</b>: $0$ <br>
+		<b>FOV</b>: $(2\pi, \pi/2)$ <br>
+		<b>Distortion</b>: $(1,1)$
+        </em></span>
+        <img src="img/img3.png"/>
+      </figure>
+
+
+      <figure>
+        <label for="mn-exports-imports" class="margin-toggle">&#8853;</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"/><span class="marginnote">
+        <b style="font-size: 15pt; text-decoration: underline;">Oddialená deformácia:</b> <br> <br>
+        <em>
+		<b>Center</b>: $(0.7, 0.0, -5.0)$ <br>
+        <b>Yaw</b>: $\pi$, <b>Pitch</b>: $\pi/4$ <br>
+		<b>FOV</b>: $(6\pi, 2\pi)$ <br>
+		<b>Distortion</b>: $(1,1)$
+        </em></span>
+        <img src="img/img4.png"/>
+      </figure>
+
+
+
+      <figure>
+        <label for="mn-exports-imports" class="margin-toggle">&#8853;</label><input type="checkbox" id="mn-exports-imports" class="margin-toggle"/><span class="marginnote">
+        <b style="font-size: 15pt; text-decoration: underline;">Veľké zakrivenie:</b> <br> <br>
+        <em>
+        new PanoramaticCamera( new Vector3d( -4, 10.0, -2.0 ),Math.PI/6, 0, 2*Math.PI, Math.PI/2,-3.0, 1.0);
+		<b>Center</b>: $(-4, 10.0, -2.0)$ <br>
+        <b>Yaw</b>: $0$, <b>Pitch</b>: $\pi/6$ <br>
+		<b>FOV</b>: $(2\pi, \pi/2)$ <br>
+		<b>Distortion</b>: $(-3,1)$
+        </em></span>
+        <img src="img/img5.png"/>
+      </figure>
+    </section>
+
+  </article>
+</body>
+</html>
