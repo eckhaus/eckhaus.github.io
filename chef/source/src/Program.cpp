@@ -7,6 +7,8 @@ Program::Program (string input, string output, bool t, bool v) : fileName (input
 void Program::parse ()
 {
     main_recipe.parent = &main_recipe;
+
+    // open input and output streams
     ifstream ifs;
     if (fileName!=""){
         ifs.open(fileName, ios::in);
@@ -24,7 +26,9 @@ void Program::parse ()
        os = &cout;
 
     if (!fs->good()) return;
+    // load regexps for command matching
     setUpRegex();
+
     // Load main recipe
     LoadRecipe(main_recipe);
     main_recipe.trace = trace;
@@ -102,7 +106,9 @@ void Program::setUpRegex ()
 
 void Program::normalize (string & s)
 {
+    // case insensitive
     for (char& c: s) c = tolower(c);
+    // remove all superfluous whitespace
     s = regex_replace(s, regex("^(?:[\t ])+|(?:[\t ])+$|( ) +"), "$1");
 }
 
@@ -130,7 +136,7 @@ bool Program::LoadHeader (Recipe & r)
     {
         if (fs->eof()) return false;
         normalize(line);
-        if  (line[line.size()-1] == '.')
+        if  (line[line.size()-1] == '.') // Name ends with period
         {
             r.name = line;
             normalize(r.name);
@@ -149,6 +155,7 @@ bool Program::LoadHeader (Recipe & r)
         normalize(line);
         if  (line == "ingredients.")
         {
+            LoadIngredients(r);
             break;
         }
         else if (line != "")
@@ -164,7 +171,7 @@ void Program::LoadIngredients (Recipe & r)
     {
         if (fs->eof()) break;
         normalize(line);
-        if  (line == "method.")
+        if  (line == "method.") // ingredients block ends with method line
             break;
         string regexp_string =  "([0-9]+) *(g|kg|pinch(?:es){0,1}|ml|l|dash(?:es){0,1}|cup(?:s){0,1}|teaspoon(?:s){0,1}|tablespoons(?:s){0,1}){0,1} *([a-zA-Z0-9 -]+)";
         smatch match;
@@ -179,7 +186,6 @@ bool Program::LoadRecipe (Recipe & r)
 {
     if (!LoadHeader (r))
     return false;
-    LoadIngredients(r);
     string line;
     while(getline(*fs, line))
     {

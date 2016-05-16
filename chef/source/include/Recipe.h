@@ -64,7 +64,7 @@ public:
       * @param arg1 First argument
       * @param arg2 Second argument
     */
-    void addCommand (string cmd, string arg1, string arg2);
+    void addCommand (const string & cmd, const string & arg1, const string & arg2);
 
     /** Adds a loop to the Recipe
       * @param verb Identifier of the loop (verb from the recipe)
@@ -76,7 +76,7 @@ public:
       * @param verb Identifier of the loop (verb from the recipe)
       * @param ingredient Ingredient to be decremented on each pass
     */
-    void addUntil (const string & verb, string ingredient);
+    void addUntil (const string & verb, const string & ingredient);
 
     /** Adds an ingredient to the Recipe
       * @param i Ingredient
@@ -97,14 +97,14 @@ private:
     bool isAuxliary = false;
 
     bool toNum (const string & s, int & n);
-    string typeToString (IngredientType it);
+    string typeToString (IngredientType & it);
 
     /** Processes single commands
       * @param cmd Command to be executed
       * @param arg1 First argument of the command
       * @param arg2 Second argument of the command
      */
-    void processCommand (string cmd, string arg1, string arg2);
+    void processCommand (const string & cmd, const string & arg1, const string & arg2);
 
     // Variables & stacks
 
@@ -158,11 +158,11 @@ private:
     /** Place the sum of quantities of dry ingredients on top of the mixing bowl */
     void addDry (int bowlNo = 1);
     /** Set ingredient's type to liquid (ASCII character) */
-    void liquify (string ingredient);
+    void liquify (const string & ingredient);
     /** Move the top of the stack n positions deeper into the stack */
     void stir (int times, int bowlNo = 1);
     /** Stir the value of ingredient into the stack */
-    void stirIngredient (string ingredient, int bowlNo = 1);
+    void stirIngredient (const string & ingredient, int bowlNo = 1);
     /** Shuffle the stack randomly */
     void mix (int bowlNo = 1);
     /** Empty the stack */
@@ -170,7 +170,7 @@ private:
     /** Copy the stack into the baking dish (output stack) */
     void pour (int bowlNo = 1, int dishNo = 1);
     /** Call auxliary recipe */
-    int call (string aux);
+    int call (const string & aux);
     /** Break the innermost loop */
     void setAside ();
 

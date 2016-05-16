@@ -11,7 +11,6 @@ Recipe::Recipe(const Recipe& rhs)
     name = rhs.name;
     comments =  rhs.comments;
     ingredients.insert(rhs.ingredients.begin(), rhs.ingredients.end());
-    //    mixingBowls.insert(rhs.mixingBowls.begin(), rhs.mixingBowls.end());
     commands.clear();
     commands= rhs.commands;
     jumps.insert(rhs.jumps.begin(), rhs.jumps.end());
@@ -23,7 +22,7 @@ void Recipe::addIngredient (Ingredient i)
     ingredients[i.name] = i;
 }
 
-string Recipe::typeToString (IngredientType it)
+string Recipe::typeToString (IngredientType & it)
 {
     if (it == IngredientType::Dry)
         return "dry";
@@ -87,151 +86,96 @@ void Recipe::addAuxliary (Recipe & aux)
     auxliary [aux.name] = aux;
 }
 
-void Recipe::addCommand (string cmd = "", string arg1 = "", string arg2 = "")
+void Recipe::addCommand (const string & cmd = "", const string & arg1 = "", const string & arg2 = "")
 {
     commands.push_back (Command(cmd, arg1, arg2));
 }
 
-void Recipe::processCommand (string cmd, string arg1 = "", string arg2 = "")
+void Recipe::processCommand (const string & cmd, const string & arg1 = "", const string & arg2 = "")
 {
-    int n, n1;
-    bool isNumber = toNum(arg2, n);
+    int arg2_val= 1, arg1_val = 1;
+    bool isArg2Numeric = toNum(arg2, arg2_val);
+    bool isArg1Numeric = toNum(arg1, arg1_val);
 
-    if (cmd == "refr")
-    {
+
+    if (cmd == "refr") {
         currentCommand = 1000000;
         if (isAuxliary)
             return;
-        else if (toNum(arg1, n1))
-        {
-            for (int i = 0; i< n1; i++)
+        else if (isArg1Numeric)
+            for (int i = 0; i< arg1_val; i++)
                 bakingDishes[i].print(os);
-        }
     }
     else if  (cmd == "serve")
-    {
         call (arg1);
-    }
     else if (cmd == "jump")
-    {
-        doJump(jumps[arg1]); // pozn. pripisat na IDs miest neunikatnych mien
-    }
+        doJump(jumps[arg1]);
     else if (cmd == "setaside")
-    {
         setAside();
-    }
     else if (cmd == "until")
-    {
         doUntil(jumps[arg1]);
-    }
     else if (cmd == "take")
-    {
         takeFromFridge(arg1);
-    }
-    else if (cmd == "put")
-    {
-        if (isNumber) put (arg1, n);
+    else if (cmd == "liquify")
+        liquify(arg1);
+    else if (cmd == "put") {
+        if (isArg2Numeric) put (arg1, arg2_val);
         else put(arg1);
     }
-    else if (cmd == "fold")
-    {
-        if (isNumber) fold (arg1, n);
+    else if (cmd == "fold") {
+        if (isArg2Numeric) fold (arg1, arg2_val);
         else fold(arg1);
     }
-    else if (cmd == "add")
-    {
-        if (isNumber) add (arg1, n);
+    else if (cmd == "add") {
+        if (isArg2Numeric) add (arg1, arg2_val);
         else add(arg1);
     }
-    else if (cmd == "remove")
-    {
-        if (isNumber) remove (arg1, n);
+    else if (cmd == "remove") {
+        if (isArg2Numeric) remove (arg1, arg2_val);
         else remove(arg1);
     }
-    else if (cmd == "combine")
-    {
-        if (isNumber) combine (arg1, n);
+    else if (cmd == "combine") {
+        if (isArg2Numeric) combine (arg1, arg2_val);
         else combine(arg1);
     }
-    else if (cmd == "divide")
-    {
-        if (isNumber) divide (arg1, n);
+    else if (cmd == "divide") {
+        if (isArg2Numeric) divide (arg1, arg2_val);
         else divide(arg1);
     }
-    else if (cmd == "stir_ingred")
-    {
-        if (isNumber) stirIngredient (arg1, n);
+    else if (cmd == "stir into") {
+        if (isArg2Numeric) stirIngredient (arg1, arg2_val);
         else stirIngredient(arg1);
     }
-    else if (cmd == "addDry")
-    {
-        if (toNum(arg1, n))
-        {
-            addDry(n);
-        }
-        else
-            addDry();
-    }
-    else if (cmd == "liquify")
-    {
-        liquify(arg1);
+    else if (cmd == "add dry") {
+        if (isArg1Numeric) addDry(arg1_val);
+        else addDry();
     }
     else if (cmd == "liquify_contents")
-    {
-        int n2 = 1;
-        toNum(arg1, n2);
-        mixingBowls[n2].liquify();
-    }
-    else if (cmd == "stir")
-    {
-        int n1;
-        if (toNum(arg1, n1))
-        {
-            if (toNum(arg2, n))
-                stir(n1,n);
-            else
-                stir(n1);
-        }
+        mixingBowls[arg1_val].liquify();
+    else if (cmd == "stir") {
+        if (isArg1Numeric && isArg2Numeric)
+            stir(arg1_val,arg2_val);
+        else if (isArg1Numeric)
+                stir(arg1_val);
         else return;
     }
-
-    else if (cmd == "mix")
-    {
-        if (toNum(arg1, n))
-        {
-            mix(n);
-        }
-        else
-            mix();
+    else if (cmd == "mix") {
+        if (isArg1Numeric) mix(arg1_val);
+        else mix();
     }
-
-    else if (cmd == "clean")
-    {
-        if (toNum(arg1, n))
-        {
-            clean(n);
-        }
-        else
-            clean();
+    else if (cmd == "clean") {
+        if (isArg1Numeric) clean(arg1_val);
+        else clean();
     }
-
-    else if (cmd == "pour")
-    {
-        int mb = 1;
-        int bd = 1;
-        toNum(arg1, mb);
-        toNum(arg2, bd);
-        pour (mb, bd);
+    else if (cmd == "pour") {
+        pour (arg1_val, arg2_val);
     }
-
 
     if (trace)
     {
         (*os) << "-------------" << endl;
         (*os) << "[" <<  currentCommand << "] " << name << "> " << cmd << "\t" << arg1 << "\t" << arg2 << endl;
         printInfo(false, true);
-
-        //(*os) << "Press Enter to Continue";
         cin.ignore();
     }
 }
@@ -254,15 +198,17 @@ int Recipe::run ()
     return 0;
 };
 
-int Recipe::call (string aux)
+int Recipe::call (const string & aux)
 {
     // make new recipe
     Recipe r (parent->auxliary[aux]);
     r.parent = parent;
+
     // copy contents of parent process's mixing bowl
     r.mixingBowls.clear();
     r.mixingBowls.insert(mixingBowls.begin(), mixingBowls.end());
     r.isAuxliary = true;
+
     // run it and udpate appropriate mixing bowls
     if (trace)
     {
@@ -297,7 +243,7 @@ void Recipe::addJump (const string & verb, const string & ingredient)
     commands.push_back(cm);
 }
 
-void Recipe::addUntil (const string & verb, string ingredient = "")
+void Recipe::addUntil (const string & verb, const string & ingredient = "")
 {
     // Register jump in jumps map
     jumps[verb].end_ingredient = ingredient;
@@ -326,11 +272,8 @@ void Recipe::doUntil (Jump & j)
     if (j.end_ingredient != "")
         ingredients[j.end_ingredient].value--;
 
-
     if (ingredients[j.begin_ingredient].value== 0)
-    {
         jumpsStack.pop();
-    }
     else
         currentCommand = j.begin;
 }
@@ -342,7 +285,6 @@ StackInfo Recipe::ingrToStack (const Ingredient & i)
 
 void Recipe::setAside ()
 {
-    (*os) << "jsSize: " << jumpsStack.size() << endl;
     currentCommand = jumpsStack.top().end;
     jumpsStack.pop();
 }
@@ -360,7 +302,7 @@ void Recipe::takeFromFridge (const string & ingredient)
 
 void Recipe::put (const string & ingredient, int bowlNo)
 {
-    mixingBowls[bowlNo].push(ingrToStack(ingredients[ingredient]));
+    mixingBowls[bowlNo].push_back(ingrToStack(ingredients[ingredient]));
 }
 
 void Recipe::fold (const string & ingredient, int bowlNo)
@@ -376,7 +318,7 @@ void Recipe::add (const string & ingredient, int bowlNo)
     StackInfo i;
     if (mixingBowls[bowlNo].popTop(i))
         i.value+=ingredients[ingredient].value;
-    mixingBowls[bowlNo].push(i);
+    mixingBowls[bowlNo].push_back(i);
 }
 
 void Recipe::remove (const string & ingredient, int bowlNo)
@@ -384,7 +326,7 @@ void Recipe::remove (const string & ingredient, int bowlNo)
     StackInfo i;
     if (mixingBowls[bowlNo].popTop(i))
         i.value-=ingredients[ingredient].value;
-    mixingBowls[bowlNo].push(i);
+    mixingBowls[bowlNo].push_back(i);
 }
 
 void Recipe::combine (const string & ingredient, int bowlNo)
@@ -392,7 +334,7 @@ void Recipe::combine (const string & ingredient, int bowlNo)
     StackInfo i;
     if (mixingBowls[bowlNo].popTop(i))
         i.value*=ingredients[ingredient].value;
-    mixingBowls[bowlNo].push(i);
+    mixingBowls[bowlNo].push_back(i);
 }
 
 void Recipe::divide (const string & ingredient, int bowlNo)
@@ -400,7 +342,7 @@ void Recipe::divide (const string & ingredient, int bowlNo)
     StackInfo i;
     if (mixingBowls[bowlNo].popTop(i))
         i.value=ingredients[ingredient].value / i.value;
-    mixingBowls[bowlNo].push(i);
+    mixingBowls[bowlNo].push_back(i);
 }
 
 void Recipe::addDry (int bowlNo)
@@ -411,20 +353,20 @@ void Recipe::addDry (int bowlNo)
         if (it.second.type == IngredientType::Dry)
             sum+=it.second.value;
     }
-    mixingBowls[bowlNo].push(sum);
+    mixingBowls[bowlNo].push_back(sum);
 }
 
-void Recipe::liquify (string ingredient)
+void Recipe::liquify (const string & ingredient)
 {
     ingredients[ingredient].type = IngredientType::Liquid;
 }
 
-void Recipe::stir (int times, int bowlNo)
+void Recipe::stir (int bowlNo, int times)
 {
     mixingBowls[bowlNo].stir(times);
 }
 
-void Recipe::stirIngredient (string ingredient, int bowlNo)
+void Recipe::stirIngredient (const string & ingredient, int bowlNo)
 {
     mixingBowls[bowlNo].stir(ingredients[ingredient].value);
 }

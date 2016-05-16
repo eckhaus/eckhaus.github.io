@@ -20,7 +20,7 @@ private:
     /** Stores the main chef script. */
     Recipe main_recipe;
 
-    bool printParserOutput = false; /**< If true prints out the parser output (parsed commands and their parameters) */
+    bool printParserOutput = true; /**< If true prints out the parser output (parsed commands and their parameters) */
     bool printProgramInfo = false; /**<  If true prints out detailed information about program's main method (recipe) using {@link Recipe::printInfo}. */
     bool printAuxiliaryPrograms = true; /**< If true outputs also information about auxliary recipes */
     bool trace = false; /**< When set to true, allows the user to exectue the script in step-by-step manner */
