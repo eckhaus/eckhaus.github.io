@@ -10,9 +10,9 @@ bool Dish::popTop (StackInfo & i){
 }
 
 void Dish::print (ostream * os){
-    for (auto & x : *this)
-        if (x.liquid) *os << (char)x.value;
-        else *os << x.value <<  " ";
+    for(deque<StackInfo>::reverse_iterator x = rbegin(); x != rend(); ++x)
+        if (x->liquid) *os << (char)(x->value);
+        else *os << x->value <<  " ";
 
     if (empty()) *os << "Empty";
     *os << endl;

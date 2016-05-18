@@ -99,18 +99,18 @@ void Recipe::processCommand (const string & cmd, const string & arg1 = "", const
 
 
     if (cmd == "refr") {
-        currentCommand = 1000000;
+        currentCommand = commands.size()+1;
         if (isAuxliary)
             return;
         else if (isArg1Numeric)
-            for (int i = 0; i< arg1_val; i++)
+            for (int i = 1; i<= arg1_val; i++)
                 bakingDishes[i].print(os);
     }
     else if  (cmd == "serve")
         call (arg1);
     else if (cmd == "jump")
         doJump(jumps[arg1]);
-    else if (cmd == "setaside")
+    else if (cmd == "set aside")
         setAside();
     else if (cmd == "until")
         doUntil(jumps[arg1]);
@@ -154,9 +154,11 @@ void Recipe::processCommand (const string & cmd, const string & arg1 = "", const
         mixingBowls[arg1_val].liquify();
     else if (cmd == "stir") {
         if (isArg1Numeric && isArg2Numeric)
-            stir(arg1_val,arg2_val);
+            stir(arg2_val,arg1_val);
         else if (isArg1Numeric)
                 stir(arg1_val);
+        else if (isArg2Numeric)
+            stir(arg2_val, 1);
         else return;
     }
     else if (cmd == "mix") {
@@ -170,6 +172,8 @@ void Recipe::processCommand (const string & cmd, const string & arg1 = "", const
     else if (cmd == "pour") {
         pour (arg1_val, arg2_val);
     }
+    else
+        err ("Unrecognized command.");
 
     if (trace)
     {
@@ -222,6 +226,9 @@ int Recipe::call (const string & aux)
         (*os) << "Returning from " << aux << endl;
         (*os) << "=======" << name << "=======" << endl;
     }
+
+   // r.printInfo();
+
     mixingBowls[1].append(r.mixingBowls[1]);
 
     return i;
@@ -246,6 +253,7 @@ void Recipe::addJump (const string & verb, const string & ingredient)
 void Recipe::addUntil (const string & verb, const string & ingredient = "")
 {
     // Register jump in jumps map
+    if (jumps.count(verb) != 0){
     jumps[verb].end_ingredient = ingredient;
     jumps[verb].end = commands.size();
 
@@ -253,13 +261,15 @@ void Recipe::addUntil (const string & verb, const string & ingredient = "")
     Command cm;
     cm.cmd = "until";
     cm.arg1 = verb;
-    commands.push_back(cm);
+    commands.push_back(cm);}
+    else err ("Unmatched jump: " + verb);
 }
 
 void Recipe::doJump (Jump & j)
 {
     jumpsStack.push (j);
-
+    if (ingredients.count(j.begin_ingredient)==0)
+        err("Testing nonexisting ingredient \"" + j.begin_ingredient + "\"");
     if (ingredients[j.begin_ingredient].value== 0)
     {
         currentCommand = j.end;
@@ -269,8 +279,12 @@ void Recipe::doJump (Jump & j)
 
 void Recipe::doUntil (Jump & j)
 {
-    if (j.end_ingredient != "")
+
+    if (j.end_ingredient != ""){
+        if (ingredients.count(j.end_ingredient)==0)
+            err("Decrementing nonexisting ingredient \"" + j.end_ingredient + "\"");
         ingredients[j.end_ingredient].value--;
+    }
 
     if (ingredients[j.begin_ingredient].value== 0)
         jumpsStack.pop();
@@ -297,24 +311,35 @@ void Recipe::takeFromFridge (const string & ingredient)
     Ingredient i;
     toNum(s, i.value);
     i.name = ingredient;
+    i.type = IngredientType::Dry;
     ingredients[ingredient] = i;
+    printInfo();
 }
 
 void Recipe::put (const string & ingredient, int bowlNo)
 {
+    if (ingredients.count(ingredient)==0)
+        err("Putting nonexisting ingredient +\"" + ingredient + "\"");
     mixingBowls[bowlNo].push_back(ingrToStack(ingredients[ingredient]));
 }
 
 void Recipe::fold (const string & ingredient, int bowlNo)
 {
     StackInfo si;
-    mixingBowls[bowlNo].popTop(si);
+    if (ingredients.count(ingredient)==0)
+        err("Folding nonexisting ingredient \"" + ingredient + "\"");
+    if (mixingBowls[bowlNo].popTop(si)){
     ingredients[ingredient].value = si.value;
     ingredients[ingredient].type = (si.liquid ? IngredientType::Liquid : IngredientType::Dry);
+    }
+    else err("Folding ingredient \"" + ingredient + "\" " + "into an empty stack.");
+
 }
 
 void Recipe::add (const string & ingredient, int bowlNo)
 {
+    if (ingredients.count(ingredient)==0)
+        err("Adding nonexisting ingredient +\"" + ingredient + "\"");
     StackInfo i;
     if (mixingBowls[bowlNo].popTop(i))
         i.value+=ingredients[ingredient].value;
@@ -323,6 +348,8 @@ void Recipe::add (const string & ingredient, int bowlNo)
 
 void Recipe::remove (const string & ingredient, int bowlNo)
 {
+    if (ingredients.count(ingredient)==0)
+        err("Removing nonexisting ingredient +\"" + ingredient + "\"");
     StackInfo i;
     if (mixingBowls[bowlNo].popTop(i))
         i.value-=ingredients[ingredient].value;
@@ -331,6 +358,8 @@ void Recipe::remove (const string & ingredient, int bowlNo)
 
 void Recipe::combine (const string & ingredient, int bowlNo)
 {
+    if (ingredients.count(ingredient)==0)
+        err("Combining nonexisting ingredient +\"" + ingredient + "\"");
     StackInfo i;
     if (mixingBowls[bowlNo].popTop(i))
         i.value*=ingredients[ingredient].value;
@@ -339,9 +368,11 @@ void Recipe::combine (const string & ingredient, int bowlNo)
 
 void Recipe::divide (const string & ingredient, int bowlNo)
 {
+    if (ingredients.count(ingredient)==0)
+        err("Dividing nonexisting ingredient +\"" + ingredient + "\"");
     StackInfo i;
     if (mixingBowls[bowlNo].popTop(i))
-        i.value=ingredients[ingredient].value / i.value;
+        i.value=i.value/ingredients[ingredient].value;
     mixingBowls[bowlNo].push_back(i);
 }
 
@@ -358,16 +389,20 @@ void Recipe::addDry (int bowlNo)
 
 void Recipe::liquify (const string & ingredient)
 {
+    if (ingredients.count(ingredient)==0)
+        err("Liquefying nonexisting ingredient +\"" + ingredient + "\"");
     ingredients[ingredient].type = IngredientType::Liquid;
 }
 
-void Recipe::stir (int bowlNo, int times)
+void Recipe::stir (int times, int bowlNo)
 {
     mixingBowls[bowlNo].stir(times);
 }
 
 void Recipe::stirIngredient (const string & ingredient, int bowlNo)
 {
+    if (ingredients.count(ingredient)==0)
+        err("Stirring nonexisting ingredient +\"" + ingredient + "\"");
     mixingBowls[bowlNo].stir(ingredients[ingredient].value);
 }
 

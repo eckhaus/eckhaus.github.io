@@ -1,0 +1,15 @@
+Ingredients test.
+
+Place characters onto stack until 0 is read.
+
+Method.
+Take ingredient from refrigerator.
+Mash ingredient.
+	Liquify ingredient.
+	Put ingredient into 1st mixing bowl.
+	Take ingredient from refrigerator.
+Mash until mashed.
+
+Pour contents of mixing bowl into the baking dish.
+
+Serves 1.

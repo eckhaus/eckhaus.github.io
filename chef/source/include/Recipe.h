@@ -177,4 +177,10 @@ private:
     //@}
 };
 
+inline void err (string s) {
+    cout << "Error: " << s << endl;
+    exit(0);
+}
+
+
 #endif // RECIPE_H

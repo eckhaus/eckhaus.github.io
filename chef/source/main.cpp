@@ -1,5 +1,5 @@
 // Author: Róbert Eckhaus
-// Date: 25 Apr 2016
+// Date: 17 May 2016
 // Chef language interpreter
 
 /*! \mainpage Chef interpreter
@@ -55,13 +55,17 @@ void parseArgs (int argc, char ** argv, string & inFile, string & outFile, bool 
             }
             else if (args[field][1] == 'i')
             {
+                if (field+1 < args.size()){
                 inFile = args[field+1];
-                field +=2;
+                field +=2;}
+                else err("Missing filename.");
             }
             else if (args[field][1] == 'o')
             {
+                if (field+1 < args.size()){
                 outFile = args[field+1];
-                field +=2;
+                field +=2;}
+                else err("Missing filename.");
             }
             else
             {
@@ -69,6 +73,8 @@ void parseArgs (int argc, char ** argv, string & inFile, string & outFile, bool 
                 std::exit(-1);
             }
         }
+        if (field < args.size())
+            err("Unknown option2.");
     }
 }
 

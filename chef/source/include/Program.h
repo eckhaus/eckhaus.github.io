@@ -20,7 +20,7 @@ private:
     /** Stores the main chef script. */
     Recipe main_recipe;
 
-    bool printParserOutput = true; /**< If true prints out the parser output (parsed commands and their parameters) */
+    bool printParserOutput = false; /**< If true prints out the parser output (parsed commands and their parameters) */
     bool printProgramInfo = false; /**<  If true prints out detailed information about program's main method (recipe) using {@link Recipe::printInfo}. */
     bool printAuxiliaryPrograms = true; /**< If true outputs also information about auxliary recipes */
     bool trace = false; /**< When set to true, allows the user to exectue the script in step-by-step manner */
@@ -60,6 +60,9 @@ private:
     /** Loads the whole recipe into r. Calls LoadHeader, LoadIngredients and then parses commands of the source file.
       * @param r Recipe in which the output will be stored */
     bool LoadRecipe (Recipe & r);
+
+
+    bool parseCommand (Recipe & r, string & line);
 };
 
 #endif // PROGRAM_H

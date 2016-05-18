@@ -1,11 +1,12 @@
-Test.
+Test add dry ingredients.
 
-This recipe calculates and prints factorials of first integers.
+Sums up all the dry ingredients. Should output 1011
 
 Ingredients.
 1 g a
 10 g b
 100 l c
+1000 heaped tablespoons d
 
 Method.
 Add dry ingredients.

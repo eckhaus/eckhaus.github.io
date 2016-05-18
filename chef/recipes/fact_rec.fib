@@ -1,0 +1,28 @@
+Yet another factorial.
+Straightforward implementation of factorial. Step(n| n>1) = n*Step(n-1), Step (0) = 1
+Ingredients.
+n0
+Method.
+Take 	n0 from refrigerator.
+Put 	n0 into mixing bowl.
+Serve with step.
+Fold 	n0 into mixing bowl.
+Clean the mixing bowl.
+Put 	n0 into mixing bowl.
+Pour contents of mixing bowl into the baking dish.
+Serves 1.
+
+Step.
+Ingredients.
+n
+1 g one
+Method.
+Fold 	n into mixing bowl.
+Put 	n into mixing bowl.
+Remove 	one.
+Test 	n.
+  Serve 	with step.
+  Combine 	n into mixing bowl.
+  Refrigerate.
+Do 	until tested.
+Put 	one into mixing bowl.
