@@ -29,11 +29,11 @@ void \hyperlink{group__Command_ga5d32e4fe23897d4dbb0b10eb4821baeb}{Recipe\-::div
 \item 
 void \hyperlink{group__Command_ga7c657ea9ec19dfb55292a7474fe12511}{Recipe\-::add\-Dry} (int bowl\-No=1)
 \item 
-void \hyperlink{group__Command_gadf633f6ac72e47c575d128c5c6a32615}{Recipe\-::liquify} (string ingredient)
+void \hyperlink{group__Command_gaf44790b96aebd727ff3d7ccbbf9ff568}{Recipe\-::liquify} (const string \&ingredient)
 \item 
 void \hyperlink{group__Command_ga5b48c67eb04fc71c199bdf611c387c9e}{Recipe\-::stir} (int times, int bowl\-No=1)
 \item 
-void \hyperlink{group__Command_ga1f10bdb32b627eaa025d1313dbdc3c40}{Recipe\-::stir\-Ingredient} (string ingredient, int bowl\-No=1)
+void \hyperlink{group__Command_ga2678e5c7db062e186ca947018050f5c2}{Recipe\-::stir\-Ingredient} (const string \&ingredient, int bowl\-No=1)
 \item 
 void \hyperlink{group__Command_gad9a02b3a48b606ba17dc91337c3f64c2}{Recipe\-::mix} (int bowl\-No=1)
 \item 
@@ -41,7 +41,7 @@ void \hyperlink{group__Command_gae041e0eb15d1e40fe513b53803810dac}{Recipe\-::cle
 \item 
 void \hyperlink{group__Command_ga03848074a9e527439e6381e47d9f3749}{Recipe\-::pour} (int bowl\-No=1, int dish\-No=1)
 \item 
-int \hyperlink{group__Command_ga8822f6ec69a54e51222299b96e3b1923}{Recipe\-::call} (string aux)
+int \hyperlink{group__Command_ga2485acb9291f44d16222f15a75ff27fb}{Recipe\-::call} (const string \&aux)
 \item 
 void \hyperlink{group__Command_ga4889710ccae668fb039e4dfa0ea2dae7}{Recipe\-::set\-Aside} ()
 \end{DoxyCompactItemize}
@@ -66,13 +66,13 @@ Add value of given ingredient to the value on the top of the mixing bowl \hypert
 \item[{int}]{bowl\-No = {\ttfamily 1}}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}}\label{group__Command_ga7c657ea9ec19dfb55292a7474fe12511}
-Place the sum of quantities of dry ingredients on top of the mixing bowl \hypertarget{group__Command_ga8822f6ec69a54e51222299b96e3b1923}{\index{Command@{Command}!call@{call}}
+Place the sum of quantities of dry ingredients on top of the mixing bowl \hypertarget{group__Command_ga2485acb9291f44d16222f15a75ff27fb}{\index{Command@{Command}!call@{call}}
 \index{call@{call}!Command@{Command}}
 \subsubsection[{call}]{\setlength{\rightskip}{0pt plus 5cm}int Recipe\-::call (
 \begin{DoxyParamCaption}
-\item[{string}]{aux}
+\item[{const string \&}]{aux}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}}\label{group__Command_ga8822f6ec69a54e51222299b96e3b1923}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{group__Command_ga2485acb9291f44d16222f15a75ff27fb}
 Call auxliary recipe \hypertarget{group__Command_gae041e0eb15d1e40fe513b53803810dac}{\index{Command@{Command}!clean@{clean}}
 \index{clean@{clean}!Command@{Command}}
 \subsubsection[{clean}]{\setlength{\rightskip}{0pt plus 5cm}void Recipe\-::clean (
@@ -118,13 +118,13 @@ End of jump (jump back to loop begining label) \hypertarget{group__Command_gaf5f
 \item[{int}]{bowl\-No = {\ttfamily 1}}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}}\label{group__Command_gaf5f825d69a4a19837a0714715710734a}
-Remove the top value of the mixing bowl and store it in ingredient \hypertarget{group__Command_gadf633f6ac72e47c575d128c5c6a32615}{\index{Command@{Command}!liquify@{liquify}}
+Remove the top value of the mixing bowl and store it in ingredient \hypertarget{group__Command_gaf44790b96aebd727ff3d7ccbbf9ff568}{\index{Command@{Command}!liquify@{liquify}}
 \index{liquify@{liquify}!Command@{Command}}
 \subsubsection[{liquify}]{\setlength{\rightskip}{0pt plus 5cm}void Recipe\-::liquify (
 \begin{DoxyParamCaption}
-\item[{string}]{ingredient}
+\item[{const string \&}]{ingredient}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}}\label{group__Command_gadf633f6ac72e47c575d128c5c6a32615}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{group__Command_gaf44790b96aebd727ff3d7ccbbf9ff568}
 Set ingredient's type to liquid (A\-S\-C\-I\-I character) \hypertarget{group__Command_gad9a02b3a48b606ba17dc91337c3f64c2}{\index{Command@{Command}!mix@{mix}}
 \index{mix@{mix}!Command@{Command}}
 \subsubsection[{mix}]{\setlength{\rightskip}{0pt plus 5cm}void Recipe\-::mix (
@@ -171,14 +171,14 @@ Break the innermost loop \hypertarget{group__Command_ga5b48c67eb04fc71c199bdf611
 \item[{int}]{bowl\-No = {\ttfamily 1}}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}}\label{group__Command_ga5b48c67eb04fc71c199bdf611c387c9e}
-Move the top of the stack n positions deeper into the stack \hypertarget{group__Command_ga1f10bdb32b627eaa025d1313dbdc3c40}{\index{Command@{Command}!stir\-Ingredient@{stir\-Ingredient}}
+Move the top of the stack n positions deeper into the stack \hypertarget{group__Command_ga2678e5c7db062e186ca947018050f5c2}{\index{Command@{Command}!stir\-Ingredient@{stir\-Ingredient}}
 \index{stir\-Ingredient@{stir\-Ingredient}!Command@{Command}}
 \subsubsection[{stir\-Ingredient}]{\setlength{\rightskip}{0pt plus 5cm}void Recipe\-::stir\-Ingredient (
 \begin{DoxyParamCaption}
-\item[{string}]{ingredient, }
+\item[{const string \&}]{ingredient, }
 \item[{int}]{bowl\-No = {\ttfamily 1}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}}\label{group__Command_ga1f10bdb32b627eaa025d1313dbdc3c40}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{group__Command_ga2678e5c7db062e186ca947018050f5c2}
 Stir the value of ingredient into the stack \hypertarget{group__Command_ga5119039470b26422e6ec843515d4a720}{\index{Command@{Command}!take\-From\-Fridge@{take\-From\-Fridge}}
 \index{take\-From\-Fridge@{take\-From\-Fridge}!Command@{Command}}
 \subsubsection[{take\-From\-Fridge}]{\setlength{\rightskip}{0pt plus 5cm}void Recipe\-::take\-From\-Fridge (

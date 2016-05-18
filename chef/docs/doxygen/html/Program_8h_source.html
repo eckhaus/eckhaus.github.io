@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Chef interpreter: /home/eckhaus/Desktop/cpp/zapoctak_prod/source/include/Program.h Source File</title>
+<title>Chef interpreter: /home/eckhaus/git/eckhaus.github.io/chef/source/include/Program.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -128,30 +128,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classProgram.html#a277650f0e2ae017e8171aee4fbde0ae2">LoadIngredients</a> (<a class="code" href="classRecipe.html">Recipe</a> &amp; r);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classProgram.html#a28d7594324677db5e10aff47fa97f593">LoadRecipe</a> (<a class="code" href="classRecipe.html">Recipe</a> &amp; r);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif // PROGRAM_H</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> parseCommand (<a class="code" href="classRecipe.html">Recipe</a> &amp; r, <span class="keywordtype">string</span> &amp; line);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif // PROGRAM_H</span></div>
 <div class="ttc" id="classProgram_html"><div class="ttname"><a href="classProgram.html">Program</a></div><div class="ttdoc">Parses and interprets the source code. Handles the execution of the main script. </div><div class="ttdef"><b>Definition:</b> Program.h:12</div></div>
-<div class="ttc" id="classProgram_html_a4e8ea37034e515f7c21d3fb3cc119765"><div class="ttname"><a href="classProgram.html#a4e8ea37034e515f7c21d3fb3cc119765">Program::LoadHeader</a></div><div class="ttdeci">bool LoadHeader(Recipe &amp;r)</div><div class="ttdef"><b>Definition:</b> Program.cpp:125</div></div>
+<div class="ttc" id="classProgram_html_a4e8ea37034e515f7c21d3fb3cc119765"><div class="ttname"><a href="classProgram.html#a4e8ea37034e515f7c21d3fb3cc119765">Program::LoadHeader</a></div><div class="ttdeci">bool LoadHeader(Recipe &amp;r)</div><div class="ttdef"><b>Definition:</b> Program.cpp:130</div></div>
 <div class="ttc" id="classProgram_html_a941f96a02d5fd027979cbc7b484f04c7"><div class="ttname"><a href="classProgram.html#a941f96a02d5fd027979cbc7b484f04c7">Program::parameter_positions</a></div><div class="ttdeci">map&lt; string, vector&lt; int &gt; &gt; parameter_positions</div><div class="ttdef"><b>Definition:</b> Program.h:37</div></div>
 <div class="ttc" id="classProgram_html_a3787a8712d4c75b6b5f0e81a5e4f6fdc"><div class="ttname"><a href="classProgram.html#a3787a8712d4c75b6b5f0e81a5e4f6fdc">Program::printParserOutput</a></div><div class="ttdeci">bool printParserOutput</div><div class="ttdef"><b>Definition:</b> Program.h:23</div></div>
 <div class="ttc" id="classProgram_html_af2653e6c49451f67e7365c218eaab08a"><div class="ttname"><a href="classProgram.html#af2653e6c49451f67e7365c218eaab08a">Program::regexp_string</a></div><div class="ttdeci">map&lt; string, string &gt; regexp_string</div><div class="ttdef"><b>Definition:</b> Program.h:35</div></div>
 <div class="ttc" id="classProgram_html_ad4371cad6bc5c0f4cd232007a2324205"><div class="ttname"><a href="classProgram.html#ad4371cad6bc5c0f4cd232007a2324205">Program::printAuxiliaryPrograms</a></div><div class="ttdeci">bool printAuxiliaryPrograms</div><div class="ttdef"><b>Definition:</b> Program.h:25</div></div>
-<div class="ttc" id="classProgram_html_a20fc155df19b3cfc73901e31f2fad53d"><div class="ttname"><a href="classProgram.html#a20fc155df19b3cfc73901e31f2fad53d">Program::setUpRegex</a></div><div class="ttdeci">void setUpRegex()</div><div class="ttdef"><b>Definition:</b> Program.cpp:48</div></div>
+<div class="ttc" id="classProgram_html_a20fc155df19b3cfc73901e31f2fad53d"><div class="ttname"><a href="classProgram.html#a20fc155df19b3cfc73901e31f2fad53d">Program::setUpRegex</a></div><div class="ttdeci">void setUpRegex()</div><div class="ttdef"><b>Definition:</b> Program.cpp:52</div></div>
 <div class="ttc" id="classProgram_html_a8b56614562949906e79e18efdd88d554"><div class="ttname"><a href="classProgram.html#a8b56614562949906e79e18efdd88d554">Program::fileName</a></div><div class="ttdeci">string fileName</div><div class="ttdef"><b>Definition:</b> Program.h:29</div></div>
-<div class="ttc" id="classProgram_html_a7e845a6184bade97aead63d2e14c5040"><div class="ttname"><a href="classProgram.html#a7e845a6184bade97aead63d2e14c5040">Program::parse</a></div><div class="ttdeci">void parse()</div><div class="ttdef"><b>Definition:</b> Program.cpp:7</div></div>
+<div class="ttc" id="classProgram_html_a7e845a6184bade97aead63d2e14c5040"><div class="ttname"><a href="classProgram.html#a7e845a6184bade97aead63d2e14c5040">Program::parse</a></div><div class="ttdeci">void parse()</div><div class="ttdef"><b>Definition:</b> Program.cpp:5</div></div>
 <div class="ttc" id="classProgram_html_a4addd74ec821dc25e804fa2096b7fa59"><div class="ttname"><a href="classProgram.html#a4addd74ec821dc25e804fa2096b7fa59">Program::printProgramInfo</a></div><div class="ttdeci">bool printProgramInfo</div><div class="ttdef"><b>Definition:</b> Program.h:24</div></div>
 <div class="ttc" id="classProgram_html_a5f4a3688d83bf77b92e294933671007c"><div class="ttname"><a href="classProgram.html#a5f4a3688d83bf77b92e294933671007c">Program::trace</a></div><div class="ttdeci">bool trace</div><div class="ttdef"><b>Definition:</b> Program.h:26</div></div>
-<div class="ttc" id="classProgram_html_a28d7594324677db5e10aff47fa97f593"><div class="ttname"><a href="classProgram.html#a28d7594324677db5e10aff47fa97f593">Program::LoadRecipe</a></div><div class="ttdeci">bool LoadRecipe(Recipe &amp;r)</div><div class="ttdef"><b>Definition:</b> Program.cpp:178</div></div>
-<div class="ttc" id="classProgram_html_a277650f0e2ae017e8171aee4fbde0ae2"><div class="ttname"><a href="classProgram.html#a277650f0e2ae017e8171aee4fbde0ae2">Program::LoadIngredients</a></div><div class="ttdeci">void LoadIngredients(Recipe &amp;r)</div><div class="ttdef"><b>Definition:</b> Program.cpp:160</div></div>
+<div class="ttc" id="classProgram_html_a28d7594324677db5e10aff47fa97f593"><div class="ttname"><a href="classProgram.html#a28d7594324677db5e10aff47fa97f593">Program::LoadRecipe</a></div><div class="ttdeci">bool LoadRecipe(Recipe &amp;r)</div><div class="ttdef"><b>Definition:</b> Program.cpp:266</div></div>
+<div class="ttc" id="classProgram_html_a277650f0e2ae017e8171aee4fbde0ae2"><div class="ttname"><a href="classProgram.html#a277650f0e2ae017e8171aee4fbde0ae2">Program::LoadIngredients</a></div><div class="ttdeci">void LoadIngredients(Recipe &amp;r)</div><div class="ttdef"><b>Definition:</b> Program.cpp:171</div></div>
 <div class="ttc" id="classProgram_html_a414bb40153c7da0e1815b7140c4aa454"><div class="ttname"><a href="classProgram.html#a414bb40153c7da0e1815b7140c4aa454">Program::main_recipe</a></div><div class="ttdeci">Recipe main_recipe</div><div class="ttdef"><b>Definition:</b> Program.h:21</div></div>
 <div class="ttc" id="classRecipe_html"><div class="ttname"><a href="classRecipe.html">Recipe</a></div><div class="ttdoc">Stores all the information about recipes &amp; executes their commands. </div><div class="ttdef"><b>Definition:</b> Recipe.h:40</div></div>
-<div class="ttc" id="classProgram_html_aa97b3ca0f048f04847e6be90581cf756"><div class="ttname"><a href="classProgram.html#aa97b3ca0f048f04847e6be90581cf756">Program::typeFromString</a></div><div class="ttdeci">IngredientType typeFromString(const string &amp;s)</div><div class="ttdef"><b>Definition:</b> Program.cpp:109</div></div>
-<div class="ttc" id="classProgram_html_ad5a95ba2b5f9caa0555d7d24c475f502"><div class="ttname"><a href="classProgram.html#ad5a95ba2b5f9caa0555d7d24c475f502">Program::normalize</a></div><div class="ttdeci">void normalize(string &amp;s)</div><div class="ttdef"><b>Definition:</b> Program.cpp:103</div></div>
+<div class="ttc" id="classProgram_html_aa97b3ca0f048f04847e6be90581cf756"><div class="ttname"><a href="classProgram.html#aa97b3ca0f048f04847e6be90581cf756">Program::typeFromString</a></div><div class="ttdeci">IngredientType typeFromString(const string &amp;s)</div><div class="ttdef"><b>Definition:</b> Program.cpp:117</div></div>
+<div class="ttc" id="classProgram_html_ad5a95ba2b5f9caa0555d7d24c475f502"><div class="ttname"><a href="classProgram.html#ad5a95ba2b5f9caa0555d7d24c475f502">Program::normalize</a></div><div class="ttdeci">void normalize(string &amp;s)</div><div class="ttdef"><b>Definition:</b> Program.cpp:107</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 29 2016 15:50:43 for Chef interpreter by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 18 2016 21:27:11 for Chef interpreter by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

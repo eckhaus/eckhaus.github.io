@@ -237,6 +237,7 @@ int Recipe::call (const string & aux)
 void Recipe::addJump (const string & verb, const string & ingredient)
 {
     // Register jump in jumps map
+    if (jumps.count(verb) == 0){
     Jump j;
     j.begin_ingredient = ingredient;
     j.verb = verb;
@@ -248,6 +249,8 @@ void Recipe::addJump (const string & verb, const string & ingredient)
     cm.cmd = "jump";
     cm.arg1 = verb;
     commands.push_back(cm);
+    }
+    else err ("Conflicting jump identifiers: " + verb);
 }
 
 void Recipe::addUntil (const string & verb, const string & ingredient = "")

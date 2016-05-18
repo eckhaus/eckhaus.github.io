@@ -107,12 +107,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2cec7c48e273bbedca60469f2a33bc0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9a086810c68a0f459f3eded4fec249d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#aa9a086810c68a0f459f3eded4fec249d">printInfo</a> (bool printAux=false, bool bowls_only=false)</td></tr>
 <tr class="separator:aa9a086810c68a0f459f3eded4fec249d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a7be4e0b36826b23fc9e04b45320321"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#a7a7be4e0b36826b23fc9e04b45320321">addCommand</a> (string cmd, string arg1, string arg2)</td></tr>
-<tr class="separator:a7a7be4e0b36826b23fc9e04b45320321"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75438df7365e67f4df888e5d92c55e82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#a75438df7365e67f4df888e5d92c55e82">addCommand</a> (const string &amp;cmd, const string &amp;arg1, const string &amp;arg2)</td></tr>
+<tr class="separator:a75438df7365e67f4df888e5d92c55e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89b9a5166511ac1bba135bb72f7f3ff5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#a89b9a5166511ac1bba135bb72f7f3ff5">addJump</a> (const string &amp;verb, const string &amp;ingredient)</td></tr>
 <tr class="separator:a89b9a5166511ac1bba135bb72f7f3ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad70963ee27e79fc4c42ef6fdd4e064d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#ad70963ee27e79fc4c42ef6fdd4e064d8">addUntil</a> (const string &amp;verb, string ingredient)</td></tr>
-<tr class="separator:ad70963ee27e79fc4c42ef6fdd4e064d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3f724d89b2f98b5d1edc5b32b26677d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#aa3f724d89b2f98b5d1edc5b32b26677d">addUntil</a> (const string &amp;verb, const string &amp;ingredient)</td></tr>
+<tr class="separator:aa3f724d89b2f98b5d1edc5b32b26677d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85c5fcfd5fbe1d1956e85ee1656af3a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#a85c5fcfd5fbe1d1956e85ee1656af3a7">addIngredient</a> (<a class="el" href="classIngredient.html">Ingredient</a> i)</td></tr>
 <tr class="separator:a85c5fcfd5fbe1d1956e85ee1656af3a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8238253913982ef70b6ea4bad997fed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#aa8238253913982ef70b6ea4bad997fed">addAuxliary</a> (<a class="el" href="classRecipe.html">Recipe</a> &amp;aux)</td></tr>
@@ -139,11 +139,11 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a172cb7622220cfb41d6106aec1722493"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a172cb7622220cfb41d6106aec1722493"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>toNum</b> (const string &amp;s, int &amp;n)</td></tr>
 <tr class="separator:a172cb7622220cfb41d6106aec1722493"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a611dc0aa9b91f6cd4a9d9a6dd5295bd8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a611dc0aa9b91f6cd4a9d9a6dd5295bd8"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>typeToString</b> (IngredientType it)</td></tr>
-<tr class="separator:a611dc0aa9b91f6cd4a9d9a6dd5295bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04717cbcd9526d308567e78caa13eac4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#a04717cbcd9526d308567e78caa13eac4">processCommand</a> (string cmd, string arg1, string arg2)</td></tr>
-<tr class="separator:a04717cbcd9526d308567e78caa13eac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8471305ea877c360e4f6793ba4c34dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8471305ea877c360e4f6793ba4c34dd"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>typeToString</b> (IngredientType &amp;it)</td></tr>
+<tr class="separator:ac8471305ea877c360e4f6793ba4c34dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0255f5a048027bb27d436add096db83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#aa0255f5a048027bb27d436add096db83">processCommand</a> (const string &amp;cmd, const string &amp;arg1, const string &amp;arg2)</td></tr>
+<tr class="separator:aa0255f5a048027bb27d436add096db83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a280aeb473fd69ef19df3654a54408d02"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a280aeb473fd69ef19df3654a54408d02"></a>
 <a class="el" href="structStackInfo.html">StackInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ingrToStack</b> (const <a class="el" href="classIngredient.html">Ingredient</a> &amp;i)</td></tr>
 <tr class="separator:a280aeb473fd69ef19df3654a54408d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,20 +167,20 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>typeToString</b> (I
 <tr class="separator:ga5d32e4fe23897d4dbb0b10eb4821baeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7c657ea9ec19dfb55292a7474fe12511"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Command.html#ga7c657ea9ec19dfb55292a7474fe12511">addDry</a> (int bowlNo=1)</td></tr>
 <tr class="separator:ga7c657ea9ec19dfb55292a7474fe12511"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadf633f6ac72e47c575d128c5c6a32615"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Command.html#gadf633f6ac72e47c575d128c5c6a32615">liquify</a> (string ingredient)</td></tr>
-<tr class="separator:gadf633f6ac72e47c575d128c5c6a32615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf44790b96aebd727ff3d7ccbbf9ff568"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Command.html#gaf44790b96aebd727ff3d7ccbbf9ff568">liquify</a> (const string &amp;ingredient)</td></tr>
+<tr class="separator:gaf44790b96aebd727ff3d7ccbbf9ff568"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5b48c67eb04fc71c199bdf611c387c9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Command.html#ga5b48c67eb04fc71c199bdf611c387c9e">stir</a> (int times, int bowlNo=1)</td></tr>
 <tr class="separator:ga5b48c67eb04fc71c199bdf611c387c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1f10bdb32b627eaa025d1313dbdc3c40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Command.html#ga1f10bdb32b627eaa025d1313dbdc3c40">stirIngredient</a> (string ingredient, int bowlNo=1)</td></tr>
-<tr class="separator:ga1f10bdb32b627eaa025d1313dbdc3c40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2678e5c7db062e186ca947018050f5c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Command.html#ga2678e5c7db062e186ca947018050f5c2">stirIngredient</a> (const string &amp;ingredient, int bowlNo=1)</td></tr>
+<tr class="separator:ga2678e5c7db062e186ca947018050f5c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad9a02b3a48b606ba17dc91337c3f64c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Command.html#gad9a02b3a48b606ba17dc91337c3f64c2">mix</a> (int bowlNo=1)</td></tr>
 <tr class="separator:gad9a02b3a48b606ba17dc91337c3f64c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae041e0eb15d1e40fe513b53803810dac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Command.html#gae041e0eb15d1e40fe513b53803810dac">clean</a> (int bowlNo=1)</td></tr>
 <tr class="separator:gae041e0eb15d1e40fe513b53803810dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga03848074a9e527439e6381e47d9f3749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Command.html#ga03848074a9e527439e6381e47d9f3749">pour</a> (int bowlNo=1, int dishNo=1)</td></tr>
 <tr class="separator:ga03848074a9e527439e6381e47d9f3749"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8822f6ec69a54e51222299b96e3b1923"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Command.html#ga8822f6ec69a54e51222299b96e3b1923">call</a> (string aux)</td></tr>
-<tr class="separator:ga8822f6ec69a54e51222299b96e3b1923"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2485acb9291f44d16222f15a75ff27fb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Command.html#ga2485acb9291f44d16222f15a75ff27fb">call</a> (const string &amp;aux)</td></tr>
+<tr class="separator:ga2485acb9291f44d16222f15a75ff27fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4889710ccae668fb039e4dfa0ea2dae7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Command.html#ga4889710ccae668fb039e4dfa0ea2dae7">setAside</a> ()</td></tr>
 <tr class="separator:ga4889710ccae668fb039e4dfa0ea2dae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -192,9 +192,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a3edfc934ad30f52f01dc90630b0decaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cf0fa9aedac7925a49a5655401a2680"><td class="memItemLeft" align="right" valign="top">map&lt; string, <a class="el" href="classIngredient.html">Ingredient</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#a9cf0fa9aedac7925a49a5655401a2680">ingredients</a></td></tr>
 <tr class="separator:a9cf0fa9aedac7925a49a5655401a2680"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad21a1bda0d75378dd9b53c1abb76524f"><td class="memItemLeft" align="right" valign="top">map&lt; int, <a class="el" href="classMixingBowl.html">MixingBowl</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#ad21a1bda0d75378dd9b53c1abb76524f">mixingBowls</a></td></tr>
+<tr class="memitem:ad21a1bda0d75378dd9b53c1abb76524f"><td class="memItemLeft" align="right" valign="top">map&lt; int, <a class="el" href="classDish.html">MixingBowl</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#ad21a1bda0d75378dd9b53c1abb76524f">mixingBowls</a></td></tr>
 <tr class="separator:ad21a1bda0d75378dd9b53c1abb76524f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae370ab1573cc3222fa5a77c9ed5cee4"><td class="memItemLeft" align="right" valign="top">map&lt; int, <a class="el" href="classBakingDish.html">BakingDish</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#aae370ab1573cc3222fa5a77c9ed5cee4">bakingDishes</a></td></tr>
+<tr class="memitem:aae370ab1573cc3222fa5a77c9ed5cee4"><td class="memItemLeft" align="right" valign="top">map&lt; int, <a class="el" href="classDish.html">BakingDish</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#aae370ab1573cc3222fa5a77c9ed5cee4">bakingDishes</a></td></tr>
 <tr class="separator:aae370ab1573cc3222fa5a77c9ed5cee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1419284a891adb4ae550d6ea4c76df8"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structCommand.html">Command</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRecipe.html#ae1419284a891adb4ae550d6ea4c76df8">commands</a></td></tr>
 <tr class="separator:ae1419284a891adb4ae550d6ea4c76df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -232,26 +232,26 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a7a7be4e0b36826b23fc9e04b45320321"></a>
+<a class="anchor" id="a75438df7365e67f4df888e5d92c55e82"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Recipe::addCommand </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
+          <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>cmd</em> = <code>&quot;&quot;</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">string&#160;</td>
+          <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>arg1</em> = <code>&quot;&quot;</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">string&#160;</td>
+          <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>arg2</em> = <code>&quot;&quot;</code>&#160;</td>
         </tr>
         <tr>
@@ -330,7 +330,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad70963ee27e79fc4c42ef6fdd4e064d8"></a>
+<a class="anchor" id="aa3f724d89b2f98b5d1edc5b32b26677d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -343,7 +343,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">string&#160;</td>
+          <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>ingredient</em> = <code>&quot;&quot;</code>&#160;</td>
         </tr>
         <tr>
@@ -398,7 +398,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a04717cbcd9526d308567e78caa13eac4"></a>
+<a class="anchor" id="aa0255f5a048027bb27d436add096db83"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -408,19 +408,19 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void Recipe::processCommand </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
+          <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>cmd</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">string&#160;</td>
+          <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>arg1</em> = <code>&quot;&quot;</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">string&#160;</td>
+          <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>arg2</em> = <code>&quot;&quot;</code>&#160;</td>
         </tr>
         <tr>
@@ -493,7 +493,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">map&lt;int, <a class="el" href="classBakingDish.html">BakingDish</a>&gt; Recipe::bakingDishes</td>
+          <td class="memname">map&lt;int, <a class="el" href="classDish.html">BakingDish</a>&gt; Recipe::bakingDishes</td>
         </tr>
       </table>
   </td>
@@ -653,7 +653,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">map&lt;int, <a class="el" href="classMixingBowl.html">MixingBowl</a>&gt; Recipe::mixingBowls</td>
+          <td class="memname">map&lt;int, <a class="el" href="classDish.html">MixingBowl</a>&gt; Recipe::mixingBowls</td>
         </tr>
       </table>
   </td>
@@ -719,13 +719,13 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/eckhaus/Desktop/cpp/zapoctak_prod/source/include/<a class="el" href="Recipe_8h_source.html">Recipe.h</a></li>
-<li>/home/eckhaus/Desktop/cpp/zapoctak_prod/source/src/Recipe.cpp</li>
+<li>/home/eckhaus/git/eckhaus.github.io/chef/source/include/<a class="el" href="Recipe_8h_source.html">Recipe.h</a></li>
+<li>/home/eckhaus/git/eckhaus.github.io/chef/source/src/Recipe.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 29 2016 15:50:44 for Chef interpreter by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 18 2016 21:27:12 for Chef interpreter by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

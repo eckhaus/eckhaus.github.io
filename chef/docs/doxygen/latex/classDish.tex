@@ -13,7 +13,7 @@ Stack of Ingredients.
 Inheritance diagram for Dish\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{classDish}
+\includegraphics[height=2.000000cm]{classDish}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -23,7 +23,7 @@ void \hyperlink{classDish_a1af363ad3f1c4df4971f82051763df20}{print} (ostream $\a
 \item 
 bool \hyperlink{classDish_a437c63798f934fdc3c80037d77a0d51e}{pop\-Top} (\hyperlink{structStackInfo}{Stack\-Info} \&i)
 \item 
-void \hyperlink{classDish_a2454c3444480c5a7c38181c3e6cf8cd8}{append} (\hyperlink{classDish}{Dish} d)
+void \hyperlink{classDish_ac0abbc375bf201a4267b3b57c82d2a8f}{append} (const \hyperlink{classDish}{Dish} \&d)
 \item 
 void \hyperlink{classDish_a41b6fc6a531325d36d4607546291386b}{liquify} ()
 \item 
@@ -31,8 +31,6 @@ void \hyperlink{classDish_a41b6fc6a531325d36d4607546291386b}{liquify} ()
 
 \item 
 void \hyperlink{classDish_a1c60aa114f084117df18578e58f0725d}{randomize} ()
-\item 
-void \hyperlink{classDish_ac2d02755a7c24232df45ca64dc519858}{clear} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -40,41 +38,20 @@ void \hyperlink{classDish_ac2d02755a7c24232df45ca64dc519858}{clear} ()
 \hypertarget{classDish_a14264990a9a7bc34f61336eeb6dcfcbd}{int {\bfseries I\-D}}\label{classDish_a14264990a9a7bc34f61336eeb6dcfcbd}
 
 \end{DoxyCompactItemize}
-\subsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \hyperlink{classDish_a339f74a03ef948efcc726eaccdf4bd51}{init} (vector$<$ int $>$ \&v)
-\item 
-void \hyperlink{classDish_ade464eeeeddcd5d8bc37e96a80654b1e}{rev} ()
-\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Stack of Ingredients. 
 
 \subsection{Member Function Documentation}
-\hypertarget{classDish_a2454c3444480c5a7c38181c3e6cf8cd8}{\index{Dish@{Dish}!append@{append}}
+\hypertarget{classDish_ac0abbc375bf201a4267b3b57c82d2a8f}{\index{Dish@{Dish}!append@{append}}
 \index{append@{append}!Dish@{Dish}}
 \subsubsection[{append}]{\setlength{\rightskip}{0pt plus 5cm}void Dish\-::append (
 \begin{DoxyParamCaption}
-\item[{{\bf Dish}}]{d}
+\item[{const {\bf Dish} \&}]{d}
 \end{DoxyParamCaption}
-)}}\label{classDish_a2454c3444480c5a7c38181c3e6cf8cd8}
-Append stack d to the end of this stack \hypertarget{classDish_ac2d02755a7c24232df45ca64dc519858}{\index{Dish@{Dish}!clear@{clear}}
-\index{clear@{clear}!Dish@{Dish}}
-\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void Dish\-::clear (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{classDish_ac2d02755a7c24232df45ca64dc519858}
-Shuffle the stack \hypertarget{classDish_a339f74a03ef948efcc726eaccdf4bd51}{\index{Dish@{Dish}!init@{init}}
-\index{init@{init}!Dish@{Dish}}
-\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void Dish\-::init (
-\begin{DoxyParamCaption}
-\item[{vector$<$ int $>$ \&}]{v}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}}\label{classDish_a339f74a03ef948efcc726eaccdf4bd51}
-Clear the stack \hypertarget{classDish_a41b6fc6a531325d36d4607546291386b}{\index{Dish@{Dish}!liquify@{liquify}}
+)}}\label{classDish_ac0abbc375bf201a4267b3b57c82d2a8f}
+Append stack d to the end of this stack \hypertarget{classDish_a41b6fc6a531325d36d4607546291386b}{\index{Dish@{Dish}!liquify@{liquify}}
 \index{liquify@{liquify}!Dish@{Dish}}
 \subsubsection[{liquify}]{\setlength{\rightskip}{0pt plus 5cm}void Dish\-::liquify (
 \begin{DoxyParamCaption}
@@ -102,16 +79,9 @@ Print out the stack \hypertarget{classDish_a1c60aa114f084117df18578e58f0725d}{\i
 {}
 \end{DoxyParamCaption}
 )}}\label{classDish_a1c60aa114f084117df18578e58f0725d}
-Pushes top of the stack 'places' items deeper into the stack \hypertarget{classDish_ade464eeeeddcd5d8bc37e96a80654b1e}{\index{Dish@{Dish}!rev@{rev}}
-\index{rev@{rev}!Dish@{Dish}}
-\subsubsection[{rev}]{\setlength{\rightskip}{0pt plus 5cm}void Dish\-::rev (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}}\label{classDish_ade464eeeeddcd5d8bc37e96a80654b1e}
-Initialize the stack with vector v 
+Pushes top of the stack 'places' items deeper into the stack 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-/home/eckhaus/\-Desktop/cpp/zapoctak\-\_\-prod/source/include/Dish.\-h\item 
-/home/eckhaus/\-Desktop/cpp/zapoctak\-\_\-prod/source/src/Dish.\-cpp\end{DoxyCompactItemize}
+/home/eckhaus/git/eckhaus.\-github.\-io/chef/source/include/Dish.\-h\item 
+/home/eckhaus/git/eckhaus.\-github.\-io/chef/source/src/Dish.\-cpp\end{DoxyCompactItemize}

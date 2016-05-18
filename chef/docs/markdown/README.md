@@ -143,7 +143,7 @@ Argumenty príkazov určujúce poradie (o koľkú nádobu sa jedná) sú zapísa
     
     
 *  Serves **number-of-diners**.
-    Určuje koľko výstupných zásobníkov sa má vypísať na výstup.
+    Určuje koľko výstupných zásobníkov sa má vypísať na výstup. Tento príkaz tiež určuje koniec receptu, po ktorom nasleduje ďalší pomocný recept.
     
     
 #### Pomocné recepty

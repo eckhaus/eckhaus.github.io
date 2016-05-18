@@ -25,6 +25,9 @@
     ## Download
     http://eckhaus.github.io/chef/
 
+    ## Known issues
+    Serves command is mandatory after every recipe.
+
     <i>Róbert Eckhaus, MFF UK, 2016</i>
  */
 

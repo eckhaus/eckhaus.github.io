@@ -85,7 +85,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classDish-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Dish Class Reference</div>  </div>
@@ -102,8 +101,6 @@ Inheritance diagram for Dish:</div>
  <div class="center">
   <img src="classDish.png" usemap="#Dish_map" alt=""/>
   <map id="Dish_map" name="Dish_map">
-<area href="classBakingDish.html" title="Stack (Dish) used as a output stack. " alt="BakingDish" shape="rect" coords="0,112,117,136"/>
-<area href="classMixingBowl.html" title="Stack (Dish) used as a memory stack. " alt="MixingBowl" shape="rect" coords="127,112,244,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -113,8 +110,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1af363ad3f1c4df4971f82051763df20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a437c63798f934fdc3c80037d77a0d51e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDish.html#a437c63798f934fdc3c80037d77a0d51e">popTop</a> (<a class="el" href="structStackInfo.html">StackInfo</a> &amp;i)</td></tr>
 <tr class="separator:a437c63798f934fdc3c80037d77a0d51e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2454c3444480c5a7c38181c3e6cf8cd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDish.html#a2454c3444480c5a7c38181c3e6cf8cd8">append</a> (<a class="el" href="classDish.html">Dish</a> d)</td></tr>
-<tr class="separator:a2454c3444480c5a7c38181c3e6cf8cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0abbc375bf201a4267b3b57c82d2a8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDish.html#ac0abbc375bf201a4267b3b57c82d2a8f">append</a> (const <a class="el" href="classDish.html">Dish</a> &amp;d)</td></tr>
+<tr class="separator:ac0abbc375bf201a4267b3b57c82d2a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41b6fc6a531325d36d4607546291386b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDish.html#a41b6fc6a531325d36d4607546291386b">liquify</a> ()</td></tr>
 <tr class="separator:a41b6fc6a531325d36d4607546291386b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a8e6f0fd75809de987cb0cd1c89daab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a8e6f0fd75809de987cb0cd1c89daab"></a>
@@ -122,80 +119,30 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>stir</b> (int places)
 <tr class="separator:a9a8e6f0fd75809de987cb0cd1c89daab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c60aa114f084117df18578e58f0725d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDish.html#a1c60aa114f084117df18578e58f0725d">randomize</a> ()</td></tr>
 <tr class="separator:a1c60aa114f084117df18578e58f0725d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2d02755a7c24232df45ca64dc519858"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDish.html#ac2d02755a7c24232df45ca64dc519858">clear</a> ()</td></tr>
-<tr class="separator:ac2d02755a7c24232df45ca64dc519858"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a14264990a9a7bc34f61336eeb6dcfcbd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14264990a9a7bc34f61336eeb6dcfcbd"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>ID</b></td></tr>
 <tr class="separator:a14264990a9a7bc34f61336eeb6dcfcbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a339f74a03ef948efcc726eaccdf4bd51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDish.html#a339f74a03ef948efcc726eaccdf4bd51">init</a> (vector&lt; int &gt; &amp;v)</td></tr>
-<tr class="separator:a339f74a03ef948efcc726eaccdf4bd51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade464eeeeddcd5d8bc37e96a80654b1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDish.html#ade464eeeeddcd5d8bc37e96a80654b1e">rev</a> ()</td></tr>
-<tr class="separator:ade464eeeeddcd5d8bc37e96a80654b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Stack of Ingredients. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a2454c3444480c5a7c38181c3e6cf8cd8"></a>
+<a class="anchor" id="ac0abbc375bf201a4267b3b57c82d2a8f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Dish::append </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classDish.html">Dish</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classDish.html">Dish</a> &amp;&#160;</td>
           <td class="paramname"><em>d</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Append stack d to the end of this stack </p>
-
-</div>
-</div>
-<a class="anchor" id="ac2d02755a7c24232df45ca64dc519858"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dish::clear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Shuffle the stack </p>
-
-</div>
-</div>
-<a class="anchor" id="a339f74a03ef948efcc726eaccdf4bd51"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dish::init </td>
-          <td>(</td>
-          <td class="paramtype">vector&lt; int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Clear the stack </p>
 
 </div>
 </div>
@@ -265,38 +212,14 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ade464eeeeddcd5d8bc37e96a80654b1e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dish::rev </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Initialize the stack with vector v </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/eckhaus/Desktop/cpp/zapoctak_prod/source/include/<a class="el" href="Dish_8h_source.html">Dish.h</a></li>
-<li>/home/eckhaus/Desktop/cpp/zapoctak_prod/source/src/Dish.cpp</li>
+<li>/home/eckhaus/git/eckhaus.github.io/chef/source/include/<a class="el" href="Dish_8h_source.html">Dish.h</a></li>
+<li>/home/eckhaus/git/eckhaus.github.io/chef/source/src/Dish.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 29 2016 15:50:44 for Chef interpreter by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 18 2016 21:27:12 for Chef interpreter by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

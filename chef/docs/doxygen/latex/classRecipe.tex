@@ -20,11 +20,11 @@ int \hyperlink{classRecipe_a2cec7c48e273bbedca60469f2a33bc0b}{run} ()
 \item 
 void \hyperlink{classRecipe_aa9a086810c68a0f459f3eded4fec249d}{print\-Info} (bool print\-Aux=false, bool bowls\-\_\-only=false)
 \item 
-void \hyperlink{classRecipe_a7a7be4e0b36826b23fc9e04b45320321}{add\-Command} (string cmd, string arg1, string arg2)
+void \hyperlink{classRecipe_a75438df7365e67f4df888e5d92c55e82}{add\-Command} (const string \&cmd, const string \&arg1, const string \&arg2)
 \item 
 void \hyperlink{classRecipe_a89b9a5166511ac1bba135bb72f7f3ff5}{add\-Jump} (const string \&verb, const string \&ingredient)
 \item 
-void \hyperlink{classRecipe_ad70963ee27e79fc4c42ef6fdd4e064d8}{add\-Until} (const string \&verb, string ingredient)
+void \hyperlink{classRecipe_aa3f724d89b2f98b5d1edc5b32b26677d}{add\-Until} (const string \&verb, const string \&ingredient)
 \item 
 void \hyperlink{classRecipe_a85c5fcfd5fbe1d1956e85ee1656af3a7}{add\-Ingredient} (\hyperlink{classIngredient}{Ingredient} i)
 \item 
@@ -52,10 +52,10 @@ bool \hyperlink{classRecipe_a88d8c79248361e1c53b8ab3a1b91238c}{trace} = false
 \hypertarget{classRecipe_a172cb7622220cfb41d6106aec1722493}{bool {\bfseries to\-Num} (const string \&s, int \&n)}\label{classRecipe_a172cb7622220cfb41d6106aec1722493}
 
 \item 
-\hypertarget{classRecipe_a611dc0aa9b91f6cd4a9d9a6dd5295bd8}{string {\bfseries type\-To\-String} (Ingredient\-Type it)}\label{classRecipe_a611dc0aa9b91f6cd4a9d9a6dd5295bd8}
+\hypertarget{classRecipe_ac8471305ea877c360e4f6793ba4c34dd}{string {\bfseries type\-To\-String} (Ingredient\-Type \&it)}\label{classRecipe_ac8471305ea877c360e4f6793ba4c34dd}
 
 \item 
-void \hyperlink{classRecipe_a04717cbcd9526d308567e78caa13eac4}{process\-Command} (string cmd, string arg1, string arg2)
+void \hyperlink{classRecipe_aa0255f5a048027bb27d436add096db83}{process\-Command} (const string \&cmd, const string \&arg1, const string \&arg2)
 \item 
 \hypertarget{classRecipe_a280aeb473fd69ef19df3654a54408d02}{\hyperlink{structStackInfo}{Stack\-Info} {\bfseries ingr\-To\-Stack} (const \hyperlink{classIngredient}{Ingredient} \&i)}\label{classRecipe_a280aeb473fd69ef19df3654a54408d02}
 
@@ -80,11 +80,11 @@ void \hyperlink{group__Command_ga5d32e4fe23897d4dbb0b10eb4821baeb}{divide} (cons
 \item 
 void \hyperlink{group__Command_ga7c657ea9ec19dfb55292a7474fe12511}{add\-Dry} (int bowl\-No=1)
 \item 
-void \hyperlink{group__Command_gadf633f6ac72e47c575d128c5c6a32615}{liquify} (string ingredient)
+void \hyperlink{group__Command_gaf44790b96aebd727ff3d7ccbbf9ff568}{liquify} (const string \&ingredient)
 \item 
 void \hyperlink{group__Command_ga5b48c67eb04fc71c199bdf611c387c9e}{stir} (int times, int bowl\-No=1)
 \item 
-void \hyperlink{group__Command_ga1f10bdb32b627eaa025d1313dbdc3c40}{stir\-Ingredient} (string ingredient, int bowl\-No=1)
+void \hyperlink{group__Command_ga2678e5c7db062e186ca947018050f5c2}{stir\-Ingredient} (const string \&ingredient, int bowl\-No=1)
 \item 
 void \hyperlink{group__Command_gad9a02b3a48b606ba17dc91337c3f64c2}{mix} (int bowl\-No=1)
 \item 
@@ -92,7 +92,7 @@ void \hyperlink{group__Command_gae041e0eb15d1e40fe513b53803810dac}{clean} (int b
 \item 
 void \hyperlink{group__Command_ga03848074a9e527439e6381e47d9f3749}{pour} (int bowl\-No=1, int dish\-No=1)
 \item 
-int \hyperlink{group__Command_ga8822f6ec69a54e51222299b96e3b1923}{call} (string aux)
+int \hyperlink{group__Command_ga2485acb9291f44d16222f15a75ff27fb}{call} (const string \&aux)
 \item 
 void \hyperlink{group__Command_ga4889710ccae668fb039e4dfa0ea2dae7}{set\-Aside} ()
 \end{DoxyCompactItemize}
@@ -105,9 +105,9 @@ bool \hyperlink{classRecipe_a3edfc934ad30f52f01dc90630b0decaa}{is\-Auxliary} = f
 \item 
 map$<$ string, \hyperlink{classIngredient}{Ingredient} $>$ \hyperlink{classRecipe_a9cf0fa9aedac7925a49a5655401a2680}{ingredients}
 \item 
-map$<$ int, \hyperlink{classMixingBowl}{Mixing\-Bowl} $>$ \hyperlink{classRecipe_ad21a1bda0d75378dd9b53c1abb76524f}{mixing\-Bowls}
+map$<$ int, \hyperlink{classDish}{Mixing\-Bowl} $>$ \hyperlink{classRecipe_ad21a1bda0d75378dd9b53c1abb76524f}{mixing\-Bowls}
 \item 
-map$<$ int, \hyperlink{classBakingDish}{Baking\-Dish} $>$ \hyperlink{classRecipe_aae370ab1573cc3222fa5a77c9ed5cee4}{baking\-Dishes}
+map$<$ int, \hyperlink{classDish}{Baking\-Dish} $>$ \hyperlink{classRecipe_aae370ab1573cc3222fa5a77c9ed5cee4}{baking\-Dishes}
 \item 
 vector$<$ \hyperlink{structCommand}{Command} $>$ \hyperlink{classRecipe_ae1419284a891adb4ae550d6ea4c76df8}{commands}
 \item 
@@ -137,15 +137,15 @@ Adds an auxliary recipe (sauce) to the \hyperlink{classRecipe}{Recipe}
 {\em aux} & Auxliary recipe \\
 \hline
 \end{DoxyParams}
-\hypertarget{classRecipe_a7a7be4e0b36826b23fc9e04b45320321}{\index{Recipe@{Recipe}!add\-Command@{add\-Command}}
+\hypertarget{classRecipe_a75438df7365e67f4df888e5d92c55e82}{\index{Recipe@{Recipe}!add\-Command@{add\-Command}}
 \index{add\-Command@{add\-Command}!Recipe@{Recipe}}
 \subsubsection[{add\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void Recipe\-::add\-Command (
 \begin{DoxyParamCaption}
-\item[{string}]{cmd = {\ttfamily \char`\"{}\char`\"{}}, }
-\item[{string}]{arg1 = {\ttfamily \char`\"{}\char`\"{}}, }
-\item[{string}]{arg2 = {\ttfamily \char`\"{}\char`\"{}}}
+\item[{const string \&}]{cmd = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{const string \&}]{arg1 = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{const string \&}]{arg2 = {\ttfamily \char`\"{}\char`\"{}}}
 \end{DoxyParamCaption}
-)}}\label{classRecipe_a7a7be4e0b36826b23fc9e04b45320321}
+)}}\label{classRecipe_a75438df7365e67f4df888e5d92c55e82}
 Adds a command to the \hyperlink{classRecipe}{Recipe} 
 \begin{DoxyParams}{Parameters}
 {\em cmd} & \hyperlink{structCommand}{Command} name \\
@@ -182,14 +182,14 @@ Adds a loop to the \hyperlink{classRecipe}{Recipe}
 {\em ingredient} & \hyperlink{classIngredient}{Ingredient} defining exit-\/condition of the loop (if ingredient==0 then break) \\
 \hline
 \end{DoxyParams}
-\hypertarget{classRecipe_ad70963ee27e79fc4c42ef6fdd4e064d8}{\index{Recipe@{Recipe}!add\-Until@{add\-Until}}
+\hypertarget{classRecipe_aa3f724d89b2f98b5d1edc5b32b26677d}{\index{Recipe@{Recipe}!add\-Until@{add\-Until}}
 \index{add\-Until@{add\-Until}!Recipe@{Recipe}}
 \subsubsection[{add\-Until}]{\setlength{\rightskip}{0pt plus 5cm}void Recipe\-::add\-Until (
 \begin{DoxyParamCaption}
 \item[{const string \&}]{verb, }
-\item[{string}]{ingredient = {\ttfamily \char`\"{}\char`\"{}}}
+\item[{const string \&}]{ingredient = {\ttfamily \char`\"{}\char`\"{}}}
 \end{DoxyParamCaption}
-)}}\label{classRecipe_ad70963ee27e79fc4c42ef6fdd4e064d8}
+)}}\label{classRecipe_aa3f724d89b2f98b5d1edc5b32b26677d}
 Adds a loop-\/closing state to the \hyperlink{classRecipe}{Recipe} 
 \begin{DoxyParams}{Parameters}
 {\em verb} & Identifier of the loop (verb from the recipe) \\
@@ -212,15 +212,15 @@ Prints out all the relevant attributes of the \hyperlink{classRecipe}{Recipe}. N
 {\em bowls\-\_\-only} & Print only bowls \\
 \hline
 \end{DoxyParams}
-\hypertarget{classRecipe_a04717cbcd9526d308567e78caa13eac4}{\index{Recipe@{Recipe}!process\-Command@{process\-Command}}
+\hypertarget{classRecipe_aa0255f5a048027bb27d436add096db83}{\index{Recipe@{Recipe}!process\-Command@{process\-Command}}
 \index{process\-Command@{process\-Command}!Recipe@{Recipe}}
 \subsubsection[{process\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void Recipe\-::process\-Command (
 \begin{DoxyParamCaption}
-\item[{string}]{cmd, }
-\item[{string}]{arg1 = {\ttfamily \char`\"{}\char`\"{}}, }
-\item[{string}]{arg2 = {\ttfamily \char`\"{}\char`\"{}}}
+\item[{const string \&}]{cmd, }
+\item[{const string \&}]{arg1 = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{const string \&}]{arg2 = {\ttfamily \char`\"{}\char`\"{}}}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_a04717cbcd9526d308567e78caa13eac4}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_aa0255f5a048027bb27d436add096db83}
 Processes single commands 
 \begin{DoxyParams}{Parameters}
 {\em cmd} & \hyperlink{structCommand}{Command} to be executed \\
@@ -286,5 +286,5 @@ Is tracing (step-\/by-\/step execution) turned on?
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-/home/eckhaus/\-Desktop/cpp/zapoctak\-\_\-prod/source/include/Recipe.\-h\item 
-/home/eckhaus/\-Desktop/cpp/zapoctak\-\_\-prod/source/src/Recipe.\-cpp\end{DoxyCompactItemize}
+/home/eckhaus/git/eckhaus.\-github.\-io/chef/source/include/Recipe.\-h\item 
+/home/eckhaus/git/eckhaus.\-github.\-io/chef/source/src/Recipe.\-cpp\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mixingbowl',['MixingBowl',['../classMixingBowl.html',1,'']]]
+  ['recipe',['Recipe',['../classRecipe.html',1,'']]]
 ];
