@@ -36,14 +36,13 @@
 using namespace std;
 
 
-
 void parseArgs (int argc, char ** argv, string & inFile, string & outFile, bool & trace, bool & verbose)
 {
     vector<string> args (argv+1, argv + argc);
 
     if (argc > 1)
     {
-        int field = 0;
+        unsigned int field = 0;
         while (field < args.size() && ((args[field] == "-v" || args[field] == "-t") || ((field + 1 < argc) && (args[field][0] == '-') && (string(args[field]).size() == 2))))
         {
             if (args[field] == "-v")
@@ -71,13 +70,10 @@ void parseArgs (int argc, char ** argv, string & inFile, string & outFile, bool 
                 else err("Missing filename.");
             }
             else
-            {
-                cout << "Error: Unknown option" << endl;
-                std::exit(-1);
-            }
+				err("Unknown option");
         }
         if (field < args.size())
-            err("Unknown option2.");
+            err("Unknown option.");
     }
 }
 

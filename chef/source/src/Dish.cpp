@@ -1,4 +1,7 @@
 #include "../include/Dish.h"
+#include <iterator>
+
+using namespace std;
 
 bool Dish::popTop (StackInfo & i){
     if (size() > 0) {
@@ -22,7 +25,7 @@ void Dish::liquify (){
     std::for_each(begin(), end(), [](StackInfo & si) {si.liquid = true;});
 }
 
-void Dish::stir (int places){
+void Dish::stir (unsigned int places){
     StackInfo i;
     if (!popTop(i)) return;
     std::deque<StackInfo>::iterator it = begin();

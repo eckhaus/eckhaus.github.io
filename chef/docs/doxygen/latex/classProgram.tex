@@ -15,15 +15,15 @@ Parses and interprets the source code. Handles the execution of the main script.
 \item 
 void \hyperlink{classProgram_a7e845a6184bade97aead63d2e14c5040}{parse} ()
 \item 
-\hypertarget{classProgram_aee67cabb04f36e7e0f059c1976d55601}{{\bfseries Program} (string input, string output, bool v, bool t)}\label{classProgram_aee67cabb04f36e7e0f059c1976d55601}
+\hypertarget{classProgram_a47ed2a6c6e47ca36658dea2258121198}{{\bfseries Program} (std\-::string input, std\-::string output, bool v, bool t)}\label{classProgram_a47ed2a6c6e47ca36658dea2258121198}
 
 \end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{classProgram_ad5a95ba2b5f9caa0555d7d24c475f502}{normalize} (string \&s)
+void \hyperlink{classProgram_aedd35f415e69743eecf73977a7d24d25}{normalize} (std\-::string \&s)
 \item 
-Ingredient\-Type \hyperlink{classProgram_aa97b3ca0f048f04847e6be90581cf756}{type\-From\-String} (const string \&s)
+Ingredient\-Type \hyperlink{classProgram_a3ec831721e02ca32a698a99342fae446}{type\-From\-String} (const std\-::string \&s)
 \item 
 void \hyperlink{classProgram_a20fc155df19b3cfc73901e31f2fad53d}{set\-Up\-Regex} ()
 \item 
@@ -33,7 +33,7 @@ void \hyperlink{classProgram_a277650f0e2ae017e8171aee4fbde0ae2}{Load\-Ingredient
 \item 
 bool \hyperlink{classProgram_a28d7594324677db5e10aff47fa97f593}{Load\-Recipe} (\hyperlink{classRecipe}{Recipe} \&r)
 \item 
-\hypertarget{classProgram_a7ee14d6b0460dcb1501884db70972657}{bool {\bfseries parse\-Command} (\hyperlink{classRecipe}{Recipe} \&r, string \&line)}\label{classProgram_a7ee14d6b0460dcb1501884db70972657}
+\hypertarget{classProgram_a1a05d46ee937249a32de9d75f5ec7540}{bool {\bfseries parse\-Command} (\hyperlink{classRecipe}{Recipe} \&r, std\-::string \&line)}\label{classProgram_a1a05d46ee937249a32de9d75f5ec7540}
 
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
@@ -49,20 +49,22 @@ bool \hyperlink{classProgram_ad4371cad6bc5c0f4cd232007a2324205}{print\-Auxiliary
 \item 
 bool \hyperlink{classProgram_a5f4a3688d83bf77b92e294933671007c}{trace} = false
 \item 
-string \hyperlink{classProgram_a8b56614562949906e79e18efdd88d554}{file\-Name}
+std\-::string \hyperlink{classProgram_ad0706a337cb07f091661cc438e815758}{file\-Name}
 \item 
-\hypertarget{classProgram_aadec82f9e56e4e335bd86daa01d08756}{string {\bfseries output\-Name}}\label{classProgram_aadec82f9e56e4e335bd86daa01d08756}
+\hypertarget{classProgram_afadb1d59c0b8bd50ab06788adcc3024d}{std\-::string {\bfseries output\-Name}}\label{classProgram_afadb1d59c0b8bd50ab06788adcc3024d}
 
 \item 
-\hypertarget{classProgram_a908a89405ed5f557624d5893da16a8d7}{istream $\ast$ {\bfseries fs}}\label{classProgram_a908a89405ed5f557624d5893da16a8d7}
+\hypertarget{classProgram_a6eccafa4a34736675a5a6740dca64fd7}{std\-::istream $\ast$ {\bfseries fs}}\label{classProgram_a6eccafa4a34736675a5a6740dca64fd7}
 
 \item 
-\hypertarget{classProgram_ace98ead8027976274a08c57832a80f88}{ostream $\ast$ {\bfseries os}}\label{classProgram_ace98ead8027976274a08c57832a80f88}
+\hypertarget{classProgram_a0d88d35b373765fd6b88a08502569d8b}{std\-::ostream $\ast$ {\bfseries os}}\label{classProgram_a0d88d35b373765fd6b88a08502569d8b}
 
 \item 
-map$<$ string, string $>$ \hyperlink{classProgram_af2653e6c49451f67e7365c218eaab08a}{regexp\-\_\-string}
+std\-::map$<$ std\-::string, \\*
+std\-::string $>$ \hyperlink{classProgram_a56696cc6a1e2e75f7b3abcda28fc7a8c}{regexp\-\_\-string}
 \item 
-map$<$ string, vector$<$ int $>$ $>$ \hyperlink{classProgram_a941f96a02d5fd027979cbc7b484f04c7}{parameter\-\_\-positions}
+std\-::map$<$ std\-::string, \\*
+std\-::vector$<$ int $>$ $>$ \hyperlink{classProgram_a7c928870bbd95e8612e9f8efaf7d263b}{parameter\-\_\-positions}
 \end{DoxyCompactItemize}
 
 
@@ -106,13 +108,13 @@ Loads the whole recipe into r. Calls Load\-Header, Load\-Ingredients and then pa
 {\em r} & \hyperlink{classRecipe}{Recipe} in which the output will be stored \\
 \hline
 \end{DoxyParams}
-\hypertarget{classProgram_ad5a95ba2b5f9caa0555d7d24c475f502}{\index{Program@{Program}!normalize@{normalize}}
+\hypertarget{classProgram_aedd35f415e69743eecf73977a7d24d25}{\index{Program@{Program}!normalize@{normalize}}
 \index{normalize@{normalize}!Program@{Program}}
 \subsubsection[{normalize}]{\setlength{\rightskip}{0pt plus 5cm}void Program\-::normalize (
 \begin{DoxyParamCaption}
-\item[{string \&}]{s}
+\item[{std\-::string \&}]{s}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_ad5a95ba2b5f9caa0555d7d24c475f502}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_aedd35f415e69743eecf73977a7d24d25}
 Replaces multiple spaces with single space, removes leading and trailing whitespace and converts the string to lowercase 
 \begin{DoxyParams}{Parameters}
 {\em s} & string to normalize \\
@@ -132,13 +134,13 @@ Calls the parser. Parsed file is stored as \hyperlink{classProgram_a414bb40153c7
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a20fc155df19b3cfc73901e31f2fad53d}
-Sets up regular expressions for input parsing \hypertarget{classProgram_aa97b3ca0f048f04847e6be90581cf756}{\index{Program@{Program}!type\-From\-String@{type\-From\-String}}
+Sets up regular expressions for input parsing \hypertarget{classProgram_a3ec831721e02ca32a698a99342fae446}{\index{Program@{Program}!type\-From\-String@{type\-From\-String}}
 \index{type\-From\-String@{type\-From\-String}!Program@{Program}}
 \subsubsection[{type\-From\-String}]{\setlength{\rightskip}{0pt plus 5cm}Ingredient\-Type Program\-::type\-From\-String (
 \begin{DoxyParamCaption}
-\item[{const string \&}]{s}
+\item[{const std\-::string \&}]{s}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_aa97b3ca0f048f04847e6be90581cf756}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a3ec831721e02ca32a698a99342fae446}
 Converts a string to corresponding Ingredient\-Type enum item. 
 \begin{DoxyParams}{Parameters}
 {\em s} & input string (e.\-g. \char`\"{}ml\char`\"{}, \char`\"{}g\char`\"{} or \char`\"{}pinches\char`\"{}) \\
@@ -147,15 +149,15 @@ Converts a string to corresponding Ingredient\-Type enum item.
 
 
 \subsection{Member Data Documentation}
-\hypertarget{classProgram_a8b56614562949906e79e18efdd88d554}{\index{Program@{Program}!file\-Name@{file\-Name}}
+\hypertarget{classProgram_ad0706a337cb07f091661cc438e815758}{\index{Program@{Program}!file\-Name@{file\-Name}}
 \index{file\-Name@{file\-Name}!Program@{Program}}
-\subsubsection[{file\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string Program\-::file\-Name\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a8b56614562949906e79e18efdd88d554}
+\subsubsection[{file\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Program\-::file\-Name\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_ad0706a337cb07f091661cc438e815758}
 Path to source code \hypertarget{classProgram_a414bb40153c7da0e1815b7140c4aa454}{\index{Program@{Program}!main\-\_\-recipe@{main\-\_\-recipe}}
 \index{main\-\_\-recipe@{main\-\_\-recipe}!Program@{Program}}
 \subsubsection[{main\-\_\-recipe}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Recipe} Program\-::main\-\_\-recipe\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a414bb40153c7da0e1815b7140c4aa454}
-Stores the main chef script. \hypertarget{classProgram_a941f96a02d5fd027979cbc7b484f04c7}{\index{Program@{Program}!parameter\-\_\-positions@{parameter\-\_\-positions}}
+Stores the main chef script. \hypertarget{classProgram_a7c928870bbd95e8612e9f8efaf7d263b}{\index{Program@{Program}!parameter\-\_\-positions@{parameter\-\_\-positions}}
 \index{parameter\-\_\-positions@{parameter\-\_\-positions}!Program@{Program}}
-\subsubsection[{parameter\-\_\-positions}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, vector$<$int$>$ $>$ Program\-::parameter\-\_\-positions\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a941f96a02d5fd027979cbc7b484f04c7}
+\subsubsection[{parameter\-\_\-positions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$std\-::string, std\-::vector$<$int$>$ $>$ Program\-::parameter\-\_\-positions\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a7c928870bbd95e8612e9f8efaf7d263b}
 Position of relevant arguments in regexp for each chef command \hypertarget{classProgram_ad4371cad6bc5c0f4cd232007a2324205}{\index{Program@{Program}!print\-Auxiliary\-Programs@{print\-Auxiliary\-Programs}}
 \index{print\-Auxiliary\-Programs@{print\-Auxiliary\-Programs}!Program@{Program}}
 \subsubsection[{print\-Auxiliary\-Programs}]{\setlength{\rightskip}{0pt plus 5cm}bool Program\-::print\-Auxiliary\-Programs = true\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_ad4371cad6bc5c0f4cd232007a2324205}
@@ -165,9 +167,9 @@ If true outputs also information about auxliary recipes \hypertarget{classProgra
 If true prints out the parser output (parsed commands and their parameters) \hypertarget{classProgram_a4addd74ec821dc25e804fa2096b7fa59}{\index{Program@{Program}!print\-Program\-Info@{print\-Program\-Info}}
 \index{print\-Program\-Info@{print\-Program\-Info}!Program@{Program}}
 \subsubsection[{print\-Program\-Info}]{\setlength{\rightskip}{0pt plus 5cm}bool Program\-::print\-Program\-Info = false\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a4addd74ec821dc25e804fa2096b7fa59}
-If true prints out detailed information about program's main method (recipe) using \hyperlink{classRecipe_aa9a086810c68a0f459f3eded4fec249d}{Recipe\-::print\-Info}. \hypertarget{classProgram_af2653e6c49451f67e7365c218eaab08a}{\index{Program@{Program}!regexp\-\_\-string@{regexp\-\_\-string}}
+If true prints out detailed information about program's main method (recipe) using \hyperlink{classRecipe_aa9a086810c68a0f459f3eded4fec249d}{Recipe\-::print\-Info}. \hypertarget{classProgram_a56696cc6a1e2e75f7b3abcda28fc7a8c}{\index{Program@{Program}!regexp\-\_\-string@{regexp\-\_\-string}}
 \index{regexp\-\_\-string@{regexp\-\_\-string}!Program@{Program}}
-\subsubsection[{regexp\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, string$>$ Program\-::regexp\-\_\-string\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_af2653e6c49451f67e7365c218eaab08a}
+\subsubsection[{regexp\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$std\-::string, std\-::string$>$ Program\-::regexp\-\_\-string\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a56696cc6a1e2e75f7b3abcda28fc7a8c}
 Regexps for parsing chef commands (first argument denotes the command, second corresponding regexp) \hypertarget{classProgram_a5f4a3688d83bf77b92e294933671007c}{\index{Program@{Program}!trace@{trace}}
 \index{trace@{trace}!Program@{Program}}
 \subsubsection[{trace}]{\setlength{\rightskip}{0pt plus 5cm}bool Program\-::trace = false\hspace{0.3cm}{\ttfamily [private]}}}\label{classProgram_a5f4a3688d83bf77b92e294933671007c}

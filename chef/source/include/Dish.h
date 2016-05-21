@@ -5,8 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
-
-using namespace std;
+#include <iterator>
 
 /** \brief Item stored in stack (Dish), stores value and type of Ingredient.*/
 
@@ -23,17 +22,17 @@ public:
 /** \brief Stack of Ingredients.*/
 
 
-class Dish: public deque<StackInfo>
+class Dish: public std::deque<StackInfo>
 {
 public:
     int ID;
 
-    void print (ostream * os); /**< Print out the stack */
+    void print (std::ostream * os); /**< Print out the stack */
     bool popTop (StackInfo & i); /**< Pop top of the stack into i */
     void append (const Dish & d); /**< Append stack d to the end of this stack */
 
     void liquify (); /**< Convert all items in the stack to liquids (characters) */
-    void stir (int places); /** Pushes top of the stack 'places' items deeper into the stack */
+    void stir (unsigned int places); /** Pushes top of the stack 'places' items deeper into the stack */
     void randomize (); /** Shuffle the stack */
 };
 

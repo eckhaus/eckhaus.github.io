@@ -14,8 +14,7 @@ Liq	bowl9 = BBA
 LiqVar	bowl10 = BB
 Stir 	bowl11 = 1 2 6 3 4 5 -> 5 1 2 6 3 4 -> 5 1 4 2 6 3 (reversed)
 Mix	bowl12 = random 1..4
-Clean   bowl13 = 2 3
-Stir into bowl 14 = 6 1 2 3 4 5
+Clean   bowl13 = 3 2
 
 Ingredients.
 333 g putVar

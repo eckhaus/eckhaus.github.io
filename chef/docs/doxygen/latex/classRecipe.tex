@@ -20,11 +20,11 @@ int \hyperlink{classRecipe_a2cec7c48e273bbedca60469f2a33bc0b}{run} ()
 \item 
 void \hyperlink{classRecipe_aa9a086810c68a0f459f3eded4fec249d}{print\-Info} (bool print\-Aux=false, bool bowls\-\_\-only=false)
 \item 
-void \hyperlink{classRecipe_a75438df7365e67f4df888e5d92c55e82}{add\-Command} (const string \&cmd, const string \&arg1, const string \&arg2)
+void \hyperlink{classRecipe_ac201541a889d806bf9b2fb5dc43efb4b}{add\-Command} (const std\-::string \&cmd, const std\-::string \&arg1, const std\-::string \&arg2)
 \item 
-void \hyperlink{classRecipe_a89b9a5166511ac1bba135bb72f7f3ff5}{add\-Jump} (const string \&verb, const string \&ingredient)
+void \hyperlink{classRecipe_a480f62255eb7a7b804cb738549d62430}{add\-Jump} (const std\-::string \&verb, const std\-::string \&ingredient)
 \item 
-void \hyperlink{classRecipe_aa3f724d89b2f98b5d1edc5b32b26677d}{add\-Until} (const string \&verb, const string \&ingredient)
+void \hyperlink{classRecipe_ad389932900137e7cdf7e93509ef6818b}{add\-Until} (const std\-::string \&verb, const std\-::string \&ingredient)
 \item 
 void \hyperlink{classRecipe_a85c5fcfd5fbe1d1956e85ee1656af3a7}{add\-Ingredient} (\hyperlink{classIngredient}{Ingredient} i)
 \item 
@@ -35,27 +35,27 @@ void \hyperlink{classRecipe_aa8238253913982ef70b6ea4bad997fed}{add\-Auxliary} (\
 \item 
 \hyperlink{classRecipe}{Recipe} $\ast$ \hyperlink{classRecipe_aa0ee8a8dbfef781def252e579bfbc209}{parent}
 \item 
-string \hyperlink{classRecipe_a721508683a186d64b91c64fa1ea72e06}{name}
+std\-::string \hyperlink{classRecipe_a50091cc91548be3bf3399bd0471667f1}{name}
 \item 
-string \hyperlink{classRecipe_a280b7e012414b5e22332b8a7580b371f}{comments}
+std\-::string \hyperlink{classRecipe_acb84c5456c600ac904b49ff56b13ed5e}{comments}
 \item 
 int \hyperlink{classRecipe_a265d7fcca7983c4900e76eb10959c9c2}{serves}
 \item 
 bool \hyperlink{classRecipe_a88d8c79248361e1c53b8ab3a1b91238c}{trace} = false
 \item 
-\hypertarget{classRecipe_a2a50fe27dd74fa01be53902e7c540dfb}{ostream $\ast$ {\bfseries os}}\label{classRecipe_a2a50fe27dd74fa01be53902e7c540dfb}
+\hypertarget{classRecipe_a7bb1c6b99c67bd80e6df48009af2573e}{std\-::ostream $\ast$ {\bfseries os}}\label{classRecipe_a7bb1c6b99c67bd80e6df48009af2573e}
 
 \end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classRecipe_a172cb7622220cfb41d6106aec1722493}{bool {\bfseries to\-Num} (const string \&s, int \&n)}\label{classRecipe_a172cb7622220cfb41d6106aec1722493}
+\hypertarget{classRecipe_a6ee1977ac26a346bfc451b8f694bc692}{bool {\bfseries to\-Num} (const std\-::string \&s, int \&n)}\label{classRecipe_a6ee1977ac26a346bfc451b8f694bc692}
 
 \item 
-\hypertarget{classRecipe_ac8471305ea877c360e4f6793ba4c34dd}{string {\bfseries type\-To\-String} (Ingredient\-Type \&it)}\label{classRecipe_ac8471305ea877c360e4f6793ba4c34dd}
+\hypertarget{classRecipe_ac8471305ea877c360e4f6793ba4c34dd}{std\-::string {\bfseries type\-To\-String} (Ingredient\-Type \&it)}\label{classRecipe_ac8471305ea877c360e4f6793ba4c34dd}
 
 \item 
-void \hyperlink{classRecipe_aa0255f5a048027bb27d436add096db83}{process\-Command} (const string \&cmd, const string \&arg1, const string \&arg2)
+void \hyperlink{classRecipe_a0057661a832450dc1f2cf4582d16485b}{process\-Command} (const std\-::string \&cmd, const std\-::string \&arg1, const std\-::string \&arg2)
 \item 
 \hypertarget{classRecipe_a280aeb473fd69ef19df3654a54408d02}{\hyperlink{structStackInfo}{Stack\-Info} {\bfseries ingr\-To\-Stack} (const \hyperlink{classIngredient}{Ingredient} \&i)}\label{classRecipe_a280aeb473fd69ef19df3654a54408d02}
 
@@ -64,27 +64,27 @@ void \hyperlink{group__Command_ga003607cfe3ab13de0bc6b85d659856bc}{do\-Jump} (\h
 \item 
 void \hyperlink{group__Command_gadad4684f1b60dbabd7ac9b8ac9816d32}{do\-Until} (\hyperlink{structJump}{Jump} \&j)
 \item 
-void \hyperlink{group__Command_ga5119039470b26422e6ec843515d4a720}{take\-From\-Fridge} (const string \&ingredient)
+void \hyperlink{group__Command_gac3113fc72f93de181c7064c840fda35d}{take\-From\-Fridge} (const std\-::string \&ingredient)
 \item 
-void \hyperlink{group__Command_ga928df02758f8f959f4beeb153ddde7d6}{put} (const string \&ingredient, int bowl\-No=1)
+void \hyperlink{group__Command_ga30b29697e66c0cd365a52f6ea0779081}{put} (const std\-::string \&ingredient, int bowl\-No=1)
 \item 
-void \hyperlink{group__Command_gaf5f825d69a4a19837a0714715710734a}{fold} (const string \&ingredient, int bowl\-No=1)
+void \hyperlink{group__Command_gac4b62604279d9c5b3547b431b8954ff7}{fold} (const std\-::string \&ingredient, int bowl\-No=1)
 \item 
-void \hyperlink{group__Command_ga385cb79270fb9c857256ef79ff65010e}{add} (const string \&ingredient, int bowl\-No=1)
+void \hyperlink{group__Command_gab16e0a2d2ea903340d8f4249301c4b4b}{add} (const std\-::string \&ingredient, int bowl\-No=1)
 \item 
-void \hyperlink{group__Command_ga31fa0f785049498f85ab6e299217c7ab}{remove} (const string \&ingredient, int bowl\-No=1)
+void \hyperlink{group__Command_gac6fb6dbdc7029c128dd3f1c9baf81db0}{remove} (const std\-::string \&ingredient, int bowl\-No=1)
 \item 
-void \hyperlink{group__Command_ga276a0e85ac154372bf1c4cdaf7304d09}{combine} (const string \&ingredient, int bowl\-No=1)
+void \hyperlink{group__Command_ga4ef5821d2d54f6370b120d2044396562}{combine} (const std\-::string \&ingredient, int bowl\-No=1)
 \item 
-void \hyperlink{group__Command_ga5d32e4fe23897d4dbb0b10eb4821baeb}{divide} (const string \&ingredient, int bowl\-No=1)
+void \hyperlink{group__Command_ga02cee3468892d727f827f7ad6e3d2f1d}{divide} (const std\-::string \&ingredient, int bowl\-No=1)
 \item 
 void \hyperlink{group__Command_ga7c657ea9ec19dfb55292a7474fe12511}{add\-Dry} (int bowl\-No=1)
 \item 
-void \hyperlink{group__Command_gaf44790b96aebd727ff3d7ccbbf9ff568}{liquify} (const string \&ingredient)
+void \hyperlink{group__Command_ga18eed9f7920c0a2b94a16f467b7faf1b}{liquify} (const std\-::string \&ingredient)
 \item 
 void \hyperlink{group__Command_ga5b48c67eb04fc71c199bdf611c387c9e}{stir} (int times, int bowl\-No=1)
 \item 
-void \hyperlink{group__Command_ga2678e5c7db062e186ca947018050f5c2}{stir\-Ingredient} (const string \&ingredient, int bowl\-No=1)
+void \hyperlink{group__Command_gaa27e4367ef81507d9e9308230cc44c0d}{stir\-Ingredient} (const std\-::string \&ingredient, int bowl\-No=1)
 \item 
 void \hyperlink{group__Command_gad9a02b3a48b606ba17dc91337c3f64c2}{mix} (int bowl\-No=1)
 \item 
@@ -92,7 +92,7 @@ void \hyperlink{group__Command_gae041e0eb15d1e40fe513b53803810dac}{clean} (int b
 \item 
 void \hyperlink{group__Command_ga03848074a9e527439e6381e47d9f3749}{pour} (int bowl\-No=1, int dish\-No=1)
 \item 
-int \hyperlink{group__Command_ga2485acb9291f44d16222f15a75ff27fb}{call} (const string \&aux)
+int \hyperlink{group__Command_gab7d94d3b379ae3f1ada2c010510c3b43}{call} (const std\-::string \&aux)
 \item 
 void \hyperlink{group__Command_ga4889710ccae668fb039e4dfa0ea2dae7}{set\-Aside} ()
 \end{DoxyCompactItemize}
@@ -103,19 +103,19 @@ size\-\_\-t \hyperlink{classRecipe_ab29f1a07d6c30a5c7b4da4ab53822c49}{current\-C
 \item 
 bool \hyperlink{classRecipe_a3edfc934ad30f52f01dc90630b0decaa}{is\-Auxliary} = false
 \item 
-map$<$ string, \hyperlink{classIngredient}{Ingredient} $>$ \hyperlink{classRecipe_a9cf0fa9aedac7925a49a5655401a2680}{ingredients}
+std\-::map$<$ std\-::string, \hyperlink{classIngredient}{Ingredient} $>$ \hyperlink{classRecipe_a5fa367694eb22ad1aa480feda0df8444}{ingredients}
 \item 
-map$<$ int, \hyperlink{classDish}{Mixing\-Bowl} $>$ \hyperlink{classRecipe_ad21a1bda0d75378dd9b53c1abb76524f}{mixing\-Bowls}
+std\-::map$<$ int, \hyperlink{classDish}{Mixing\-Bowl} $>$ \hyperlink{classRecipe_aab5e3eecd432df72ba75c4da724e27f0}{mixing\-Bowls}
 \item 
-map$<$ int, \hyperlink{classDish}{Baking\-Dish} $>$ \hyperlink{classRecipe_aae370ab1573cc3222fa5a77c9ed5cee4}{baking\-Dishes}
+std\-::map$<$ int, \hyperlink{classDish}{Baking\-Dish} $>$ \hyperlink{classRecipe_a0656141f4c08c927d7e5ca33f7250775}{baking\-Dishes}
 \item 
-vector$<$ \hyperlink{structCommand}{Command} $>$ \hyperlink{classRecipe_ae1419284a891adb4ae550d6ea4c76df8}{commands}
+std\-::vector$<$ \hyperlink{structCommand}{Command} $>$ \hyperlink{classRecipe_a4064c07492776e65ff332027576174f1}{commands}
 \item 
-map$<$ string, \hyperlink{classRecipe}{Recipe} $>$ \hyperlink{classRecipe_af7f123d033d11cc87b2113c7a208cd83}{auxliary}
+std\-::map$<$ std\-::string, \hyperlink{classRecipe}{Recipe} $>$ \hyperlink{classRecipe_a6d8db46e663ea4792424742098e35e99}{auxliary}
 \item 
-map$<$ string, \hyperlink{structJump}{Jump} $>$ \hyperlink{classRecipe_a0e57db5b119a8dcc06cfd79a0d1857ed}{jumps}
+std\-::map$<$ std\-::string, \hyperlink{structJump}{Jump} $>$ \hyperlink{classRecipe_a1e3f8326650076f4b111c36a945ba39c}{jumps}
 \item 
-stack$<$ \hyperlink{structJump}{Jump} $>$ \hyperlink{classRecipe_a66460d610a0717995788284a3d4c4ba5}{jumps\-Stack}
+std\-::stack$<$ \hyperlink{structJump}{Jump} $>$ \hyperlink{classRecipe_ac77f2bfae96f952d40ab79163d94c659}{jumps\-Stack}
 \end{DoxyCompactItemize}
 
 
@@ -137,15 +137,15 @@ Adds an auxliary recipe (sauce) to the \hyperlink{classRecipe}{Recipe}
 {\em aux} & Auxliary recipe \\
 \hline
 \end{DoxyParams}
-\hypertarget{classRecipe_a75438df7365e67f4df888e5d92c55e82}{\index{Recipe@{Recipe}!add\-Command@{add\-Command}}
+\hypertarget{classRecipe_ac201541a889d806bf9b2fb5dc43efb4b}{\index{Recipe@{Recipe}!add\-Command@{add\-Command}}
 \index{add\-Command@{add\-Command}!Recipe@{Recipe}}
 \subsubsection[{add\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void Recipe\-::add\-Command (
 \begin{DoxyParamCaption}
-\item[{const string \&}]{cmd = {\ttfamily \char`\"{}\char`\"{}}, }
-\item[{const string \&}]{arg1 = {\ttfamily \char`\"{}\char`\"{}}, }
-\item[{const string \&}]{arg2 = {\ttfamily \char`\"{}\char`\"{}}}
+\item[{const std\-::string \&}]{cmd, }
+\item[{const std\-::string \&}]{arg1, }
+\item[{const std\-::string \&}]{arg2}
 \end{DoxyParamCaption}
-)}}\label{classRecipe_a75438df7365e67f4df888e5d92c55e82}
+)}}\label{classRecipe_ac201541a889d806bf9b2fb5dc43efb4b}
 Adds a command to the \hyperlink{classRecipe}{Recipe} 
 \begin{DoxyParams}{Parameters}
 {\em cmd} & \hyperlink{structCommand}{Command} name \\
@@ -167,14 +167,14 @@ Adds an ingredient to the \hyperlink{classRecipe}{Recipe}
 {\em i} & \hyperlink{classIngredient}{Ingredient} \\
 \hline
 \end{DoxyParams}
-\hypertarget{classRecipe_a89b9a5166511ac1bba135bb72f7f3ff5}{\index{Recipe@{Recipe}!add\-Jump@{add\-Jump}}
+\hypertarget{classRecipe_a480f62255eb7a7b804cb738549d62430}{\index{Recipe@{Recipe}!add\-Jump@{add\-Jump}}
 \index{add\-Jump@{add\-Jump}!Recipe@{Recipe}}
 \subsubsection[{add\-Jump}]{\setlength{\rightskip}{0pt plus 5cm}void Recipe\-::add\-Jump (
 \begin{DoxyParamCaption}
-\item[{const string \&}]{verb, }
-\item[{const string \&}]{ingredient}
+\item[{const std\-::string \&}]{verb, }
+\item[{const std\-::string \&}]{ingredient}
 \end{DoxyParamCaption}
-)}}\label{classRecipe_a89b9a5166511ac1bba135bb72f7f3ff5}
+)}}\label{classRecipe_a480f62255eb7a7b804cb738549d62430}
 Adds a loop to the \hyperlink{classRecipe}{Recipe} 
 \begin{DoxyParams}{Parameters}
 {\em verb} & Identifier of the loop (verb from the recipe) \\
@@ -182,14 +182,14 @@ Adds a loop to the \hyperlink{classRecipe}{Recipe}
 {\em ingredient} & \hyperlink{classIngredient}{Ingredient} defining exit-\/condition of the loop (if ingredient==0 then break) \\
 \hline
 \end{DoxyParams}
-\hypertarget{classRecipe_aa3f724d89b2f98b5d1edc5b32b26677d}{\index{Recipe@{Recipe}!add\-Until@{add\-Until}}
+\hypertarget{classRecipe_ad389932900137e7cdf7e93509ef6818b}{\index{Recipe@{Recipe}!add\-Until@{add\-Until}}
 \index{add\-Until@{add\-Until}!Recipe@{Recipe}}
 \subsubsection[{add\-Until}]{\setlength{\rightskip}{0pt plus 5cm}void Recipe\-::add\-Until (
 \begin{DoxyParamCaption}
-\item[{const string \&}]{verb, }
-\item[{const string \&}]{ingredient = {\ttfamily \char`\"{}\char`\"{}}}
+\item[{const std\-::string \&}]{verb, }
+\item[{const std\-::string \&}]{ingredient}
 \end{DoxyParamCaption}
-)}}\label{classRecipe_aa3f724d89b2f98b5d1edc5b32b26677d}
+)}}\label{classRecipe_ad389932900137e7cdf7e93509ef6818b}
 Adds a loop-\/closing state to the \hyperlink{classRecipe}{Recipe} 
 \begin{DoxyParams}{Parameters}
 {\em verb} & Identifier of the loop (verb from the recipe) \\
@@ -212,15 +212,15 @@ Prints out all the relevant attributes of the \hyperlink{classRecipe}{Recipe}. N
 {\em bowls\-\_\-only} & Print only bowls \\
 \hline
 \end{DoxyParams}
-\hypertarget{classRecipe_aa0255f5a048027bb27d436add096db83}{\index{Recipe@{Recipe}!process\-Command@{process\-Command}}
+\hypertarget{classRecipe_a0057661a832450dc1f2cf4582d16485b}{\index{Recipe@{Recipe}!process\-Command@{process\-Command}}
 \index{process\-Command@{process\-Command}!Recipe@{Recipe}}
 \subsubsection[{process\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void Recipe\-::process\-Command (
 \begin{DoxyParamCaption}
-\item[{const string \&}]{cmd, }
-\item[{const string \&}]{arg1 = {\ttfamily \char`\"{}\char`\"{}}, }
-\item[{const string \&}]{arg2 = {\ttfamily \char`\"{}\char`\"{}}}
+\item[{const std\-::string \&}]{cmd, }
+\item[{const std\-::string \&}]{arg1, }
+\item[{const std\-::string \&}]{arg2}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_aa0255f5a048027bb27d436add096db83}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_a0057661a832450dc1f2cf4582d16485b}
 Processes single commands 
 \begin{DoxyParams}{Parameters}
 {\em cmd} & \hyperlink{structCommand}{Command} to be executed \\
@@ -240,39 +240,39 @@ Processes single commands
 Executes the \hyperlink{classRecipe}{Recipe} 
 
 \subsection{Member Data Documentation}
-\hypertarget{classRecipe_af7f123d033d11cc87b2113c7a208cd83}{\index{Recipe@{Recipe}!auxliary@{auxliary}}
+\hypertarget{classRecipe_a6d8db46e663ea4792424742098e35e99}{\index{Recipe@{Recipe}!auxliary@{auxliary}}
 \index{auxliary@{auxliary}!Recipe@{Recipe}}
-\subsubsection[{auxliary}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, {\bf Recipe}$>$ Recipe\-::auxliary\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_af7f123d033d11cc87b2113c7a208cd83}
-Auxliary recipes can be accessed by their names \hypertarget{classRecipe_aae370ab1573cc3222fa5a77c9ed5cee4}{\index{Recipe@{Recipe}!baking\-Dishes@{baking\-Dishes}}
+\subsubsection[{auxliary}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$std\-::string, {\bf Recipe}$>$ Recipe\-::auxliary\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_a6d8db46e663ea4792424742098e35e99}
+Auxliary recipes can be accessed by their names \hypertarget{classRecipe_a0656141f4c08c927d7e5ca33f7250775}{\index{Recipe@{Recipe}!baking\-Dishes@{baking\-Dishes}}
 \index{baking\-Dishes@{baking\-Dishes}!Recipe@{Recipe}}
-\subsubsection[{baking\-Dishes}]{\setlength{\rightskip}{0pt plus 5cm}map$<$int, {\bf Baking\-Dish}$>$ Recipe\-::baking\-Dishes\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_aae370ab1573cc3222fa5a77c9ed5cee4}
-Output stacks \hypertarget{classRecipe_ae1419284a891adb4ae550d6ea4c76df8}{\index{Recipe@{Recipe}!commands@{commands}}
+\subsubsection[{baking\-Dishes}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int, {\bf Baking\-Dish}$>$ Recipe\-::baking\-Dishes\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_a0656141f4c08c927d7e5ca33f7250775}
+Output stacks \hypertarget{classRecipe_a4064c07492776e65ff332027576174f1}{\index{Recipe@{Recipe}!commands@{commands}}
 \index{commands@{commands}!Recipe@{Recipe}}
-\subsubsection[{commands}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Command}$>$ Recipe\-::commands\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_ae1419284a891adb4ae550d6ea4c76df8}
-Commands vector. \hyperlink{}{point to last executed command in this vecto }\hypertarget{classRecipe_a280b7e012414b5e22332b8a7580b371f}{\index{Recipe@{Recipe}!comments@{comments}}
+\subsubsection[{commands}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Command}$>$ Recipe\-::commands\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_a4064c07492776e65ff332027576174f1}
+Commands vector. \hyperlink{}{point to last executed command in this vecto }\hypertarget{classRecipe_acb84c5456c600ac904b49ff56b13ed5e}{\index{Recipe@{Recipe}!comments@{comments}}
 \index{comments@{comments}!Recipe@{Recipe}}
-\subsubsection[{comments}]{\setlength{\rightskip}{0pt plus 5cm}string Recipe\-::comments}}\label{classRecipe_a280b7e012414b5e22332b8a7580b371f}
+\subsubsection[{comments}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Recipe\-::comments}}\label{classRecipe_acb84c5456c600ac904b49ff56b13ed5e}
 Optional description following \hyperlink{classRecipe}{Recipe}'s name. \hypertarget{classRecipe_ab29f1a07d6c30a5c7b4da4ab53822c49}{\index{Recipe@{Recipe}!current\-Command@{current\-Command}}
 \index{current\-Command@{current\-Command}!Recipe@{Recipe}}
 \subsubsection[{current\-Command}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t Recipe\-::current\-Command = 0\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_ab29f1a07d6c30a5c7b4da4ab53822c49}
-Instruction vector pointer \hypertarget{classRecipe_a9cf0fa9aedac7925a49a5655401a2680}{\index{Recipe@{Recipe}!ingredients@{ingredients}}
+Instruction vector pointer \hypertarget{classRecipe_a5fa367694eb22ad1aa480feda0df8444}{\index{Recipe@{Recipe}!ingredients@{ingredients}}
 \index{ingredients@{ingredients}!Recipe@{Recipe}}
-\subsubsection[{ingredients}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, {\bf Ingredient}$>$ Recipe\-::ingredients\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_a9cf0fa9aedac7925a49a5655401a2680}
+\subsubsection[{ingredients}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$std\-::string, {\bf Ingredient}$>$ Recipe\-::ingredients\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_a5fa367694eb22ad1aa480feda0df8444}
 Maps ingredient name to the actual ingredient object containing ingredient's name, type and value \hypertarget{classRecipe_a3edfc934ad30f52f01dc90630b0decaa}{\index{Recipe@{Recipe}!is\-Auxliary@{is\-Auxliary}}
 \index{is\-Auxliary@{is\-Auxliary}!Recipe@{Recipe}}
 \subsubsection[{is\-Auxliary}]{\setlength{\rightskip}{0pt plus 5cm}bool Recipe\-::is\-Auxliary = false\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_a3edfc934ad30f52f01dc90630b0decaa}
-Mark the recipe as auxliary \hypertarget{classRecipe_a0e57db5b119a8dcc06cfd79a0d1857ed}{\index{Recipe@{Recipe}!jumps@{jumps}}
+Mark the recipe as auxliary \hypertarget{classRecipe_a1e3f8326650076f4b111c36a945ba39c}{\index{Recipe@{Recipe}!jumps@{jumps}}
 \index{jumps@{jumps}!Recipe@{Recipe}}
-\subsubsection[{jumps}]{\setlength{\rightskip}{0pt plus 5cm}map$<$string, {\bf Jump}$>$ Recipe\-::jumps\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_a0e57db5b119a8dcc06cfd79a0d1857ed}
-Each jump (loop) has its own identifier (verb) \hypertarget{classRecipe_a66460d610a0717995788284a3d4c4ba5}{\index{Recipe@{Recipe}!jumps\-Stack@{jumps\-Stack}}
+\subsubsection[{jumps}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$std\-::string, {\bf Jump}$>$ Recipe\-::jumps\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_a1e3f8326650076f4b111c36a945ba39c}
+Each jump (loop) has its own identifier (verb) \hypertarget{classRecipe_ac77f2bfae96f952d40ab79163d94c659}{\index{Recipe@{Recipe}!jumps\-Stack@{jumps\-Stack}}
 \index{jumps\-Stack@{jumps\-Stack}!Recipe@{Recipe}}
-\subsubsection[{jumps\-Stack}]{\setlength{\rightskip}{0pt plus 5cm}stack$<${\bf Jump}$>$ Recipe\-::jumps\-Stack\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_a66460d610a0717995788284a3d4c4ba5}
-\hyperlink{structJump}{Jump} stack is used in recursion. When the \char`\"{}set aside\char`\"{} (essentially break) command is issued, we need to readily exit the innermost loop stored at the top of the jumps\-Stack. \hypertarget{classRecipe_ad21a1bda0d75378dd9b53c1abb76524f}{\index{Recipe@{Recipe}!mixing\-Bowls@{mixing\-Bowls}}
+\subsubsection[{jumps\-Stack}]{\setlength{\rightskip}{0pt plus 5cm}std\-::stack$<${\bf Jump}$>$ Recipe\-::jumps\-Stack\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_ac77f2bfae96f952d40ab79163d94c659}
+\hyperlink{structJump}{Jump} stack is used in recursion. When the \char`\"{}set aside\char`\"{} (essentially break) command is issued, we need to readily exit the innermost loop stored at the top of the jumps\-Stack. \hypertarget{classRecipe_aab5e3eecd432df72ba75c4da724e27f0}{\index{Recipe@{Recipe}!mixing\-Bowls@{mixing\-Bowls}}
 \index{mixing\-Bowls@{mixing\-Bowls}!Recipe@{Recipe}}
-\subsubsection[{mixing\-Bowls}]{\setlength{\rightskip}{0pt plus 5cm}map$<$int, {\bf Mixing\-Bowl}$>$ Recipe\-::mixing\-Bowls\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_ad21a1bda0d75378dd9b53c1abb76524f}
-\hyperlink{classProgram}{Program} stacks \hypertarget{classRecipe_a721508683a186d64b91c64fa1ea72e06}{\index{Recipe@{Recipe}!name@{name}}
+\subsubsection[{mixing\-Bowls}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int, {\bf Mixing\-Bowl}$>$ Recipe\-::mixing\-Bowls\hspace{0.3cm}{\ttfamily [private]}}}\label{classRecipe_aab5e3eecd432df72ba75c4da724e27f0}
+\hyperlink{classProgram}{Program} stacks \hypertarget{classRecipe_a50091cc91548be3bf3399bd0471667f1}{\index{Recipe@{Recipe}!name@{name}}
 \index{name@{name}!Recipe@{Recipe}}
-\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}string Recipe\-::name}}\label{classRecipe_a721508683a186d64b91c64fa1ea72e06}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Recipe\-::name}}\label{classRecipe_a50091cc91548be3bf3399bd0471667f1}
 Name of the \hyperlink{classRecipe}{Recipe} \hypertarget{classRecipe_aa0ee8a8dbfef781def252e579bfbc209}{\index{Recipe@{Recipe}!parent@{parent}}
 \index{parent@{parent}!Recipe@{Recipe}}
 \subsubsection[{parent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Recipe}$\ast$ Recipe\-::parent}}\label{classRecipe_aa0ee8a8dbfef781def252e579bfbc209}

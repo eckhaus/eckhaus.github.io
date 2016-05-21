@@ -5,18 +5,16 @@
 #include "Ingredient.h"
 #include <map>
 
-using namespace std;
-
 /// Stores command's name and arguments
 
 struct Command
 {
-    string cmd;
-    string arg1;
-    string arg2;
+    std::string cmd;
+    std::string arg1;
+    std::string arg2;
 
     Command () {};
-    Command  (string cmd, string arg1, string arg2) : cmd(cmd), arg1(arg1) , arg2(arg2) {};
+    Command  (std::string cmd, std::string arg1, std::string arg2) : cmd(cmd), arg1(arg1) , arg2(arg2) {};
 };
 
 /// Describes a single jump (used in loop statements)
@@ -25,9 +23,9 @@ struct Jump
 {
     int begin; // position in recipe
     int end; // position in recipe
-    string verb;
-    string begin_ingredient;
-    string end_ingredient;
+    std::string verb;
+    std::string begin_ingredient;
+    std::string end_ingredient;
 };
 
 /// Stores all the information about recipes & executes their commands.
@@ -42,8 +40,8 @@ class Recipe
 public:
     Recipe * parent; /**< parent is the recipe that created this recipe. Main procedure is parent of itself. */
 
-    string name; /**< Name of the Recipe */
-    string comments; /**< Optional description following Recipe's name. */
+    std::string name; /**< Name of the Recipe */
+    std::string comments; /**< Optional description following Recipe's name. */
     int serves; /**< How many mixing bowls will be printed out when the program ends. Applicable only to main procedure */
 
     bool trace = false; /**< Is tracing (step-by-step execution) turned on? */
@@ -64,19 +62,19 @@ public:
       * @param arg1 First argument
       * @param arg2 Second argument
     */
-    void addCommand (const string & cmd, const string & arg1, const string & arg2);
+    void addCommand (const std::string & cmd, const std::string & arg1, const std::string & arg2);
 
     /** Adds a loop to the Recipe
       * @param verb Identifier of the loop (verb from the recipe)
       * @param ingredient Ingredient defining exit-condition of the loop (if ingredient==0 then break)
     */
-    void addJump (const string & verb, const string & ingredient);
+    void addJump (const std::string & verb, const std::string & ingredient);
 
     /** Adds a loop-closing state to the Recipe
       * @param verb Identifier of the loop (verb from the recipe)
       * @param ingredient Ingredient to be decremented on each pass
     */
-    void addUntil (const string & verb, const string & ingredient);
+    void addUntil (const std::string & verb, const std::string & ingredient);
 
     /** Adds an ingredient to the Recipe
       * @param i Ingredient
@@ -87,7 +85,7 @@ public:
       * @param aux Auxliary recipe
     */
     void addAuxliary (Recipe & aux);
-    ostream * os;
+    std::ostream * os;
 private:
 
 
@@ -96,36 +94,36 @@ private:
     /** Mark the recipe as auxliary */
     bool isAuxliary = false;
 
-    bool toNum (const string & s, int & n);
-    string typeToString (IngredientType & it);
+    bool toNum (const std::string & s, int & n);
+    std::string typeToString (IngredientType & it);
 
     /** Processes single commands
       * @param cmd Command to be executed
       * @param arg1 First argument of the command
       * @param arg2 Second argument of the command
      */
-    void processCommand (const string & cmd, const string & arg1, const string & arg2);
+    void processCommand (const std::string & cmd, const std::string & arg1, const std::string & arg2);
 
     // Variables & stacks
 
     /** Maps ingredient name to the actual ingredient object containing
       * ingredient's name, type and value */
-    map <string, Ingredient> ingredients;
+    std::map <std::string, Ingredient> ingredients;
 
     /** Program stacks */
-    map <int, MixingBowl> mixingBowls;
+    std::map <int, MixingBowl> mixingBowls;
     /** Output stacks */
-    map <int, BakingDish> bakingDishes;
+    std::map <int, BakingDish> bakingDishes;
 
     /** Commands vector. @link current_command point to last executed command in this vecto */
-    vector<Command> commands;
+    std::vector<Command> commands;
     /** Auxliary recipes can be accessed by their names */
-    map<string, Recipe> auxliary;
+    std::map<std::string, Recipe> auxliary;
     /** Each jump (loop) has its own identifier (verb) */
-    map<string, Jump> jumps;
+    std::map<std::string, Jump> jumps;
     /** Jump stack is used in recursion. When the "set aside" (essentially break) command is issued, we need to readily
       * exit the innermost loop stored at the top of the jumpsStack. */
-    stack<Jump> jumpsStack;
+    std::stack<Jump> jumpsStack;
 
 
     StackInfo ingrToStack (const Ingredient & i);
@@ -142,27 +140,27 @@ private:
     /** End of jump (jump back to loop begining label) */
     void doUntil (Jump & j);
     /** Read value from standard input, store it in ingredient */
-    void takeFromFridge (const string & ingredient);
+    void takeFromFridge (const std::string & ingredient);
     /** Put ingredient into the mixing bowl */
-    void put (const string & ingredient, int bowlNo = 1);
+    void put (const std::string & ingredient, int bowlNo = 1);
     /** Remove the top value of the mixing bowl and store it in ingredient */
-    void fold (const string & ingredient, int bowlNo = 1);
+    void fold (const std::string & ingredient, int bowlNo = 1);
     /** Add value of given ingredient to the value on the top of the mixing bowl */
-    void add (const string & ingredient, int bowlNo = 1);
+    void add (const std::string & ingredient, int bowlNo = 1);
     /** Subtract value of given ingredient from the value on the top of the mixing bowl */
-    void remove (const string & ingredient, int bowlNo = 1);
+    void remove (const std::string & ingredient, int bowlNo = 1);
     /** Multiply the value on the top of the mixing bowl by given ingredient's value */
-    void combine (const string & ingredient, int bowlNo = 1);
+    void combine (const std::string & ingredient, int bowlNo = 1);
     /** Divide the value on the top of the mixing bowl by given ingredient's value */
-    void divide (const string & ingredient, int bowlNo = 1);
+    void divide (const std::string & ingredient, int bowlNo = 1);
     /** Place the sum of quantities of dry ingredients on top of the mixing bowl */
     void addDry (int bowlNo = 1);
     /** Set ingredient's type to liquid (ASCII character) */
-    void liquify (const string & ingredient);
+    void liquify (const std::string & ingredient);
     /** Move the top of the stack n positions deeper into the stack */
     void stir (int times, int bowlNo = 1);
     /** Stir the value of ingredient into the stack */
-    void stirIngredient (const string & ingredient, int bowlNo = 1);
+    void stirIngredient (const std::string & ingredient, int bowlNo = 1);
     /** Shuffle the stack randomly */
     void mix (int bowlNo = 1);
     /** Empty the stack */
@@ -170,15 +168,15 @@ private:
     /** Copy the stack into the baking dish (output stack) */
     void pour (int bowlNo = 1, int dishNo = 1);
     /** Call auxliary recipe */
-    int call (const string & aux);
+    int call (const std::string & aux);
     /** Break the innermost loop */
     void setAside ();
 
     //@}
 };
 
-inline void err (string s) {
-    cout << "Error: " << s << endl;
+inline void err (std::string s) {
+	std::cout << "Error: " << s << std::endl;
     exit(0);
 }
 

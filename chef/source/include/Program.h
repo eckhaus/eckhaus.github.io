@@ -14,7 +14,7 @@ class Program
 public:
     void parse (); /**< Calls the parser. Parsed file is stored as  {@link main_recipe} */
   //  Program (string fileName) : fileName (fileName)  {};
-    Program (string input, string output, bool v, bool t);
+    Program (std::string input, std::string output, bool v, bool t);
 
 private:
     /** Stores the main chef script. */
@@ -26,23 +26,23 @@ private:
     bool trace = false; /**< When set to true, allows the user to exectue the script in step-by-step manner */
 
     /** Path to source code */
-    string fileName;
-    string outputName;
-    istream * fs;
-    ostream * os;
+    std::string fileName;
+    std::string outputName;
+    std::istream * fs;
+    std::ostream * os;
 
     /** Regexps for parsing chef commands (first argument denotes the command, second corresponding regexp)*/
-    map <string, string> regexp_string;
+    std::map <std::string, std::string> regexp_string;
     /** Position of relevant arguments in regexp for each chef command */
-    map <string, vector<int>> parameter_positions;
+    std::map <std::string, std::vector<int>> parameter_positions;
 
     /** Replaces multiple spaces with single space, removes leading and trailing whitespace and converts the string to lowercase
       * @param s string to normalize */
-    void normalize (string & s);
+    void normalize (std::string & s);
 
     /** Converts a string to corresponding IngredientType enum item.
       * @param s input string (e.g. "ml", "g" or "pinches")*/
-    IngredientType typeFromString (const string & s);
+    IngredientType typeFromString (const std::string & s);
 
     /** Sets up regular expressions for input parsing */
     void setUpRegex ();
@@ -62,7 +62,7 @@ private:
     bool LoadRecipe (Recipe & r);
 
 
-    bool parseCommand (Recipe & r, string & line);
+    bool parseCommand (Recipe & r, std::string & line);
 };
 
 #endif // PROGRAM_H
