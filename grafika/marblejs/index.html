@@ -14,6 +14,7 @@ MathJax.Hub.Config({
   tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
 });
 </script>
+  <link href="twentytwenty.css" rel="stylesheet" type="text/css"/>
 
 </head>
 
@@ -21,9 +22,39 @@ MathJax.Hub.Config({
   <article>
     <h1 id="tufte-css">Procedurálna šumová textúra</h1>
     <p class="subtitle">Domáca úloha <a href="http://cgg.mff.cuni.cz/lectures/npgr004.cz.php"> NPGR004</a> : Róbert Eckhaus </p>
-    <!--<h3><a href="http://paulbourke.net/dome/fisheye/">Inšpirácia (fisheye effect)</a></h3>-->
+
     <section>
-     <h3> Pomocné skripty <code style="font-size: 13px;">(v processing.js)</code></h3>
+    <h3>Vyrenderované obrázky:</h3>
+      <figure>
+      <br/>
+      <span class="marginnote"><b>Mramor</b>: vzniká veľmi silnou perturbáciou úzkej tmavej línie, napr. sinusoidy (vľavo hore), alebo mriežky (vpravo hore). Použitím desatinnej časti súradníc zas dostaneme veľmi ostré hrany (dolu).  <br/>
+      <br/>
+      \(N\) v vzorcoch označuje 3D šumovú funkciu, \(frac\) je desatinná časť čísla. Ostatné parametre sú popísané nižšie.
+
+      </span> 
+		<div class="twentytwenty-container">
+            <img src="img/marble_square.png" alt="\(|\cos(x+P\cdot N)\cdot \sin(y+P\cdot N)|^E\)">
+            <img src="img/marble_thin.png" alt="\(\sin\left(\pi\left|\frac{x\cdot P_x}{W} + \frac{y\cdot P_y}{H} + P \cdot N\right|\right)^E\)">
+            <img src="img/marble_sharp.png" alt="\(frac(N \cdot 20)\)">
+
+        </div>  
+
+        <br/>
+        <span class="marginnote">
+        <b> Mapovanie škály farieb </b> <br/> </br>
+        <em>Vpravo hore:</em> {#FFFFFF, #FF0000, #FFFFFF} <br/>
+        <em>Vľavo hore:</em> {#000, #333, #666, #EEE, #666, #FFF} <br/>
+        <em>Dolu:</em> {#00000, #FFFFFF}</span>
+        <div class="twentytwenty-container">
+            <img src="img/grid_gray.png" alt="">
+            <img src="img/grid_red.png" alt="">
+            <img src="img/grid_plain.png" alt="">
+        </div>        
+      </figure>
+
+     <h3> Textúry <code style="font-size: 13px;">(+ interaktívne skripty v processing.js)</code></h3>
+     <br/>
+     kliknutím na textúru sa zmenia parametre podľa súradníc myši.
      <p><b>Mramor:</b></p>
 
      <p>$$B(x,y) = 	\sin\left(\pi\left|\frac{x\cdot P_x}{W} + \frac{y\cdot P_y}{H} + P \cdot noise(x,y)\right|\right)^E$$</p>
@@ -49,16 +80,18 @@ MathJax.Hub.Config({
 		    smooth();
 		    frameRate(10);
 		    strokeWeight(12);
+		    marble(100, 100);
 		} 
 		 
 		float increment = 0.02;
 
-		void marble() {
+		void marble(int x, int y) {
 		  loadPixels();
 
+
 		  float xoff = 0.0; 
-		  float mx = map(mouseX, 0, width, 0.0, 20.0);
-		  float my = map(mouseY, 0, height, 0.0, 5.0);
+		  float mx = map(x, 0, width, 0.0, 20.0);
+		  float my = map(y, 0, height, 0.0, 5.0);
 		  noiseDetail(8, 0.5);
 		  
 		   for (int x = 0; x < width; x++) {
@@ -81,9 +114,8 @@ MathJax.Hub.Config({
 
 		}
 
-		void draw() {
-		  marble();
-		  
+		void mouseClicked() {
+		  marble(mouseX, mouseY);		  
 		}
 		</script>
 		<center>
@@ -103,16 +135,17 @@ MathJax.Hub.Config({
 		    smooth();
 		    frameRate(10);
 		    strokeWeight(12);
+		    marble (20, 20);
 		} 
 		 
 		float increment = 0.02;
 
-		void marble() {
+		void marble(int x, int y) {
 		  loadPixels();
 
 		  float xoff = 0.0; 
-		  float mx = map(mouseX, 0, width, 0.0, 20.0);
-		  float my = map(mouseY, 0, height, 0.0, 5.0);
+		  float mx = map(x, 0, width, 0.0, 20.0);
+		  float my = map(y, 0, height, 0.0, 5.0);
 		  noiseDetail(8, 0.5);
 		  
 		   for (int x = 0; x < width; x++) {
@@ -130,9 +163,8 @@ MathJax.Hub.Config({
 
 		}
 
-		void draw() {
-		  marble();
-		  
+		void mouseClicked() {
+		  marble(mouseX, mouseY);
 		}
 		</script>
 		<center>
@@ -142,6 +174,24 @@ MathJax.Hub.Config({
 
     </section>
 
+
+    <section> <h3>Zdroje:</h3>
+	<p><a href="http://lodev.org/cgtutor/randomnoise.html">http://lodev.org/cgtutor/randomnoise.html</a></p>
+	<p><a href="http://flafla2.github.io/2014/08/09/perlinnoise.html">http://flafla2.github.io/2014/08/09/perlinnoise.html</a></p>
+    </section>
+
   </article>
+  <script src="jquery.event.move.js"></script>
+<script src="jquery.twentytwenty.js"></script>
+
+<script>
+$(window).load(function(){
+    $(".twentytwenty-container").twentytwenty({default_offset_pct: 0.5});
+    var shiftWindow = function() { scrollBy(0, -80); };
+    window.addEventListener("hashchange", shiftWindow);
+});
+</script>
+
+
 </body>
 </html>
