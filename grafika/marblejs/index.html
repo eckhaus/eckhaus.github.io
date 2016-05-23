@@ -4,15 +4,15 @@
   <title>Perlin noise</title>
   <link rel="stylesheet" href="tufte.css"/>
   <link rel="stylesheet" href="latex.css"/>
-  <script type="text/javascript" async
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+
 <script src="processing.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<style type="text/css"> canvas {cursor: pointer; } </style>
+
 <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-});
+  MathJax.Hub.Register.StartupHook("NativeMML Jax Ready",function () {
+    document.getElementById("hide-math").disabled = true;
+  });
 </script>
   <link href="twentytwenty.css" rel="stylesheet" type="text/css"/>
 
@@ -43,9 +43,11 @@ MathJax.Hub.Config({
         <br/>
         <span class="marginnote">
         <b> Mapovanie škály farieb </b> <br/> </br>
+         Hodnoty jasu (B) sa automaticky namapujú na zadanú farebnú škálu. Hodnota jasu 0 odpovedá prvej farbe škály, 1 poslednej. Ostatné farby rozdelia interval \((0,1)\) na rovnako veľké úseky. Každá vstupná hodnota sa zaradí do príslušného úseku, na ktorom sa lineárne interpoluje medzi jeho hranicami. <br/><br/>
         <em>Vpravo hore:</em> {#FFFFFF, #FF0000, #FFFFFF} <br/>
         <em>Vľavo hore:</em> {#000, #333, #666, #EEE, #666, #FFF} <br/>
         <em>Dolu:</em> {#00000, #FFFFFF}</span>
+
         <div class="twentytwenty-container">
             <img src="img/grid_gray.png" alt="">
             <img src="img/grid_red.png" alt="">
@@ -57,6 +59,9 @@ MathJax.Hub.Config({
         <br/>
         <span class="marginnote">
         <b> Drevo </b> <br/> </br>
+
+        Textúru podobnú drevu môžeme získať tak, že vykreslíme niekoľko kocentrických kružníc - napr. aplikovaním sínu na vzdialenosť od pevného bodu a následne k ním pripočítame šum. <br/> <br/>
+
         <em>Vpravo hore:</em> {#FFFFFF, #FF0000, #FFFFFF} <br/>
         <em>Vľavo hore:</em> {#000, #333, #666, #EEE, #666, #FFF} <br/>
         <em>Dolu:</em> {#00000, #FFFFFF}</span>
@@ -65,7 +70,21 @@ MathJax.Hub.Config({
            <!-- <img src="img/3radial.png" alt="3 radial"> -->	
             <img src="img/wood3.png" alt="radial fractional part">
         </div>        
+
+
+         <br/>
+        <span class="marginnote">
+        Ukážkové scény dostupné z drop-down menu rendereru.</span>
+        <div class="twentytwenty-container">
+            <img src="img/wood_fin.png" alt="drevo">
+       		<img src="img/weird_fin.png" alt="farby">
+            <img src="img/marble_fin.png" alt="mramor">
+        </div> 
       </figure>
+
+
+                    
+     
 
      <h3> Textúry <code style="font-size: 13px;">(+ interaktívne skripty v processing.js)</code></h3>
      <br/>
@@ -79,7 +98,7 @@ MathJax.Hub.Config({
 	<li> \(H\) = výška patternu = \(5.0\)</li>
 	<li> \(P_x\) = horizontálna frekvencia = \(1.0\)</li>
 	<li> \(P_y\) = vertikálna frekvencia = \(1.0\)</li>
-	<li> \(S\) = sila šumu = x-ová súradnica myši</li>
+	<li> \(P\) = sila šumu = x-ová súradnica myši</li>
 	<li> \(E\) = exponent = y-ová súradnica myši</li>
 </ul>
 
@@ -136,9 +155,10 @@ MathJax.Hub.Config({
 		<center>
 		<canvas id="processing-canvas" style="border: 1px solid #666666;" > </canvas>
 		</center>
-     <p><b>Zašumené dlaždice:</b></p>
 
-     <p>$$B(x,y) =   |\cos(x+P\cdot noise(x,y))\cdot \sin(y+P\cdot noise(x,y))|^E$$</p>
+     <p><b>Dlaždice:</b></p>
+
+     <p>$$B(x,y) = |\cos(x+P\cdot noise(x,y))\cdot \sin(y+P\cdot noise(x,y))|^E$$</p>
 
       <figure>
         <script type="text/processing" data-processing-target="processing-canvas2">
@@ -187,6 +207,66 @@ MathJax.Hub.Config({
 		</center>
       </figure>
 
+      <p><b>Drevo:</b></p>
+
+      <p>$$B(x,y) = \left|\pi f \sin\left(P\cdot noise(x,y) + \sqrt{x^2+y^2}\right)\right|$$  </p>
+
+<ul>
+	<li> \(f\) = frekvencia letokruhov</li>
+	<li> \(P\) = sila šumu</li>
+	
+</ul>
+<p> \(myš(x,y) = (f, P)\) </p>
+
+      <figure>
+        <script type="text/processing" data-processing-target="processing-canvas3">
+		int i = 0; 
+
+		void setup() {
+		    background(255);
+    		size(round(window.innerWidth/2),150)
+		    smooth();
+		    frameRate(10);
+		    strokeWeight(12);
+		    marble (200, 100);
+		} 
+		 
+		float increment = 0.02;
+
+		void marble(int x, int y) {
+		  loadPixels();
+
+		  float xoff = 0.0; 
+		  float mx = map(x, 0, width, 0.0, 20.0);
+		  float my = map(y, 0, height, 0.0, 5.0);
+		  noiseDetail(8, 0.5);
+		  
+		   for (int x = 0; x < width; x++) {
+		    xoff += increment;   
+		    float yoff = 0.0; 
+		    for (int y = 0; y < height; y++) {
+		      yoff += increment; 
+		      ns = noise(xoff, yoff) * my;
+		      float dist = sqrt(xoff*xoff + yoff*yoff) + ns;
+		      float bright = abs(sin(dist*3.14*mx/10.0)) *255 ;
+
+		      pixels[x+y*width] = color(bright);
+		    }
+		  }
+		  updatePixels();
+
+		}
+
+		void mouseClicked() {
+		  marble(mouseX, mouseY);
+		}
+		</script>
+		<center>
+		<canvas id="processing-canvas3" style="border: 1px solid #666666;" > </canvas>
+		</center>
+      </figure>
+
+
     </section>
 
 
@@ -205,6 +285,18 @@ $(window).load(function(){
     var shiftWindow = function() { scrollBy(0, -80); };
     window.addEventListener("hashchange", shiftWindow);
 });
+</script>
+  <script type="text/javascript" async
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+if (window.MathJax) {
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+}
+MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
 </script>
 
 
